@@ -13,7 +13,7 @@ public class LuckyTest {
 
     @Test
     public void testJorgeEdad() {
-        Lucky lucky = new Lucky("Jorge Jorjo", 18);
+        Lucky lucky = new Lucky("Jorge Jorjo", 24);
         int edad = lucky.getEdad();
         Assert.assertEquals(edad, 24);
     }
