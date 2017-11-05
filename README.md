@@ -1,2 +1,3 @@
-TP2 Java
-https://travis-ci.org/nildius/TP2Java.svg?branch=master
+TP2 Java - [Padrones]
+![Build Status](https://travis-ci.org/nildius/TP2Java.svg?branch=master)
+
