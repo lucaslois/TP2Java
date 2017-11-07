@@ -12,4 +12,4 @@ Se utilizará Java como lenguaje de programación y ANT como compilador
 * Lucas Lois - 98923 - lucaslois95@gmail.com
 * Magalí Marijuán - 10040 - ##########
 * Olivia Fernandez - 99732 - olifer97@gmail.com
-* ############### - ##### - ##########
+* Kevin Mendoza - 98038 - kevinmarcelo_km@hotmail.com

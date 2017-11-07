@@ -24,4 +24,10 @@ public class LuckyTest {
     	String nombre = oli.getNombre();
     	Assert.assertEquals(nombre, "Olivia Fernandez");
     }
+    @Test
+    public void testKevinEdad() {
+    	Lucky oli = new Lucky("Kevin",21);
+    	String nombre = oli.getNombre();
+    	Assert.assertEquals(nombre, "Kevin");
+    }
 }
