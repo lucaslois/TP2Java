@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BarrioTest {
 	@Test
 	public void testJugadorCaeEnBarrioVolversePropietario() {
-		Barrio buenosAiresSur=new Barrio(20000);
+		Barrio buenosAiresSur=new Barrio(20000,"C");
 		Jugador unJugador=new Jugador("Kev");
 		buenosAiresSur.pisar(unJugador);
 		unJugador.comprar(buenosAiresSur);

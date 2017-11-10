@@ -1,10 +1,11 @@
 package AlgoPoly;
-public class Barrio implements Comprable {
+public class Barrio extends Casillero implements Comprable {
 	
 	private Jugador propietario;
 	private int precioTerreno;
 	
-	public Barrio(int nuevoPrecio) {
+	public Barrio(int nuevoPrecio,String idCasilla) {
+		super(idCasilla);
 		this.precioTerreno=nuevoPrecio;
 		this.propietario=null;
 	}

@@ -2,12 +2,13 @@ package AlgoPoly;
 
 import java.util.Hashtable;
 
-public class Quini6{
+public class Quini6 extends Casillero{
 	
 	private Hashtable<Jugador,Integer> ganadores;
 	private Hashtable<Integer,Integer> premios;
 	
-	public Quini6() {
+	public Quini6(String idCasilla) {
+		super(idCasilla);
 		this.ganadores = new Hashtable<Jugador,Integer>();
 		this.premios = new Hashtable<Integer,Integer>();
 		this.premios.put(1, 50000);

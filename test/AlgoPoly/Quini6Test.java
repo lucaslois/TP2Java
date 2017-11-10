@@ -8,7 +8,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorCaePorPrimeraVezIncrementaCapitalEn50000() {
 		Jugador unJugador = new Jugador("Oli");
-		Quini6 quini = new Quini6();
+		Quini6 quini = new Quini6("B");
 		
 		quini.pisar(unJugador);
 		
@@ -19,7 +19,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorCaePorSegundaVezIncrementaCapitalEn30000() {
 		Jugador unJugador = new Jugador("Oli");
-		Quini6 quini = new Quini6();
+		Quini6 quini = new Quini6("B");
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
 		
@@ -29,7 +29,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorCaeMasDeDosVecesNoSeIncrementaCapital() {
 		Jugador unJugador = new Jugador("Oli");
-		Quini6 quini = new Quini6();
+		Quini6 quini = new Quini6("B");
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
