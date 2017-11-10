@@ -29,6 +29,10 @@ public class Jugador {
 		unaPropiedad.setPropietario(this);
 		
 	}
+
+	public boolean avanzar() {
+		return false;
+	}
 	
 	
 
