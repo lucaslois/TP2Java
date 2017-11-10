@@ -9,6 +9,7 @@ public class BarrioTest {
 		Barrio buenosAiresSur=new Barrio(20000);
 		Jugador unJugador=new Jugador("Kev");
 		buenosAiresSur.pisar(unJugador);
+		unJugador.comprar(buenosAiresSur);
 		Assert.assertEquals(buenosAiresSur.getPropietario(), unJugador);
 		
 	}
