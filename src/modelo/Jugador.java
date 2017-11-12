@@ -1,7 +1,10 @@
 package models;
 
-import exceptions.MontoInsuficienteException;
+import exceptions.JugadorNoPuedeMoverseException;
+import exceptions.JugadorNoTieneDineroException;
 import models.casilleros.Comprable;
+import models.casilleros.Posicion;
+import models.casilleros.Tablero;
 
 import java.util.ArrayList;
 
@@ -13,34 +16,34 @@ public class Jugador {
     private int dinero;
     private ArrayList<Comprable> propiedades;
     private boolean movimiento;
-    private int posicion;
+    private Posicion posicion;
     private int numeroObtenido;
 
-    public Jugador(String unNombre) {
-        this.nombre = unNombre;
+    public Jugador(String nombre) {
+        this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
         this.propiedades = new ArrayList<Comprable>();
         this.movimiento = true; //el jugador tiene que saber cuando se puedo o no mover, lo asocio a que
         //tiene que saber las reglas del juego y respetarlas.
-        this.posicion = 0; //hay que ver esto, me causa una duda tremenda;
+        this.posicion = new Posicion();
     }
 
-    public int obtenerDinero() {
+    public int getDinero() {
         return this.dinero;
     }
 
-    public void cobrar(int monto) {
+    public void pagar(int monto) {
         this.dinero += monto;
     }
 
-    public void pagar(int monto) {
-        this.dinero = monto - (this.dinero);
+    public void cobrar(int monto) {
+        if(monto > this.dinero)
+            throw new JugadorNoTieneDineroException();
+        this.dinero -= monto;
     }
 
-    public void comprar(Comprable unaPropiedad) throws MontoInsuficienteException {
-        if (this.dinero < unaPropiedad.getPrecio())
-            throw new MontoInsuficienteException();
-        this.dinero -= unaPropiedad.getPrecio();
+    public void comprar(Comprable unaPropiedad) {
+        this.cobrar(unaPropiedad.getPrecio());
         this.propiedades.add(unaPropiedad);
         unaPropiedad.setPropietario(this);
     }
@@ -50,16 +53,23 @@ public class Jugador {
         this.movimiento = dato;
     }
 
-    public boolean puedoMoverme() {
+    public boolean puedeMoverse() {
         return this.movimiento;
     }
 
     public int getPosicion() {
-        return this.posicion;
+        return this.posicion.getPosicion();
     }
 
     public void setPosicion(int posicionNueva) {
-        this.posicion = posicionNueva;
+        this.posicion.setPosicion(posicionNueva);
+    }
+
+    public void avanzar(int cantidad)
+    {
+        if(!this.puedeMoverse())
+            throw new JugadorNoPuedeMoverseException();
+        this.posicion.avanzar(cantidad);
     }
 
     public int todasMisPropiedades() { //!!!! atentos aca lo hago para que pase la prueba tenemos que cambiar esto
@@ -79,4 +89,9 @@ public class Jugador {
         return this.propiedades;
     }
 
+    public void encarcelar() {
+        Tablero tablero = Tablero.getInstance();
+        int posicionCarcel = tablero.getPosicionCarcel();
+        this.setPosicion(posicionCarcel);
+    }
 }
