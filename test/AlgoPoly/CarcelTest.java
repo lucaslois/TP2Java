@@ -36,5 +36,7 @@ public class CarcelTest {
 		accJugador.pagarFianza(carcel);
 		Assert.assertFalse(jugador.puedoMoverme());
 		}
+	
+	
 
 }
