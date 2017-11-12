@@ -1,6 +1,6 @@
-package models;
+package modelo;
 
-import models.casilleros.Casillero;
+import modelo.casilleros.Casillero;
 
 import java.util.Hashtable;
 

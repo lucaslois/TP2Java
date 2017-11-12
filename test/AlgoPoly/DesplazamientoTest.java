@@ -1,7 +1,7 @@
 package AlgoPoly;
 
-import models.Desplazamiento;
-import models.Jugador;
+import modelo.Desplazamiento;
+import modelo.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 

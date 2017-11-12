@@ -1,4 +1,4 @@
 package exceptions;
 
-public class JugadorNoTieneDineroException {
+public class JugadorNoTieneDineroException extends RuntimeException {
 }

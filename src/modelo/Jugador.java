@@ -1,10 +1,10 @@
-package models;
+package modelo;
 
 import exceptions.JugadorNoPuedeMoverseException;
 import exceptions.JugadorNoTieneDineroException;
-import models.casilleros.Comprable;
-import models.casilleros.Posicion;
-import models.casilleros.Tablero;
+import modelo.casilleros.Comprable;
+import modelo.casilleros.Posicion;
+import modelo.casilleros.Tablero;
 
 import java.util.ArrayList;
 

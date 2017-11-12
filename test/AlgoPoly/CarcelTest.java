@@ -1,8 +1,8 @@
 package AlgoPoly;
 
-import models.AccionesDelJugador;
-import models.casilleros.Carcel;
-import models.Jugador;
+import modelo.AccionesDelJugador;
+import modelo.casilleros.Carcel;
+import modelo.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class CarcelTest {
 		Carcel carcel = new Carcel("F");
 		Jugador jugador = new Jugador("Oli");
 		carcel.jugadorCayoEnLaCarcel(jugador);
-		Assert.assertFalse(jugador.puedoMoverme()); //aca me genero una duda el jugador maneja todos los movmientos
+		Assert.assertFalse(jugador.puedeMoverse()); //aca me genero una duda el jugador maneja todos los movmientos
 		//o es mejor crear una clase que se solo haga eso.....pero esa clase se justificaria mejor para la 
 		//parte grafica , nose help me!!!! T.T
 	}
@@ -25,19 +25,19 @@ public class CarcelTest {
 		carcel.pisar(jugador);
 		carcel.pisar(jugador);
 		accJugador.pagarFianza(carcel);
-		Assert.assertTrue(jugador.puedoMoverme());
+		Assert.assertTrue(jugador.puedeMoverse());
 	}
 	@Test
 	public void testJugadorNoPuedePagarFianzaEnturno2o3SeQuedaSinMovimientos() {
 		Carcel carcel = new Carcel("F");
 		Jugador jugador = new Jugador("Kev");
 		AccionesDelJugador accJugador= new AccionesDelJugador(jugador);
-		jugador.pagar(10000);  // muy parecido al anterior,solo se cambia esto!!
+		jugador.cobrar(10000);  // muy parecido al anterior,solo se cambia esto!!
 		carcel.jugadorCayoEnLaCarcel(jugador);
 		carcel.pisar(jugador);
 		carcel.pisar(jugador);
 		accJugador.pagarFianza(carcel);
-		Assert.assertFalse(jugador.puedoMoverme());
+		Assert.assertFalse(jugador.puedeMoverse());
 		}
 	
 	

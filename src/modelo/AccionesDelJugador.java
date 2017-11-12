@@ -1,6 +1,6 @@
-package models;
+package modelo;
 
-import models.casilleros.Carcel;
+import modelo.casilleros.Carcel;
 
 public class AccionesDelJugador {
     //estoy dudando de esto, pero lo necesito, aca tengo pensado que le diga al jugador si se puedo

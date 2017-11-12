@@ -1,4 +1,4 @@
 package exceptions;
 
-public class JugadorNoPuedeMoverseException {
+public class JugadorNoPuedeMoverseException extends RuntimeException {
 }

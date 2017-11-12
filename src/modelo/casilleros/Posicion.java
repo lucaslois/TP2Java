@@ -1,4 +1,4 @@
-package models.casilleros;
+package modelo.casilleros;
 
 public class Posicion {
     public int posicionActual;

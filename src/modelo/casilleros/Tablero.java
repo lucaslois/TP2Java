@@ -1,4 +1,4 @@
-package models.casilleros;
+package modelo.casilleros;
 
 import java.util.HashMap;
 

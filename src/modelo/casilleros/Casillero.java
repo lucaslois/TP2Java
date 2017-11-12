@@ -1,6 +1,6 @@
-package models.casilleros;
+package modelo.casilleros;
 
-import models.Jugador;
+import modelo.Jugador;
 
 /**
  * a los casilleros le asigne valores alfabeticos , siendo la salida A, etc

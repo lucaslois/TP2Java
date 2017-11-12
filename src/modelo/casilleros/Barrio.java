@@ -1,7 +1,7 @@
-package models.casilleros;
+package modelo.casilleros;
 
 import exceptions.PrecioNegativoException;
-import models.Jugador;
+import modelo.Jugador;
 
 public class Barrio extends Casillero implements Comprable {
 	

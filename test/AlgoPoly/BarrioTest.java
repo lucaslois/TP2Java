@@ -1,9 +1,9 @@
 package AlgoPoly;
 
-import exceptions.MontoInsuficienteException;
+import exceptions.JugadorNoTieneDineroException;
 import exceptions.PrecioNegativoException;
-import models.casilleros.Barrio;
-import models.Jugador;
+import modelo.casilleros.Barrio;
+import modelo.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +32,7 @@ public class BarrioTest {
     }
 
 
-    @Test(expected = MontoInsuficienteException.class)
+    @Test(expected = JugadorNoTieneDineroException.class)
     public void testJugadorCaeEnCasilleroYCompraTerrenoPeroNoTieneDinero() {
         Barrio barrio = new Barrio(80000, "J");
         Jugador unJugador = new Jugador("Lucky");
