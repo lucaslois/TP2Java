@@ -1,4 +1,6 @@
-package models;
+package models.casilleros;
+
+import models.Jugador;
 
 import java.util.Hashtable;
 

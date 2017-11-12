@@ -1,8 +1,11 @@
-package models;
+package models.casilleros;
 
-//*a los casilleros le asigne valores alfabeticos , siendo la salida A, etc
-*esto sepuede cambiar, hay que charlarlo :3
-*/
+import models.Jugador;
+
+/**
+ * a los casilleros le asigne valores alfabeticos , siendo la salida A, etc
+ * esto sepuede cambiar, hay que charlarlo :3
+ */
 public abstract class Casillero {
     private String idCasillero;
 
@@ -11,5 +14,4 @@ public abstract class Casillero {
     }
 
     abstract public void pisar(Jugador jugador);
-
 }

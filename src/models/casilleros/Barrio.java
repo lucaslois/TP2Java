@@ -1,4 +1,8 @@
-package models;
+package models.casilleros;
+
+import exceptions.PrecioNegativoException;
+import models.Jugador;
+
 public class Barrio extends Casillero implements Comprable {
 	
 	private Jugador propietario;
@@ -6,6 +10,8 @@ public class Barrio extends Casillero implements Comprable {
 	
 	public Barrio(int nuevoPrecio,String idCasilla) {
 		super(idCasilla);
+		if(nuevoPrecio < 0)
+			throw new PrecioNegativoException();
 		this.precioTerreno=nuevoPrecio;
 		this.propietario=null;
 	}

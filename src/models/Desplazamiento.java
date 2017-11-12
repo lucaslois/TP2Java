@@ -1,8 +1,10 @@
-package AlgoPoly;
+package models;
+
+import models.casilleros.Casillero;
 
 import java.util.Hashtable;
 
-public class Desplazamiento extends Casillero{
+public class Desplazamiento extends Casillero {
 	private Hashtable<Integer,Integer> sumaObtenida; //suma de los dados, podemos charlar el nombre
 	public Desplazamiento(String idCasillero) {
 		super(idCasillero);

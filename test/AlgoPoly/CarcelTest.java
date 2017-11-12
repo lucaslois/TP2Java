@@ -1,5 +1,8 @@
 package AlgoPoly;
 
+import models.AccionesDelJugador;
+import models.casilleros.Carcel;
+import models.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 

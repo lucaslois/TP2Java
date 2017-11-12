@@ -1,4 +1,6 @@
-package models;
+package models.casilleros;
+
+import models.Jugador;
 
 import java.util.Hashtable;
 
@@ -6,7 +8,7 @@ public class Quini6 extends Casillero{
 	
 	private Hashtable<Jugador,Integer> ganadores;
 	private Hashtable<Integer,Integer> premios;
-	
+
 	public Quini6(String idCasilla) {
 		super(idCasilla);
 		this.ganadores = new Hashtable<Jugador,Integer>();
@@ -15,7 +17,11 @@ public class Quini6 extends Casillero{
 		this.premios.put(2, 30000);
 		
 	}
-	
+
+	/**
+	 * Pisar de Quini6 entrega dinero dependiendo de la cantidad de veces que el jugador ha caído en esta casilla.
+	 * @param unJugador
+	 */
 	public void pisar(Jugador unJugador) {
 		Integer cantidadDeCaidas = this.ganadores.get(unJugador);
 		

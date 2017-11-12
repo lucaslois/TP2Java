@@ -1,13 +1,13 @@
-package models;
+package models.casilleros;
+
+import models.Jugador;
 
 public interface Comprable {
 	
-	public void setPropietario(Jugador unJugador);
+	void setPropietario(Jugador unJugador);
 	
-	public Jugador getPropietario();
+	Jugador getPropietario();
 	
-	public int getPrecio();
-	
-	
+	int getPrecio();
 
 }
