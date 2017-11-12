@@ -24,5 +24,17 @@ public class CarcelTest {
 		accJugador.pagarFianza(carcel);
 		Assert.assertTrue(jugador.puedoMoverme());
 	}
+	@Test
+	public void testJugadorNoPuedePagarFianzaEnturno2o3SeQuedaSinMovimientos() {
+		Carcel carcel = new Carcel("F");
+		Jugador jugador = new Jugador("Kev");
+		AccionesDelJugador accJugador= new AccionesDelJugador(jugador);
+		jugador.pagar(10000);  // muy parecido al anterior,solo se cambia esto!!
+		carcel.jugadorCayoEnLaCarcel(jugador);
+		carcel.pisar(jugador);
+		carcel.pisar(jugador);
+		accJugador.pagarFianza(carcel);
+		Assert.assertFalse(jugador.puedoMoverme());
+		}
 
 }
