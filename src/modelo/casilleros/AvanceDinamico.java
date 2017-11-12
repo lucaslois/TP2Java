@@ -1,13 +1,13 @@
-package modelo;
+package modelo.casilleros;
 
-import modelo.casilleros.Casillero;
+import modelo.Jugador;
 
 import java.util.Hashtable;
 
-public class Desplazamiento extends Casillero {
+public class AvanceDinamico extends Casillero {
     private Hashtable<Integer, Integer> sumaObtenida; //suma de los dados, podemos charlar el nombre
 
-    public Desplazamiento(String idCasillero) {
+    public AvanceDinamico(String idCasillero) {
         super(idCasillero);
         this.sumaObtenida = new Hashtable<Integer, Integer>();
     }
@@ -22,8 +22,8 @@ public class Desplazamiento extends Casillero {
         this.sumaObtenida.put(8, (unJugador.getDinero() % 8));
         this.sumaObtenida.put(9, (unJugador.getDinero() % 9));
         this.sumaObtenida.put(10, (unJugador.getDinero() % 10));
-        this.sumaObtenida.put(11, (11 - unJugador.todasMisPropiedades()));
-        this.sumaObtenida.put(12, (12 - unJugador.todasMisPropiedades()));
+        this.sumaObtenida.put(11, (11 - unJugador.getCantidadTotalPropiedades()));
+        this.sumaObtenida.put(12, (12 - unJugador.getCantidadTotalPropiedades()));
         return sumaObtenida.get(unJugador.getNumeroObtenedido());
     }
 

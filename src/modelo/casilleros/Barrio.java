@@ -3,7 +3,7 @@ package modelo.casilleros;
 import exceptions.PrecioNegativoException;
 import modelo.Jugador;
 
-public class Barrio extends Casillero implements Comprable, Edificable {
+public class Barrio extends Casillero implements Comprable {
 
     private Jugador propietario;
     private int precioTerreno;
@@ -34,25 +34,5 @@ public class Barrio extends Casillero implements Comprable, Edificable {
 
     public void pisar(Jugador jugador) {
 
-    }
-
-    @Override
-    public int getCasass() {
-        return this.cantidadCasas;
-    }
-
-    @Override
-    public int getHoteles() {
-        return this.cantidadHoteles;
-    }
-
-    @Override
-    public void agregarCasa() {
-        this.cantidadCasas++;
-    }
-
-    @Override
-    public void agregarHotel() {
-        this.cantidadHoteles++;
     }
 }
