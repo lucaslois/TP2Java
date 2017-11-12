@@ -1,4 +1,6 @@
-package modelo.casilleros;
+package modelo;
+
+import modelo.casilleros.Tablero;
 
 public class Posicion {
     public int posicionActual;
@@ -15,12 +17,13 @@ public class Posicion {
             posicionActual += cantidad;
     }
 
-   /* public void retroceder(int cantidad) {
-        if(posicionActual - cantidad < 0)
-            posicionActual = posicionActual + cantidad - CANTIDAD_CASILLEROS - 1;
+   public void retroceder(int cantidad) {
+       Tablero tablero = Tablero.getInstance();
+       if(posicionActual - cantidad < 0)
+            posicionActual = posicionActual - cantidad + tablero.getCantidadDeCasilleros() + 1;
         else
-            posicionActual += cantidad;
-    }*/
+            posicionActual -= cantidad;
+    }
 
     public void setPosicion(int pos) {
         this.posicionActual = pos;

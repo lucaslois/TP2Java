@@ -1,5 +1,6 @@
 libs/
 .idea/
+.idea/vcs.xml
 .metadata/
 .project
 .classpath

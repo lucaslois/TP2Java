@@ -3,28 +3,26 @@ package modelo;
 import exceptions.JugadorNoPuedeMoverseException;
 import exceptions.JugadorNoTieneDineroException;
 import modelo.casilleros.Comprable;
-import modelo.casilleros.Posicion;
 import modelo.casilleros.Tablero;
 
 import java.util.ArrayList;
 
 public class Jugador {
 
-    public static int DINERO_INICIAL = 50000;
+    private static int DINERO_INICIAL = 50000;
 
     private String nombre;
     private int dinero;
-    private ArrayList<Comprable> propiedades;
-    private boolean movimiento;
+    private ArrayList<Comprable> propiedades; // TODO: REVISAR, El array con interfaz Comprable no permite implementar otros metodos.
+    private boolean puedeMoverse;
     private Posicion posicion;
     private int numeroObtenido;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
-        this.propiedades = new ArrayList<Comprable>();
-        this.movimiento = true; //el jugador tiene que saber cuando se puedo o no mover, lo asocio a que
-        //tiene que saber las reglas del juego y respetarlas.
+        this.propiedades = new ArrayList<>();
+        this.puedeMoverse = true;
         this.posicion = new Posicion();
     }
 
@@ -48,13 +46,13 @@ public class Jugador {
         unaPropiedad.setPropietario(this);
     }
 
-    public void setMovimiento(boolean dato) {
+    public void setPuedeMoverse(boolean dato) {
         //nose me ocurrio otro nombre, tiren ideas pleaseee!!
-        this.movimiento = dato;
+        this.puedeMoverse = dato;
     }
 
     public boolean puedeMoverse() {
-        return this.movimiento;
+        return this.puedeMoverse;
     }
 
     public int getPosicion() {
@@ -72,8 +70,17 @@ public class Jugador {
         this.posicion.avanzar(cantidad);
     }
 
-    public int todasMisPropiedades() { //!!!! atentos aca lo hago para que pase la prueba tenemos que cambiar esto
-        return 0;                        //mucho muy importante!!
+
+    public void retroceder(int cantidad) {
+        if(!this.puedeMoverse())
+            throw new JugadorNoPuedeMoverseException();
+        this.posicion.retroceder(cantidad);
+    }
+
+    // TODO: Programar metodo de jugador getCantidadTotalPropiedades() para conocer cuantas propiedades tiene.
+    public int getCantidadTotalPropiedades() {
+        int total = 0;
+        return total;
     }
 
     public int getNumeroObtenedido() {
@@ -94,4 +101,5 @@ public class Jugador {
         int posicionCarcel = tablero.getPosicionCarcel();
         this.setPosicion(posicionCarcel);
     }
+
 }

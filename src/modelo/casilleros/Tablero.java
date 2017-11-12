@@ -2,6 +2,7 @@ package modelo.casilleros;
 
 import java.util.HashMap;
 
+// SINGLETON
 public class Tablero {
     private int LAST_ID = 19; // TODO: 19 HARDCODEADO, REPRESENTA LA CANTIDAD DE CASILLEROS DEL TABLERO
 
