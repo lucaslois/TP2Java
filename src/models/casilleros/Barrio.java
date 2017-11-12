@@ -1,4 +1,4 @@
-package AlgoPoly;
+package models;
 public class Barrio extends Casillero implements Comprable {
 	
 	private Jugador propietario;

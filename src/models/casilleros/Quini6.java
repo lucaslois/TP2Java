@@ -1,4 +1,4 @@
-package AlgoPoly;
+package models;
 
 import java.util.Hashtable;
 

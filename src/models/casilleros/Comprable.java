@@ -1,4 +1,4 @@
-package AlgoPoly;
+package models;
 
 public interface Comprable {
 	
