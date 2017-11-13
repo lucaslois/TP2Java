@@ -1,6 +1,6 @@
 package modelo.casilleros;
 
-import modelo.Jugador;
+import modelo.jugador.Jugador;
 
 import java.util.Hashtable;
 
@@ -10,8 +10,7 @@ public class Carcel extends Casillero {
 
     private Hashtable<Jugador, Integer> presos; // Clave: El jugador preso, valor: Cantidad de turnos que le quedan preso.
 
-    public Carcel(String idcasilla) {
-        super(idcasilla);
+    public Carcel() {
         this.presos = new Hashtable<Jugador, Integer>();
     }
 
@@ -28,9 +27,11 @@ public class Carcel extends Casillero {
         this.presos.put(jugador, nuevosTurnos);
     }
 
-    public Integer cantidadDeTurnosSinMovimiento(Jugador jugador) {
-        //necesito la cantidad de turnos que le quedan al jugador en carcel
-        //
+    /**
+     * Devuelve la cantidad de turnos que le quedan al jugador sin poder moverse.
+     * @param jugador
+     */
+    public Integer getCantidadDeTurnosSinMovimiento(Jugador jugador) {
         return this.presos.get(jugador);
     }
 

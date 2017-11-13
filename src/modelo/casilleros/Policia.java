@@ -1,11 +1,11 @@
 package modelo.casilleros;
 
-import modelo.Jugador;
+import modelo.jugador.Jugador;
 
 public class Policia extends Casillero {
 
-    public Policia(String casillero) {
-        super(casillero);
+    public Policia() {
+
     }
 
     @Override
@@ -13,3 +13,4 @@ public class Policia extends Casillero {
         jugador.encarcelar();
     }
 }
+

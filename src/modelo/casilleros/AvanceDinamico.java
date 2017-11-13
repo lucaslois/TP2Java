@@ -1,14 +1,13 @@
 package modelo.casilleros;
 
-import modelo.Jugador;
+import modelo.jugador.Jugador;
 
 import java.util.Hashtable;
 
 public class AvanceDinamico extends Casillero {
     private Hashtable<Integer, Integer> sumaObtenida; //suma de los dados, podemos charlar el nombre
 
-    public AvanceDinamico(String idCasillero) {
-        super(idCasillero);
+    public AvanceDinamico() {
         this.sumaObtenida = new Hashtable<Integer, Integer>();
     }
 

@@ -8,6 +8,7 @@ public class Tablero {
 
     private static Tablero instance;
     private HashMap<Integer, Casillero> tablero;
+    private int posicionCarcel = -1;
 
     public static Tablero getInstance() {
         if(instance == null)
@@ -19,10 +20,17 @@ public class Tablero {
         this.tablero = new HashMap<Integer, Casillero>();
     }
 
-    public void crearCasillero(Casillero casillero) {
+    public Casillero crearCasillero(Casillero casillero) {
         LAST_ID++;
         int id = LAST_ID;
         this.tablero.put(id, casillero);
+        return casillero;
+    }
+
+    public Casillero crearCasillero(Carcel carcel) {
+        Casillero retorno = crearCasillero((Casillero) carcel);
+        this.posicionCarcel = LAST_ID;
+        return retorno;
     }
 
     public int getCantidadDeCasilleros() {
@@ -30,6 +38,6 @@ public class Tablero {
     }
 
     public int getPosicionCarcel() {
-        return 0;
+        return this.posicionCarcel;
     }
 }

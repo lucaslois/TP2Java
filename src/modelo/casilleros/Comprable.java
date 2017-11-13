@@ -1,6 +1,6 @@
 package modelo.casilleros;
 
-import modelo.Jugador;
+import modelo.jugador.Jugador;
 
 public interface Comprable {
 	

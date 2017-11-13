@@ -1,9 +1,8 @@
-package modelo;
+package modelo.jugador;
 
 import exceptions.JugadorNoPuedeMoverseException;
 import exceptions.JugadorNoTieneDineroException;
-import modelo.casilleros.Comprable;
-import modelo.casilleros.Tablero;
+import modelo.casilleros.*;
 
 import java.util.ArrayList;
 
@@ -13,7 +12,7 @@ public class Jugador {
 
     private String nombre;
     private int dinero;
-    private ArrayList<Comprable> propiedades; // TODO: REVISAR, El array con interfaz Comprable no permite implementar otros metodos.
+    private ControladorPropiedades controladorPropiedades;
     private boolean puedeMoverse;
     private Posicion posicion;
     private int numeroObtenido;
@@ -21,9 +20,9 @@ public class Jugador {
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
-        this.propiedades = new ArrayList<>();
         this.puedeMoverse = true;
         this.posicion = new Posicion();
+        this.controladorPropiedades = new ControladorPropiedades();
     }
 
     public int getDinero() {
@@ -40,10 +39,10 @@ public class Jugador {
         this.dinero -= monto;
     }
 
-    public void comprar(Comprable unaPropiedad) {
+    public void comprar(Edificable unaPropiedad) {
         this.cobrar(unaPropiedad.getPrecio());
-        this.propiedades.add(unaPropiedad);
         unaPropiedad.setPropietario(this);
+        this.controladorPropiedades.comprar(unaPropiedad);
     }
 
     public void setPuedeMoverse(boolean dato) {
@@ -79,8 +78,7 @@ public class Jugador {
 
     // TODO: Programar metodo de jugador getCantidadTotalPropiedades() para conocer cuantas propiedades tiene.
     public int getCantidadTotalPropiedades() {
-        int total = 0;
-        return total;
+        return this.controladorPropiedades.getCantidadTotalPropiedades();
     }
 
     public int getNumeroObtenedido() {
@@ -91,15 +89,19 @@ public class Jugador {
         this.numeroObtenido = numeroNuevo;
     }
 
-    public ArrayList<Comprable> getPropiedades()
+    public ArrayList<Edificable> getPropiedades()
     {
-        return this.propiedades;
+        return this.controladorPropiedades.getPropiedades();
     }
 
     public void encarcelar() {
         Tablero tablero = Tablero.getInstance();
         int posicionCarcel = tablero.getPosicionCarcel();
         this.setPosicion(posicionCarcel);
+        this.puedeMoverse = false;
     }
 
+    public boolean esDuenioDePropiedad(Comprable barrio) {
+        return this.controladorPropiedades.tienePropiedad(barrio);
+    }
 }

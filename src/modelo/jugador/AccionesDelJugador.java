@@ -1,4 +1,4 @@
-package modelo;
+package modelo.jugador;
 
 import modelo.casilleros.Carcel;
 
@@ -12,7 +12,7 @@ public class AccionesDelJugador {
     }
 
     public void pagarFianza(Carcel ncarcel) {
-        Integer turnosRestantes = ncarcel.cantidadDeTurnosSinMovimiento(jugador);
+        Integer turnosRestantes = ncarcel.getCantidadDeTurnosSinMovimiento(jugador);
         if ((turnosRestantes == 1 || turnosRestantes == 0) && (jugador.getDinero() >= 45000)) {
             jugador.cobrar(45000);
             jugador.setPuedeMoverse(true);
