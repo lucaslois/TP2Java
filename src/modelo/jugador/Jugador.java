@@ -46,7 +46,6 @@ public class Jugador {
     }
 
     public void setPuedeMoverse(boolean dato) {
-        //nose me ocurrio otro nombre, tiren ideas pleaseee!!
         this.puedeMoverse = dato;
     }
 
