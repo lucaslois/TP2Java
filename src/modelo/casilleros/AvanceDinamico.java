@@ -11,7 +11,7 @@ public class AvanceDinamico extends Casillero {
         this.sumaObtenida = new Hashtable<Integer, Integer>();
     }
 
-    public Integer cuantoSeMueve(Jugador unJugador) {
+    public int cuantoSeMueve(Jugador unJugador) {
         this.sumaObtenida.put(2, 0);
         this.sumaObtenida.put(3, 1);
         this.sumaObtenida.put(4, 2);

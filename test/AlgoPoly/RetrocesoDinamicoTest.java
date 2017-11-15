@@ -56,7 +56,7 @@ public class RetrocesoDinamicoTest {
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí");
         jugador.setPosicion(12);
-        jugador.pagar(25000);
+        jugador.cobrar(25000);
         jugador.setNumeroObtenido(9);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 9);

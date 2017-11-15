@@ -1,8 +1,13 @@
 package modelo.casilleros;
 
+
 public interface Edificable extends Comprable {
-    int getCasass();
-    int getHoteles();
+
+    int getCantidadDeCasas();
+
+    int getCantidadDeHoteles();
+
     void agregarCasa();
+
     void agregarHotel();
 }

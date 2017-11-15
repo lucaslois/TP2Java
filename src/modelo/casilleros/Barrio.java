@@ -36,12 +36,12 @@ public class Barrio extends Casillero implements Edificable {
     }
 
     @Override
-    public int getCasass() {
+    public int getCantidadDeCasas() {
         return this.cantidadCasas;
     }
 
     @Override
-    public int getHoteles() {
+    public int getCantidadDeHoteles() {
         return this.cantidadHoteles;
     }
 

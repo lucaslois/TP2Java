@@ -25,7 +25,7 @@ public class ControladorPropiedades {
         int total = 0;
         for(Edificable prop : this.terrenos) {
             total++;
-            total = prop.getCasass() + prop.getHoteles();
+            total = prop.getCantidadDeCasas() + prop.getCantidadDeHoteles();
         }
         return total;
     }

@@ -29,18 +29,18 @@ public class Jugador {
         return this.dinero;
     }
 
-    public void pagar(int monto) {
+    public void cobrar(int monto) {
         this.dinero += monto;
     }
 
-    public void cobrar(int monto) {
+    public void pagar(int monto) {
         if(monto > this.dinero)
             throw new JugadorNoTieneDineroException();
         this.dinero -= monto;
     }
 
     public void comprar(Edificable unaPropiedad) {
-        this.cobrar(unaPropiedad.getPrecio());
+        this.pagar(unaPropiedad.getPrecio());
         unaPropiedad.setPropietario(this);
         this.controladorPropiedades.comprar(unaPropiedad);
     }

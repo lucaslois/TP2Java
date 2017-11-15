@@ -1,7 +1,8 @@
 package AlgoPoly;
 
-import modelo.jugador.AccionesDelJugador;
+import exceptions.JugadorNoTieneDineroException;
 import modelo.casilleros.Carcel;
+import modelo.jugador.AccionesDelJugador;
 import modelo.jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,17 +30,16 @@ public class CarcelTest {
         Assert.assertTrue(jugador.puedeMoverse());
     }
 
-    @Test
+    @Test(expected = JugadorNoTieneDineroException.class)
     public void testJugadorNoPuedePagarFianzaEnturno2o3SeQuedaSinMovimientos() {
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Kev");
         AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
-        jugador.cobrar(10000);  // muy parecido al anterior,solo se cambia esto!!
+        jugador.pagar(10000);  // le saco plata
         carcel.jugadorCayoEnLaCarcel(jugador);
         carcel.pisar(jugador);
         carcel.pisar(jugador);
         accJugador.pagarFianza(carcel);
-        Assert.assertFalse(jugador.puedeMoverse());
     }
 
 

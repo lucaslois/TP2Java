@@ -32,7 +32,7 @@ public class Quini6 extends Casillero {
         ganadores.put(unJugador, cantidadDeCaidas);
         Integer monto = this.premios.get(cantidadDeCaidas);
         if (monto == null) return;
-        unJugador.pagar(monto);
+        unJugador.cobrar(monto);
     }
 
 
