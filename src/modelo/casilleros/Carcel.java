@@ -14,15 +14,13 @@ public class Carcel extends Casillero {
         this.presos = new Hashtable<Jugador, Integer>();
     }
 
-    public void jugadorCayoEnLaCarcel(Jugador jugador) {
-        //cuando la policia te manda a la carcel, se ejecuta este metodo, el 3 que aparece seria un "contador"
-        //de turnos que tenes que estar sin hacer nada, se ira descontando al pasar los turnos!
-        jugador.setPuedeMoverse(false);
-        this.presos.put(jugador, TURNOS_PRESO);
-    }
-
     public void pisar(Jugador jugador) {
-        Integer turnos = this.presos.get(jugador);
+    	if(this.presos.get(jugador)==null) {
+    		jugador.setPuedeMoverse(false);
+    		this.presos.put(jugador, TURNOS_PRESO);
+    		return;
+    	}
+    	Integer turnos = this.presos.get(jugador);
         Integer nuevosTurnos = turnos - 1;
         this.presos.put(jugador, nuevosTurnos);
     }

@@ -12,18 +12,15 @@ public class RetrocesoDinamico extends Casillero {
     }
 
     public Integer cuantoSeMueve(Jugador unJugador) {
-        this.sumaObtenida.put(2, unJugador.getNumeroObtenedido() - unJugador.getCantidadTotalPropiedades());
-        this.sumaObtenida.put(3, unJugador.getNumeroObtenedido() - unJugador.getCantidadTotalPropiedades());
-        this.sumaObtenida.put(4, unJugador.getNumeroObtenedido() - unJugador.getCantidadTotalPropiedades());
-        this.sumaObtenida.put(5, unJugador.getNumeroObtenedido() - unJugador.getCantidadTotalPropiedades());
-        this.sumaObtenida.put(6, unJugador.getNumeroObtenedido() - unJugador.getCantidadTotalPropiedades());
-        this.sumaObtenida.put(7, (unJugador.getDinero() % 7));
-        this.sumaObtenida.put(8, (unJugador.getDinero() % 8));
-        this.sumaObtenida.put(9, (unJugador.getDinero() % 9));
-        this.sumaObtenida.put(10, (unJugador.getDinero() % 10));
-        this.sumaObtenida.put(11, (unJugador.getNumeroObtenedido() - 2));
-        this.sumaObtenida.put(12, (unJugador.getNumeroObtenedido() - 2));
-        return sumaObtenida.get(unJugador.getNumeroObtenedido());
+    	int dados = unJugador.getNumeroObtenedido();
+    	
+    	for (int i=2; i<=6;i+=1)sumaObtenida.put(i,dados-unJugador.getCantidadTotalPropiedades());
+    	
+		for(int i=7;i<=10;i+=1) sumaObtenida.put(i,unJugador.getDinero()%dados);
+		
+		for(int i=11;i<=12;i+=1)sumaObtenida.put(i, dados-2);
+			
+        return sumaObtenida.get(dados);
     }
 
     public void pisar(Jugador unJugador) {
