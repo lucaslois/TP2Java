@@ -12,10 +12,8 @@ public class CarcelTest {
     public void testJugadorCaeEnCarcelYNoPuedeAvanzar() {
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Oli");
-        carcel.jugadorCayoEnLaCarcel(jugador);
-        Assert.assertFalse(jugador.puedeMoverse()); //aca me genero una duda el jugador maneja todos los movmientos
-        //o es mejor crear una clase que se solo haga eso.....pero esa clase se justificaria mejor para la
-        //parte grafica , nose help me!!!! T.T
+        carcel.pisar(jugador);
+        Assert.assertFalse(jugador.puedeMoverse());
     }
 
     @Test
@@ -23,7 +21,7 @@ public class CarcelTest {
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Kev");
         AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
-        carcel.jugadorCayoEnLaCarcel(jugador);
+        carcel.pisar(jugador);
         carcel.pisar(jugador);
         carcel.pisar(jugador);
         accJugador.pagarFianza(carcel);
@@ -36,7 +34,7 @@ public class CarcelTest {
         Jugador jugador = new Jugador("Kev");
         AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
         jugador.pagar(10000);  // le saco plata
-        carcel.jugadorCayoEnLaCarcel(jugador);
+        carcel.pisar(jugador);
         carcel.pisar(jugador);
         carcel.pisar(jugador);
         accJugador.pagarFianza(carcel);
