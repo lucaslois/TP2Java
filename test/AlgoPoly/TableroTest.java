@@ -6,9 +6,9 @@ import modelo.casilleros.Quini6;
 import modelo.casilleros.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
-
+/*
 public class TableroTest {
-/* TODO: AVERIGUAR COMO HACER PRUEBAS UNITARIAS CON SINGLETON
+ TODO: AVERIGUAR COMO HACER PRUEBAS UNITARIAS CON SINGLETON
     @Test
     public void testSingletonTableroTieneSiempreLaMismaInstancia() {
         Tablero tablero = Tablero.getInstance();
@@ -48,5 +48,6 @@ public class TableroTest {
         Assert.assertEquals(tablero.getCasillero(2), quini6);
         Tablero.destroyInstance();
     }
-    */
+
 }
+*/
