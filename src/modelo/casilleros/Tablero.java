@@ -20,6 +20,15 @@ public class Tablero {
         this.tablero = new HashMap<Integer, Casillero>();
     }
 
+    public static void destroyInstance() {
+        instance = null;
+    }
+
+    public Casillero getCasillero(int id)
+    {
+        return tablero.get(1);
+    }
+
     public Casillero crearCasillero(Casillero casillero) {
         LAST_ID++;
         int id = LAST_ID;
@@ -34,7 +43,7 @@ public class Tablero {
     }
 
     public int getCantidadDeCasilleros() {
-        return LAST_ID + 1;
+        return tablero.size();
     }
 
     public int getPosicionCarcel() {

@@ -29,7 +29,7 @@ public class RetrocesoDinamicoTest {
         jugador.setPosicion(10);
         jugador.setNumeroObtenido(4);
         casillero.pisar(jugador);
-        Assert.assertEquals(jugador.getPosicion(), 8);
+        Assert.assertEquals(jugador.getPosicion(), 9);
     }
 
     // SUPONGO QUE SI LA CANTIDAD DE PROPIEDADES ES MAYOR AL NUMERO SACADO, NO RETROCEDO CASILLEROS.
