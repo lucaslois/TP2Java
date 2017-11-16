@@ -8,6 +8,9 @@ Se busca realizar un sistema que simule el juego "Monopoly", partiendo desde el 
 
 Se utilizará Java como lenguaje de programación y ANT como compilador
 
+El informe se irá desarrollando en este link:
+https://docs.google.com/document/d/16pcNoPIC10UFmaerBMB3fiyKVLAcY6LSo1LbIbWnNxc/edit?ts=5a0b5bb1
+
 ## Contribuyentes
 * Lucas Lois - 98923 - lucaslois95@gmail.com
 * Magalí Marijuán - 100070 - maguimar001@gmail.com
