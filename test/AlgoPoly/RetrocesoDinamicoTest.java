@@ -18,7 +18,7 @@ public class RetrocesoDinamicoTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede2UnidadesCon2Propiedades() {
+    public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede1UnidadesCon2Casas() {
         Barrio barrio = new Barrio(4000);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí");
@@ -52,7 +52,7 @@ public class RetrocesoDinamicoTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado9Con75000PesosYRetrocede8Casillas() {
+    public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado9Con75000PesosYRetrocede3Casillas() {
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí");
         jugador.setPosicion(12);

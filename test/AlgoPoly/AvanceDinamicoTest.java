@@ -12,7 +12,7 @@ public class AvanceDinamicoTest {
         Jugador unJugador = new Jugador("Kev");
         unJugador.setNumeroObtenido(3);
         avanceDinamico.pisar(unJugador);
-        Assert.assertEquals(unJugador.getPosicion(), 0);
+        Assert.assertEquals(unJugador.getPosicion(), 1);
     }
 
     @Test
@@ -21,15 +21,15 @@ public class AvanceDinamicoTest {
         Jugador unJugador = new Jugador("Kev");
         unJugador.setNumeroObtenido(7);
         avanceDinamico.pisar(unJugador);
-        Assert.assertEquals(unJugador.getPosicion(), 5);
+        Assert.assertEquals(unJugador.getPosicion(), 6);
     }
     @Test
-    public void testJugadorCaeEnAvanceDinamicoSumando11o12SuPosicionNuevaDependeDeSuDinero() {
+    public void testJugadorCaeEnAvanceDinamicoSumando11o12AvanzaTotalPorqueNoTienePropiedades() {
         AvanceDinamico avanceDinamico = new AvanceDinamico();
         Jugador unJugador = new Jugador("Kev");
         unJugador.setNumeroObtenido(12);
         avanceDinamico.pisar(unJugador);
-        Assert.assertEquals(unJugador.getPosicion(), 11);
+        Assert.assertEquals(unJugador.getPosicion(), 12);
     }
 
 }

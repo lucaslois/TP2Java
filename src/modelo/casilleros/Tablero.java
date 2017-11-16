@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 // SINGLETON
 public class Tablero {
-    private int LAST_ID = 19; // TODO: 19 HARDCODEADO, REPRESENTA LA CANTIDAD DE CASILLEROS DEL TABLERO
+    private int LAST_ID = 0;
+    private int CANTIDAD_CASILLEROS = 19; // TODO: 19 HARDCODEADO, REPRESENTA LA CANTIDAD DE CASILLEROS DEL TABLERO
 
     private static Tablero instance;
     private HashMap<Integer, Casillero> tablero;
@@ -43,7 +44,7 @@ public class Tablero {
     }
 
     public int getCantidadDeCasilleros() {
-        return tablero.size();
+        return CANTIDAD_CASILLEROS;
     }
 
     public int getPosicionCarcel() {
