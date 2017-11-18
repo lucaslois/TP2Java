@@ -1,5 +1,6 @@
 package modelo.casilleros;
 
+import modelo.jugador.EstadoEncarcelado;
 import modelo.jugador.Jugador;
 
 import java.util.Hashtable;
@@ -16,7 +17,7 @@ public class Carcel extends Casillero {
 
     public void pisar(Jugador jugador) {
     	if(this.presos.get(jugador)==null) {
-    		jugador.setPuedeMoverse(false);
+    		jugador.setPuedeMoverse(new EstadoEncarcelado());
     		this.presos.put(jugador, TURNOS_PRESO);
     		return;
     	}

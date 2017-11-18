@@ -15,7 +15,7 @@ public class AccionesDelJugador {
         Integer turnosRestantes = ncarcel.getCantidadDeTurnosSinMovimiento(jugador);
         if (turnosRestantes <= 1) {
             jugador.pagar(45000);
-            jugador.setPuedeMoverse(true);
+            jugador.setPuedeMoverse(new EstadoNoEncarcelado());
         }
     }
 }

@@ -13,14 +13,14 @@ public class Jugador {
     private String nombre;
     private int dinero;
     private ControladorPropiedades controladorPropiedades;
-    private boolean puedeMoverse;
+    private EstadoJugador objEstadoMoverse;
     private Posicion posicion;
     private int numeroObtenido;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
-        this.puedeMoverse = true;
+        this.objEstadoMoverse = new EstadoNoEncarcelado();
         this.posicion = new Posicion();
         this.controladorPropiedades = new ControladorPropiedades();
     }
@@ -45,12 +45,12 @@ public class Jugador {
         this.controladorPropiedades.comprar(unaPropiedad);
     }
 
-    public void setPuedeMoverse(boolean dato) {
-        this.puedeMoverse = dato;
+    public void setPuedeMoverse(EstadoJugador estado) {
+        this.objEstadoMoverse = estado;
     }
 
     public boolean puedeMoverse() {
-        return this.puedeMoverse;
+        return this.objEstadoMoverse.puedeMoverse();
     }
 
     public int getPosicion() {
@@ -63,16 +63,13 @@ public class Jugador {
 
     public void avanzar(int cantidad)
     {
-        if(!this.puedeMoverse())
-            throw new JugadorNoPuedeMoverseException();
-        this.posicion.avanzar(cantidad);
+        
+        this.objEstadoMoverse.avanzar(cantidad,this.posicion);
     }
 
 
     public void retroceder(int cantidad) {
-        if(!this.puedeMoverse())
-            throw new JugadorNoPuedeMoverseException();
-        this.posicion.retroceder(cantidad);
+        this.objEstadoMoverse.retroceder(cantidad,this.posicion);
     }
 
     // TODO: Programar metodo de jugador getCantidadTotalPropiedades() para conocer cuantas propiedades tiene.
@@ -97,7 +94,7 @@ public class Jugador {
         Tablero tablero = Tablero.getInstance();
         int posicionCarcel = tablero.getPosicionCarcel();
         this.setPosicion(posicionCarcel);
-        this.puedeMoverse = false;
+        this.objEstadoMoverse = new EstadoEncarcelado();
     }
 
     public boolean esDuenioDePropiedad(Comprable barrio) {
