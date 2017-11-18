@@ -21,7 +21,7 @@ public class AvanceDinamicoTest {
         Jugador unJugador = new Jugador("Kev");
         unJugador.setNumeroObtenido(7);
         avanceDinamico.pisar(unJugador);
-        Assert.assertEquals(unJugador.getPosicion(), 6);
+        Assert.assertEquals(unJugador.getPosicion(), 5);
     }
     @Test
     public void testJugadorCaeEnAvanceDinamicoSumando11o12AvanzaTotalPorqueNoTienePropiedades() {

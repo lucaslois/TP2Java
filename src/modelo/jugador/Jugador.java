@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Jugador {
 
-    private static int DINERO_INICIAL = 50000;
+    private static int DINERO_INICIAL = 100000;
 
     private String nombre;
     private int dinero;

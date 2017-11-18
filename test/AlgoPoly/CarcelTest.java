@@ -33,7 +33,7 @@ public class CarcelTest {
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Kev");
         AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
-        jugador.pagar(10000);  // le saco plata
+        jugador.pagar(80000);  // le saco plata
         carcel.pisar(jugador);
         carcel.pisar(jugador);
         carcel.pisar(jugador);

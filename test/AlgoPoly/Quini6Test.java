@@ -14,7 +14,7 @@ public class Quini6Test {
 		
 		quini.pisar(unJugador);
 		
-		Assert.assertEquals(unJugador.getDinero(),50000+50000);
+		Assert.assertEquals(unJugador.getDinero(),150000);
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class Quini6Test {
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
 		
-		Assert.assertEquals(unJugador.getDinero(),80000+50000);
+		Assert.assertEquals(unJugador.getDinero(),180000);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ public class Quini6Test {
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
 
-		Assert.assertEquals(unJugador.getDinero(),80000+50000);
+		Assert.assertEquals(unJugador.getDinero(),180000);
 		
 	}
 	

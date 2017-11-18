@@ -33,7 +33,7 @@ public class BarrioTest {
 
     @Test(expected = JugadorNoTieneDineroException.class)
     public void testJugadorCaeEnCasilleroYCompraTerrenoPeroNoTieneDinero() {
-        Barrio barrio = new Barrio(80000);
+        Barrio barrio = new Barrio(120000);
         Jugador unJugador = new Jugador("Lucky");
 
         unJugador.comprar(barrio);
