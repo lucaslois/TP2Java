@@ -3,7 +3,6 @@ package modelo.jugador;
 import modelo.tablero.Tablero;
 
 public class Posicion {
-
     public Posicion() {
 
     }
