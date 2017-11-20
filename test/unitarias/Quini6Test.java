@@ -1,7 +1,7 @@
-package AlgoPoly;
+package unitarias;
 
 import modelo.jugador.Jugador;
-import modelo.casilleros.Quini6;
+import modelo.tablero.tipos_casilleros.Quini6;
 import org.junit.Assert;
 import org.junit.Test;
 

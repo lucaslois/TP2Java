@@ -1,5 +1,6 @@
-package modelo.casilleros;
+package modelo.tablero.tipos_casilleros;
 
+import modelo.tablero.Casillero;
 import modelo.jugador.Jugador;
 
 import java.util.Hashtable;

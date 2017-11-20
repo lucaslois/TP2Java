@@ -1,8 +1,8 @@
-package AlgoPoly;
+package unitarias;
 
 import exceptions.JugadorNoTieneDineroException;
 import exceptions.PrecioNegativoException;
-import modelo.casilleros.Barrio;
+import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;

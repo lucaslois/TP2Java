@@ -1,8 +1,11 @@
 package modelo.jugador;
 
-import exceptions.JugadorNoPuedeMoverseException;
 import exceptions.JugadorNoTieneDineroException;
-import modelo.casilleros.*;
+import modelo.tablero.tipos_casilleros.Comprable;
+import modelo.tablero.tipos_casilleros.Edificable;
+import modelo.jugador.estados.EstadoEncarcelado;
+import modelo.jugador.estados.EstadoJugador;
+import modelo.jugador.estados.EstadoNoEncarcelado;
 
 import java.util.ArrayList;
 
@@ -11,10 +14,11 @@ public class Jugador {
     private static int DINERO_INICIAL = 100000;
 
     private String nombre;
-    private int dinero;
+
     private ControladorPropiedades controladorPropiedades;
-    private EstadoJugador objEstadoMoverse;
+    private EstadoJugador objEstadoMoverse; // Patrón State
     private Posicion posicion;
+    private int dinero;
     private int numeroObtenido;
 
     public Jugador(String nombre) {
@@ -24,6 +28,8 @@ public class Jugador {
         this.posicion = new Posicion();
         this.controladorPropiedades = new ControladorPropiedades();
     }
+
+    // ########### MÉTODOS DE DINERO ###############
 
     public int getDinero() {
         return this.dinero;
@@ -45,6 +51,10 @@ public class Jugador {
         this.controladorPropiedades.comprar(unaPropiedad);
     }
 
+    // ########### FIN MÉTODOS DE DINERO ###############
+
+    // ########### MÉTODOS DE POSICIÓN ###############
+
     public void setPuedeMoverse(EstadoJugador estado) {
         this.objEstadoMoverse = estado;
     }
@@ -57,25 +67,39 @@ public class Jugador {
         return this.posicion.getPosicion();
     }
 
-    public void setPosicion(int posicionNueva) {
-        this.posicion.setPosicion(posicionNueva);
+    public void setPosicion(Posicion posicionNueva) {
+        this.posicion = posicionNueva;
     }
 
     public void avanzar(int cantidad)
     {
-        
         this.objEstadoMoverse.avanzar(cantidad,this.posicion);
     }
-
 
     public void retroceder(int cantidad) {
         this.objEstadoMoverse.retroceder(cantidad,this.posicion);
     }
 
-    // TODO: Programar metodo de jugador getCantidadTotalPropiedades() para conocer cuantas propiedades tiene.
+    // ########### FIN MÉTODOS DE POSICIÓN ###############
+
+    // ########### MÉTODOS DE PROPIEDADES/TERRENOS ###############
+
     public int getCantidadTotalPropiedades() {
         return this.controladorPropiedades.getCantidadTotalPropiedades();
     }
+
+    public ArrayList<Edificable> getPropiedades()
+    {
+        return this.controladorPropiedades.getPropiedades();
+    }
+
+    public boolean esDuenioDePropiedad(Comprable barrio) {
+        return this.controladorPropiedades.tienePropiedad(barrio);
+    }
+
+    // ########### FIN MÉTODOS DE PROPIEDADES/TERRENOS ###############
+
+    // ########### MÉTODOS ETC ###############
 
     public int getNumeroObtenedido() {
         return this.numeroObtenido;
@@ -85,19 +109,33 @@ public class Jugador {
         this.numeroObtenido = numeroNuevo;
     }
 
-    public ArrayList<Edificable> getPropiedades()
-    {
-        return this.controladorPropiedades.getPropiedades();
+    public void enviarALaCarcel() {
+        int posicionCarcel = 0;
+        this.posicion.setPosicion(posicionCarcel);
+        this.encarcelar();
     }
 
     public void encarcelar() {
-        Tablero tablero = Tablero.getInstance();
-        int posicionCarcel = tablero.getPosicionCarcel();
-        this.setPosicion(posicionCarcel);
         this.objEstadoMoverse = new EstadoEncarcelado();
     }
 
-    public boolean esDuenioDePropiedad(Comprable barrio) {
-        return this.controladorPropiedades.tienePropiedad(barrio);
+    public void desencarcelar() {
+        this.objEstadoMoverse = new EstadoNoEncarcelado();
+    }
+
+    /**
+     * Este método debe llamarse siempre que comienza el turno del jugador. Se encarga de inicializar ciertos valores que pueden afectar al turno del jugador,
+     * por ejemplo, checkea si el jugador pasa su último turno en la cárcel.
+     */
+    public void inicializarTurno() {
+        this.objEstadoMoverse.sumarTurno(this);
+    }
+
+    public int getTurnosRestantesEnCarcel() {
+        return this.objEstadoMoverse.getTurnosRestantesEnCarcel();
+    }
+
+    public boolean estaPreso() {
+        return this.objEstadoMoverse.estaPreso();
     }
 }

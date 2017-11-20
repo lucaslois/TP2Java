@@ -1,6 +1,10 @@
-package AlgoPoly;
+package unitarias;
 
-import modelo.casilleros.*;
+import modelo.tablero.*;
+import modelo.tablero.tipos_casilleros.Barrio;
+import modelo.tablero.tipos_casilleros.Carcel;
+import modelo.tablero.tipos_casilleros.Policia;
+import modelo.tablero.tipos_casilleros.Quini6;
 import modelo.jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;

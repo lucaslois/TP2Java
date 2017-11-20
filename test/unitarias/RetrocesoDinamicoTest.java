@@ -1,8 +1,8 @@
-package AlgoPoly;
+package unitarias;
 
-import modelo.casilleros.Barrio;
+import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.jugador.Jugador;
-import modelo.casilleros.RetrocesoDinamico;
+import modelo.tablero.tipos_casilleros.RetrocesoDinamico;
 import org.junit.Assert;
 import org.junit.Test;
 

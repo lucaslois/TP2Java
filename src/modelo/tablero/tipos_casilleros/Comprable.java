@@ -1,4 +1,4 @@
-package modelo.casilleros;
+package modelo.tablero.tipos_casilleros;
 
 import modelo.jugador.Jugador;
 

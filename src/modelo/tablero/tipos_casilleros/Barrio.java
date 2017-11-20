@@ -1,6 +1,7 @@
-package modelo.casilleros;
+package modelo.tablero.tipos_casilleros;
 
 import exceptions.PrecioNegativoException;
+import modelo.tablero.Casillero;
 import modelo.jugador.Jugador;
 
 public class Barrio extends Casillero implements Edificable {
