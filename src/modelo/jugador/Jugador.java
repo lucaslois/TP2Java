@@ -19,13 +19,13 @@ public class Jugador {
     private EstadoJugador objEstadoMoverse; // Patrón State
     private Posicion posicion;
     private int dinero;
-    private int numeroObtenido;
+    private int ultimaTiradaDados;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
         this.objEstadoMoverse = new EstadoNoEncarcelado();
-        this.posicion = new Posicion();
+        this.posicion = null;
         this.controladorPropiedades = new ControladorPropiedades();
     }
 
@@ -63,22 +63,22 @@ public class Jugador {
         return this.objEstadoMoverse.puedeMoverse();
     }
 
-    public int getPosicion() {
-        return this.posicion.getPosicion();
+    public Posicion getPosicion() {
+        return this.posicion;
     }
 
     public void setPosicion(Posicion posicionNueva) {
         this.posicion = posicionNueva;
     }
 
-    public void avanzar(int cantidad)
+   /* public void avanzar(int cantidad)
     {
         this.objEstadoMoverse.avanzar(cantidad,this.posicion);
     }
 
-    public void retroceder(int cantidad) {
+   // public void retroceder(int cantidad) {
         this.objEstadoMoverse.retroceder(cantidad,this.posicion);
-    }
+    }*/
 
     // ########### FIN MÉTODOS DE POSICIÓN ###############
 
@@ -102,17 +102,11 @@ public class Jugador {
     // ########### MÉTODOS ETC ###############
 
     public int getNumeroObtenedido() {
-        return this.numeroObtenido;
+        return this.ultimaTiradaDados;
     }
 
-    public void setNumeroObtenido(int numeroNuevo) {
-        this.numeroObtenido = numeroNuevo;
-    }
-
-    public void enviarALaCarcel() {
-        int posicionCarcel = 0;
-        this.posicion.setPosicion(posicionCarcel);
-        this.encarcelar();
+    public void setUltimaTiradaDados(int numeroNuevo) {
+        this.ultimaTiradaDados = numeroNuevo;
     }
 
     public void encarcelar() {

@@ -4,32 +4,53 @@ import modelo.jugador.Jugador;
 import modelo.jugador.Posicion;
 import modelo.tablero.tipos_casilleros.Carcel;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 // SINGLETON
 public class Tablero {
-    private ArrayList<Casillero> tablero;
+    private ArrayList<Posicion> listaPosiciones;
+    private HashMap<Posicion, Casillero> tablero;
     private Posicion posicionCarcel = null;
     private Posicion posicionSalida = null;
 
     public Tablero() {
-        this.tablero = new ArrayList<>();
-
+        this.tablero = new HashMap<>();
+        this.listaPosiciones = new ArrayList<>();
     }
 
-    public Casillero getCasillero(int id) {
-        return tablero.get(1);
+    public Casillero getCasillero(Posicion pos) {
+        return this.tablero.get(pos);
     }
 
-    public Casillero crearCasillero(Casillero casillero) {
-        this.tablero.add(casillero);
-        return casillero;
+    public void crearCasillero(Casillero casillero) {
+        Posicion pos = new Posicion();
+        this.listaPosiciones.add(pos);
+        this.tablero.put(pos, casillero);
     }
 
-    public Casillero crearCasillero(Carcel carcel) {
+    /*public void crearCasillero(Carcel carcel) {
         Casillero retorno = crearCasillero((Casillero) carcel);
         this.posicionCarcel = carcel.getPosicion();
         return retorno;
+    }*/
+
+    public void avanzar(Jugador unJugador, int pasos) {
+        Posicion pos = unJugador.getPosicion();
+        int index = this.listaPosiciones.indexOf(pos);
+        int nuevoSitio = index + pasos;
+        while(nuevoSitio > this.listaPosiciones.size())
+            nuevoSitio -= this.listaPosiciones.size();
+        Posicion nuevaPos = this.listaPosiciones.get(nuevoSitio);
+        unJugador.setPosicion(nuevaPos);
+
+    }
+
+    public void enviarALaCarcel(Jugador unJugador) {
+        Posicion pos = this.posicionCarcel;
+        unJugador.setPosicion(pos);
+        unJugador.encarcelar();
     }
 
     public int getCantidadDeCasilleros() {
@@ -44,7 +65,4 @@ public class Tablero {
         unJugador.setPosicion(this.posicionSalida);
     }
 
-    public void avanzar(Jugador unJugador, int pasos) {
-
-    }
 }

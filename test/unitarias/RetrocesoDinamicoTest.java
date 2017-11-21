@@ -12,7 +12,7 @@ public class RetrocesoDinamicoTest {
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí");
         jugador.setPosicion(15);
-        jugador.setNumeroObtenido(4);
+        jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 11);
     }
@@ -27,7 +27,7 @@ public class RetrocesoDinamicoTest {
         barrio.agregarCasa();
 
         jugador.setPosicion(10);
-        jugador.setNumeroObtenido(4);
+        jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 9);
     }
@@ -46,7 +46,7 @@ public class RetrocesoDinamicoTest {
         barrio.agregarCasa();
 
         jugador.setPosicion(10);
-        jugador.setNumeroObtenido(4);
+        jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 10);
     }
@@ -57,7 +57,7 @@ public class RetrocesoDinamicoTest {
         Jugador jugador = new Jugador("Magalí");
         jugador.setPosicion(12);
         jugador.pagar(25000);
-        jugador.setNumeroObtenido(9);
+        jugador.setUltimaTiradaDados(9);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 9);
     }
@@ -67,7 +67,7 @@ public class RetrocesoDinamicoTest {
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí");
         jugador.setPosicion(12);
-        jugador.setNumeroObtenido(12);
+        jugador.setUltimaTiradaDados(12);
         casillero.pisar(jugador);
         Assert.assertEquals(jugador.getPosicion(), 2);
     }

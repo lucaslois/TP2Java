@@ -3,7 +3,7 @@ package modelo.jugador;
 import modelo.tablero.Tablero;
 
 public class Posicion {
-    public Posicion() {
+r    public Posicion() {
 
     }
 
@@ -13,11 +13,4 @@ public class Posicion {
    public void retroceder(int cantidad) {
     }
 
-    public void setPosicion(int pos) {
-        this.posicionActual = pos;
-    }
-
-    public int getPosicion() {
-        return this.posicionActual;
-    }
 }
