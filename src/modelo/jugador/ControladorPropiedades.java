@@ -1,7 +1,7 @@
 package modelo.jugador;
 
-import modelo.casilleros.Comprable;
-import modelo.casilleros.Edificable;
+import modelo.tablero.tipos_casilleros.Comprable;
+import modelo.tablero.tipos_casilleros.Edificable;
 
 import java.util.ArrayList;
 

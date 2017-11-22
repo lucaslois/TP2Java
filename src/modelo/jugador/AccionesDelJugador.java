@@ -1,6 +1,6 @@
 package modelo.jugador;
 
-import modelo.casilleros.Carcel;
+import modelo.tablero.tipos_casilleros.Carcel;
 
 public class AccionesDelJugador {
     //estoy dudando de esto, pero lo necesito, aca tengo pensado que le diga al jugador si se puedo
@@ -12,10 +12,12 @@ public class AccionesDelJugador {
     }
 
     public void pagarFianza(Carcel ncarcel) {
-        Integer turnosRestantes = ncarcel.getCantidadDeTurnosSinMovimiento(jugador);
-        if (turnosRestantes <= 1) {
-            jugador.pagar(45000);
-            jugador.setPuedeMoverse(new EstadoNoEncarcelado());
+        if(jugador.estaPreso()) {
+            int turnosRestantes = jugador.getTurnosRestantesEnCarcel();
+            if (turnosRestantes <= 1) {
+                jugador.pagar(45000);
+                jugador.desencarcelar();
+            }
         }
     }
 }
