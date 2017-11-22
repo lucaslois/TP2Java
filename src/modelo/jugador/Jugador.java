@@ -87,10 +87,7 @@ public class Jugador {
     }
 
     public void retroceder(int cantidad) {
-        if(cantidad == 0) return;
-        this.nodoActual = this.nodoActual.getNodoSiguiente();
-        this.cantidadDePasosDados++;
-        this.retroceder(cantidad -1);
+        this.objEstadoMoverse.retroceder(this, cantidad);
     }
 
     public int getCantidadDePasosDados() {
