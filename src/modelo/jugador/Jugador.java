@@ -8,6 +8,7 @@ import modelo.tablero.tipos_casilleros.Edificable;
 import modelo.jugador.estados.EstadoEncarcelado;
 import modelo.jugador.estados.EstadoJugador;
 import modelo.jugador.estados.EstadoNoEncarcelado;
+import modelo.tablero.tipos_casilleros.NoEdificable;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,12 @@ public class Jugador {
     }
 
     public void comprar(Edificable unaPropiedad) {
+        this.pagar(unaPropiedad.getPrecio());
+        unaPropiedad.setPropietario(this);
+        this.controladorPropiedades.comprar(unaPropiedad);
+    }
+
+    public void comprar(NoEdificable unaPropiedad){
         this.pagar(unaPropiedad.getPrecio());
         unaPropiedad.setPropietario(this);
         this.controladorPropiedades.comprar(unaPropiedad);
