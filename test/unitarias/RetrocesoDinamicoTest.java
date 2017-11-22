@@ -4,6 +4,7 @@ import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.jugador.Jugador;
+import modelo.tablero.tipos_casilleros.BarrioSimple;
 import modelo.tablero.tipos_casilleros.RetrocesoDinamico;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class RetrocesoDinamicoTest {
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede1UnidadesCon2Casas() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(4000,0,0,0,0,0,0);
+        Barrio barrio = new BarrioSimple(4000,0,0,0,0);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
@@ -38,7 +39,7 @@ public class RetrocesoDinamicoTest {
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede0UnidadesCon5Propiedades() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(4000,0,0,0,0,0,0);
+        Barrio barrio = new BarrioSimple(4000,0,0,0,0);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
