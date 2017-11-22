@@ -1,5 +1,6 @@
 package unitarias;
 
+import exceptions.JugadorNoEsDuenioDeAmbasPropiedades;
 import exceptions.JugadorNoTieneDineroException;
 import exceptions.PrecioNegativoException;
 import modelo.tablero.Tablero;
@@ -196,7 +197,18 @@ public class BarrioTest {
 		Assert.assertEquals(otroJugador.getDinero(), Dinero-4500);
 	}
 
+	@Test(expected = JugadorNoEsDuenioDeAmbasPropiedades.class)
+	public void testJugadorCompraSoloUnaDeLasPropiedadesDoblesYQuierePonerUnaCasaYSeLanzaLaExcepcion(){
+		Tablero tablero=TableroFactory.crearTablero();
+		Jugador unJugador = new Jugador("Oli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
+		unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
+		BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
+		baSur.pisar(unJugador);
+		unJugador.comprar(baSur);
+		baSur.agregarCasa();
+	}
 
+	
 	
 }
 
