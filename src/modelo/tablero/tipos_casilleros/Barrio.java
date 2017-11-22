@@ -22,7 +22,7 @@ public class Barrio extends Casillero implements Edificable {
         this.precioTerreno = nuevoPrecio;
         this.propietario = null;
         this.cantidadCasas = 0;
-        this.cantidadHoteles = 2;
+        this.cantidadHoteles = 0;
         this.precioCasa=precio0;
         this.precioHotel=precio1;
         this.alquileres = new Hashtable<Integer, Integer>();
@@ -45,10 +45,10 @@ public class Barrio extends Casillero implements Edificable {
     }
 
     public void pisar(Jugador jugador) {
-    	if((jugador!=this.propietario)&&(this.propietario!=null)) {
-    		jugador.pagar(alquileres.get(cantidadCasas));
-    	} //aca hay que refactorizar, para que el pisar de barrio verifique, las cantidad de casas, si tiene propietario 
-    	//asi cuando alguien que que no es propietaario le saquen dinero
+        if ((jugador != this.propietario) && (this.propietario != null)) {
+            jugador.pagar(alquileres.get(cantidadCasas));
+        } //aca hay que refactorizar, para que el pisar de barrio verifique, las cantidad de casas, si tiene propietario
+        //asi cuando alguien que que no es propietaario le saquen dinero
     }
 
     @Override
@@ -72,6 +72,7 @@ public class Barrio extends Casillero implements Edificable {
     	if (this.cantidadCasas==2) {
     		this.propietario.pagar(this.precioHotel);
     		this.cantidadHoteles++;
+    		this.cantidadCasas++;//en pagar pedimos por la cantidad de casas del diccionario y en la posicion 3 esta el valor para 1 hotel
     	}
         
     }

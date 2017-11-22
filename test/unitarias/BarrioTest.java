@@ -138,7 +138,64 @@ public class BarrioTest {
     	baSur.agregarHotel();
     	Assert.assertEquals(unJugador.getDinero(), Dinero-8000);
     	}
+
+	@Test
+	public void testJugadorTieneBaSurYBaNorteConCapacidadMaximaDeCasasContruyeUnHotelSuDineroSeDecrementa8000() {
+		Tablero tablero=TableroFactory.crearTablero();
+		Jugador otroJugador = new Jugador("Oli",tablero);
+		Jugador unJugador = new Jugador("EvilOli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
+		unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
+		Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+		baSur.pisar(unJugador);
+		unJugador.comprar(baSur);
+		unJugador.avanzar(1);
+		Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+		baNorte.pisar(unJugador);
+		unJugador.comprar(baNorte);
+		baNorte.agregarCasa();
+		baSur.agregarCasa();
+		baSur.agregarCasa();
+		int Dinero=otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+		baSur.agregarHotel();
+		otroJugador.avanzar(2);
+		baSur.pisar(otroJugador);
+		Assert.assertEquals(otroJugador.getDinero(), Dinero-5000);
+	}
+
+	//TODO: FALTA PRUEBA 8. QUE ES REPETIR LO ANTERIOR PARA CORDOBA Y SALTA
+
+	@Test
+	public void testJugadorTieneSantaFeYConstruyeUnaCasaYSuDineroSeDecremento5000(){
+		Tablero tablero=TableroFactory.crearTablero();
+		Jugador unJugador = new Jugador("Oli", tablero);
+		unJugador.avanzar(7);
+		Barrio santaFe=(Barrio) (unJugador.getNodoActual()).getCasillero();//Santa Fe
+		santaFe.pisar(unJugador);
+		unJugador.comprar(santaFe);
+		unJugador.avanzar(1);
+		int Dinero=unJugador.getDinero();
+		santaFe.agregarCasa();
+		Assert.assertEquals(unJugador.getDinero(), Dinero-4000);
+	}
+
+	@Test
+	public void testJugadorTieneTucumanConstruyeLaCasitaDeTucuman() {
+		Tablero tablero=TableroFactory.crearTablero();
+		Jugador otroJugador = new Jugador("Oli",tablero);
+		Jugador unJugador = new Jugador("EvilOli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
+		unJugador.avanzar(12);//Tucuman
+		Barrio tucuman=(Barrio) (unJugador.getNodoActual()).getCasillero();
+		tucuman.pisar(unJugador);
+		unJugador.comprar(tucuman);
+		tucuman.agregarCasa();//queda feo porque enrealidad es un edificio historico
+		int Dinero=otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+		otroJugador.avanzar(12);
+		tucuman.pisar(otroJugador);
+		Assert.assertEquals(otroJugador.getDinero(), Dinero-4500);
+	}
+
+
 	
 }
 
-   
+
