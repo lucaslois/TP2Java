@@ -1,10 +1,7 @@
 package unitarias;
 
 import modelo.tablero.*;
-import modelo.tablero.tipos_casilleros.Barrio;
-import modelo.tablero.tipos_casilleros.Carcel;
-import modelo.tablero.tipos_casilleros.Policia;
-import modelo.tablero.tipos_casilleros.Quini6;
+import modelo.tablero.tipos_casilleros.*;
 import modelo.jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,10 +21,10 @@ public class PoliciaTest {
     public void testJugadorCaeEnPoliciaSuPosicionEsLaCarcel() {
         Tablero tablero = new Tablero();
         Jugador unJugador = new Jugador("Magalí", tablero);
-        tablero.agregarCasillero(new Barrio(4000,0,0,0,0,0,0));
+        tablero.agregarCasillero(new BarrioSimple(4000,0,0,0,0));
         Policia policia = new Policia();
         tablero.agregarCasillero(policia);
-        tablero.agregarCasillero(new Barrio(6000,0,0,0,0,0,0));
+        tablero.agregarCasillero(new BarrioSimple(6000,0,0,0,0));
         tablero.agregarCasillero(new Quini6());
         Carcel carcel = new Carcel();
         tablero.agregarCasillero(carcel);

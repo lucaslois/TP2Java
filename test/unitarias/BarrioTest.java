@@ -6,29 +6,31 @@ import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.jugador.Jugador;
+import modelo.tablero.tipos_casilleros.BarrioDoble;
+import modelo.tablero.tipos_casilleros.BarrioSimple;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class BarrioTest {
     @Test(expected = PrecioNegativoException.class)
     public void testCreoUnBarrioConPrecioNegativoLanzaError() {
-        Barrio barrio = new Barrio(-200,0,0,0,0,0,0);
+        Barrio barrio = new BarrioSimple(-200,0,0,0,0);
     }
 
     @Test
-    public void testJugadorCaseEnCasilleroCompraTerrenoYJugadorEsPropietarioDeTerreno() {
+    public void testJugadorCaeEnCasilleroCompraTerrenoYJugadorEsPropietarioDeTerreno() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio buenosAiresSur = new Barrio(20000,0,0,0,0,0,0);
+        BarrioSimple barrio = new BarrioSimple(20000,0,0,0,0);
         Jugador unJugador = new Jugador("Kev", tablero);
-        buenosAiresSur.pisar(unJugador);
-        unJugador.comprar(buenosAiresSur);
-        Assert.assertEquals(buenosAiresSur.getPropietario(), unJugador);
+        barrio.pisar(unJugador);
+        unJugador.comprar(barrio);
+        Assert.assertEquals(barrio.getPropietario(), unJugador);
     }
 
     @Test
     public void testJugadorCaseEnCasilleroCompraTerrenoYTerrenoApareceEnLaListaDePropiedadesDeJugador() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(20000,0,0,0,0,0,0);
+        Barrio barrio = new BarrioSimple(20000,0,0,0,0);
         Jugador unJugador = new Jugador("Lucky", tablero);
         barrio.pisar(unJugador);
         unJugador.comprar(barrio);
@@ -38,7 +40,7 @@ public class BarrioTest {
     @Test(expected = JugadorNoTieneDineroException.class)
     public void testJugadorCaeEnCasilleroYCompraTerrenoPeroNoTieneDinero() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(120000,0,0,0,0,0,0);
+        BarrioSimple barrio = new BarrioSimple(120000,0,0,0,0);
         Jugador unJugador = new Jugador("Lucky", tablero);
 
         unJugador.comprar(barrio);
@@ -48,11 +50,11 @@ public class BarrioTest {
     	Tablero tablero=TableroFactory.crearTablero();
     	Jugador unJugador = new Jugador("Kev", tablero);
     	unJugador.avanzar(2);
-    	Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();//BA sur
+    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();//BA sur
     	baSur.pisar(unJugador);										
     	unJugador.comprar(baSur);
     	unJugador.avanzar(1);
-    	Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
     	int Dinero=unJugador.getDinero();
@@ -65,11 +67,11 @@ public class BarrioTest {
     	Jugador unJugador = new Jugador("Kev", tablero);
     	Jugador unJugador2=new Jugador("EvilKev",tablero);
     	unJugador.avanzar(2);
-    	Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
     	baSur.pisar(unJugador);										
     	unJugador.comprar(baSur);
     	unJugador.avanzar(1);
-    	Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
     	baSur.agregarCasa();
@@ -85,11 +87,11 @@ public class BarrioTest {
     	Jugador unJugador = new Jugador("Kev", tablero);
     	Jugador unJugador2=new Jugador("EvilKev",tablero);
     	unJugador.avanzar(2);
-    	Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
     	baSur.pisar(unJugador);										
     	unJugador.comprar(baSur);
     	unJugador.avanzar(1);
-    	Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
     	baSur.agregarCasa();
@@ -106,11 +108,11 @@ public class BarrioTest {
     	Tablero tablero=TableroFactory.crearTablero();
     	Jugador unJugador = new Jugador("Kev", tablero);
     	unJugador.avanzar(2);
-    	Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
     	baSur.pisar(unJugador);										
     	unJugador.comprar(baSur);
     	unJugador.avanzar(1);
-    	Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
     	baNorte.agregarCasa();
@@ -124,11 +126,11 @@ public class BarrioTest {
     	Tablero tablero=TableroFactory.crearTablero();
     	Jugador unJugador = new Jugador("Kev", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
     	unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
-    	Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
     	baSur.pisar(unJugador);										
     	unJugador.comprar(baSur);
     	unJugador.avanzar(1);
-    	Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
     	baNorte.agregarCasa();
@@ -145,11 +147,11 @@ public class BarrioTest {
 		Jugador otroJugador = new Jugador("Oli",tablero);
 		Jugador unJugador = new Jugador("EvilOli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
 		unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
-		Barrio baSur=(Barrio) (unJugador.getNodoActual()).getCasillero();
+		BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
 		baSur.pisar(unJugador);
 		unJugador.comprar(baSur);
 		unJugador.avanzar(1);
-		Barrio baNorte=(Barrio)(unJugador.getNodoActual()).getCasillero();//Ba Norte
+		BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
 		baNorte.pisar(unJugador);
 		unJugador.comprar(baNorte);
 		baNorte.agregarCasa();
@@ -169,7 +171,7 @@ public class BarrioTest {
 		Tablero tablero=TableroFactory.crearTablero();
 		Jugador unJugador = new Jugador("Oli", tablero);
 		unJugador.avanzar(7);
-		Barrio santaFe=(Barrio) (unJugador.getNodoActual()).getCasillero();//Santa Fe
+		BarrioSimple santaFe=(BarrioSimple) (unJugador.getNodoActual()).getCasillero();//Santa Fe
 		santaFe.pisar(unJugador);
 		unJugador.comprar(santaFe);
 		unJugador.avanzar(1);
@@ -184,7 +186,7 @@ public class BarrioTest {
 		Jugador otroJugador = new Jugador("Oli",tablero);
 		Jugador unJugador = new Jugador("EvilOli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
 		unJugador.avanzar(12);//Tucuman
-		Barrio tucuman=(Barrio) (unJugador.getNodoActual()).getCasillero();
+		BarrioSimple tucuman=(BarrioSimple) (unJugador.getNodoActual()).getCasillero();
 		tucuman.pisar(unJugador);
 		unJugador.comprar(tucuman);
 		tucuman.agregarCasa();//queda feo porque enrealidad es un edificio historico
