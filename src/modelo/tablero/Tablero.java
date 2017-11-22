@@ -1,55 +1,53 @@
 package modelo.tablero;
 
-import modelo.jugador.Jugador;
-import modelo.jugador.Posicion;
 import modelo.tablero.tipos_casilleros.Carcel;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 // SINGLETON
 public class Tablero {
-    private ArrayList<Posicion> listaPosiciones;
-    private HashMap<Posicion, Casillero> tablero;
-    private Posicion posicionCarcel = null;
-    private Posicion posicionSalida = null;
+    private Nodo nodoInicial;
+    private Nodo nodoCarcel = null;
+    private Nodo posicionSalida = null;
+    private int cantidad_nodos;
 
     public Tablero() {
-        this.tablero = new HashMap<>();
-        this.listaPosiciones = new ArrayList<>();
+        this.cantidad_nodos = 0;
     }
 
-    public Casillero getCasillero(Posicion pos) {
-        return this.tablero.get(pos);
+    public void agregarNodo(Nodo nodo) {
+        if(nodoInicial == null) {
+            nodoInicial = nodo;
+            nodo.setNodoAnterior(nodo);
+            this.posicionSalida = nodo;
+            this.cantidad_nodos++;
+            return;
+        }
+        Nodo nodoUltimo = nodoInicial.getNodoAnterior();
+        nodoUltimo.setNodoSiguiente(nodo);
+        nodo.setNodoAnterior(nodoUltimo);
+        nodo.setNodoSiguiente(nodoInicial);
+        nodoInicial.setNodoAnterior(nodo);
+
+        this.cantidad_nodos++;
     }
 
-    public void crearCasillero(Casillero casillero) {
-        Posicion pos = new Posicion();
-        this.listaPosiciones.add(pos);
-        this.tablero.put(pos, casillero);
+    public void agregarCasillero(Casillero casillero) {
+        // TODO: BUSCAR FORMA CORRECTA
+        Nodo nodo = new Nodo(casillero);
+        if(casillero instanceof Carcel)
+            this.nodoCarcel = nodo;
+        this.agregarNodo(nodo);
     }
 
-    /*public void crearCasillero(Carcel carcel) {
-        Casillero retorno = crearCasillero((Casillero) carcel);
-        this.posicionCarcel = carcel.getPosicion();
-        return retorno;
-    }*/
-
-    public void avanzar(Jugador unJugador, int pasos) {
-        Posicion pos = unJugador.getPosicion();
-        int index = this.listaPosiciones.indexOf(pos);
-        int nuevoSitio = index + pasos;
-        while(nuevoSitio > this.listaPosiciones.size())
-            nuevoSitio -= this.listaPosiciones.size();
-        Posicion nuevaPos = this.listaPosiciones.get(nuevoSitio);
-        unJugador.setPosicion(nuevaPos);
-
+    public Nodo getNodoSalida() {
+        return this.nodoInicial;
     }
 
+    public Nodo getNodoCarcel() {return this.nodoCarcel;}
+
+    /*
     public void enviarALaCarcel(Jugador unJugador) {
-        Posicion pos = this.posicionCarcel;
-        unJugador.setPosicion(pos);
+        Posicion pos = this.nodoCarcel;
+        unJugador.setNodoActual(pos);
         unJugador.encarcelar();
     }
 
@@ -58,11 +56,12 @@ public class Tablero {
     }
 
     public Posicion getPosicionCarcel() {
-        return this.posicionCarcel;
+        return this.nodoCarcel;
     }
 
     public void colocarJugador(Jugador unJugador) {
-        unJugador.setPosicion(this.posicionSalida);
+        unJugador.setNodoActual(this.posicionSalida);
     }
+    */
 
 }

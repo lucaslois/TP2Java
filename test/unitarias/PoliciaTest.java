@@ -12,7 +12,8 @@ import org.junit.Test;
 public class PoliciaTest {
     @Test
     public void testJugadorCaeEnPoliciaNoPuedeMoverse() {
-        Jugador unJugador = new Jugador("Magalí");
+        Tablero tablero = new Tablero();
+        Jugador unJugador = new Jugador("Magalí", tablero);
         Policia policia = new Policia();
 
         policia.pisar(unJugador);
@@ -21,17 +22,17 @@ public class PoliciaTest {
 
     @Test
     public void testJugadorCaeEnPoliciaSuPosicionEsLaCarcel() {
-        Tablero tablero = Tablero.getInstance();
-        Jugador unJugador = new Jugador("Magalí");
-        tablero.crearCasillero(new Barrio(4000));
-        Policia policia = (Policia) tablero.crearCasillero(new Policia());
-        tablero.crearCasillero(new Barrio(6000));
-        tablero.crearCasillero(new Quini6());
-        tablero.crearCasillero(new Carcel());
-
+        Tablero tablero = new Tablero();
+        Jugador unJugador = new Jugador("Magalí", tablero);
+        tablero.agregarCasillero(new Barrio(4000));
+        Policia policia = new Policia();
+        tablero.agregarCasillero(policia);
+        tablero.agregarCasillero(new Barrio(6000));
+        tablero.agregarCasillero(new Quini6());
+        Carcel carcel = new Carcel();
+        tablero.agregarCasillero(carcel);
         policia.pisar(unJugador);
-        int posicion_carcel = Tablero.getInstance().getPosicionCarcel();
-        int posicion_jugador = unJugador.getPosicion();
-        Assert.assertEquals(posicion_carcel, posicion_jugador);
+
+        Assert.assertEquals(tablero.getNodoCarcel(), unJugador.getNodoActual());
     }
 }

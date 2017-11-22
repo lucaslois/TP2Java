@@ -1,6 +1,8 @@
 package modelo.jugador;
 
 import exceptions.JugadorNoTieneDineroException;
+import modelo.tablero.Nodo;
+import modelo.tablero.Tablero;
 import modelo.tablero.tipos_casilleros.Comprable;
 import modelo.tablero.tipos_casilleros.Edificable;
 import modelo.jugador.estados.EstadoEncarcelado;
@@ -17,16 +19,20 @@ public class Jugador {
 
     private ControladorPropiedades controladorPropiedades;
     private EstadoJugador objEstadoMoverse; // Patrón State
-    private Posicion posicion;
+    private Tablero tablero;
+    private Nodo nodoActual;
     private int dinero;
     private int ultimaTiradaDados;
+    private int cantidadDePasosDados;
 
-    public Jugador(String nombre) {
+    public Jugador(String nombre, Tablero tablero) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
         this.objEstadoMoverse = new EstadoNoEncarcelado();
-        this.posicion = null;
+        this.nodoActual = tablero.getNodoSalida();
         this.controladorPropiedades = new ControladorPropiedades();
+        this.cantidadDePasosDados = 0;
+        this.tablero = tablero;
     }
 
     // ########### MÉTODOS DE DINERO ###############
@@ -63,22 +69,33 @@ public class Jugador {
         return this.objEstadoMoverse.puedeMoverse();
     }
 
-    public Posicion getPosicion() {
-        return this.posicion;
+    public Nodo getNodoActual() {
+        return this.nodoActual;
     }
 
-    public void setPosicion(Posicion posicionNueva) {
-        this.posicion = posicionNueva;
+    public void setNodoActual(Nodo posicionNueva) {
+        this.nodoActual = posicionNueva;
     }
 
-   /* public void avanzar(int cantidad)
+    public void aumentarPaso() {
+        this.cantidadDePasosDados++;
+    }
+
+    public void avanzar(int cantidad)
     {
-        this.objEstadoMoverse.avanzar(cantidad,this.posicion);
+        this.objEstadoMoverse.avanzar(this, cantidad);
     }
 
-   // public void retroceder(int cantidad) {
-        this.objEstadoMoverse.retroceder(cantidad,this.posicion);
-    }*/
+    public void retroceder(int cantidad) {
+        if(cantidad == 0) return;
+        this.nodoActual = this.nodoActual.getNodoSiguiente();
+        this.cantidadDePasosDados++;
+        this.retroceder(cantidad -1);
+    }
+
+    public int getCantidadDePasosDados() {
+        return this.cantidadDePasosDados;
+    }
 
     // ########### FIN MÉTODOS DE POSICIÓN ###############
 
@@ -131,5 +148,10 @@ public class Jugador {
 
     public boolean estaPreso() {
         return this.objEstadoMoverse.estaPreso();
+    }
+
+    public void enviarALaCarcel() {
+        this.nodoActual = this.tablero.getNodoCarcel();
+        this.encarcelar();
     }
 }

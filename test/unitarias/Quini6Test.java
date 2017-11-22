@@ -1,6 +1,7 @@
 package unitarias;
 
 import modelo.jugador.Jugador;
+import modelo.tablero.Tablero;
 import modelo.tablero.tipos_casilleros.Quini6;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,7 +10,8 @@ public class Quini6Test {
 
 	@Test
 	public void testJugadorCaePorPrimeraVezIncrementaCapitalEn50000() {
-		Jugador unJugador = new Jugador("Oli");
+		Tablero tablero = new Tablero();
+		Jugador unJugador = new Jugador("Oli", tablero);
 		Quini6 quini = new Quini6();
 		
 		quini.pisar(unJugador);
@@ -19,7 +21,8 @@ public class Quini6Test {
 	
 	@Test
 	public void testJugadorCaePorSegundaVezIncrementaCapitalEn30000() {
-		Jugador unJugador = new Jugador("Oli");
+		Tablero tablero = new Tablero();
+		Jugador unJugador = new Jugador("Oli", tablero);
 		Quini6 quini = new Quini6();
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);
@@ -29,7 +32,8 @@ public class Quini6Test {
 	
 	@Test
 	public void testJugadorCaeMasDeDosVecesNoSeIncrementaCapital() {
-		Jugador unJugador = new Jugador("Oli");
+		Tablero tablero = new Tablero();
+		Jugador unJugador = new Jugador("Oli", tablero);
 		Quini6 quini = new Quini6();
 		quini.pisar(unJugador);
 		quini.pisar(unJugador);

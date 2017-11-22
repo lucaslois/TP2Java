@@ -2,7 +2,6 @@ package modelo.jugador.estados;
 
 import exceptions.JugadorNoPuedeMoverseException;
 import modelo.jugador.Jugador;
-import modelo.jugador.Posicion;
 
 public class EstadoEncarcelado extends EstadoJugador {
 
@@ -13,13 +12,11 @@ public class EstadoEncarcelado extends EstadoJugador {
 		this.turnosRestantes = TURNOS_PRESO;
 	}
 
-	@Override
-	public void avanzar(int cantidad, Posicion posicion) {
+	public void avanzar(Jugador unJugador, int cantidad) {
 		throw new JugadorNoPuedeMoverseException();
 	}
 
-	@Override
-	public void retroceder(int cantidad, Posicion posicion) {
+	public void retroceder(Jugador unJugador, int cantidad) {
 		throw new JugadorNoPuedeMoverseException();
 	}
 
