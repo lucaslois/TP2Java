@@ -24,10 +24,10 @@ public class PoliciaTest {
     public void testJugadorCaeEnPoliciaSuPosicionEsLaCarcel() {
         Tablero tablero = new Tablero();
         Jugador unJugador = new Jugador("Magalí", tablero);
-        tablero.agregarCasillero(new Barrio(4000));
+        tablero.agregarCasillero(new Barrio(4000,0,0,0,0,0,0));
         Policia policia = new Policia();
         tablero.agregarCasillero(policia);
-        tablero.agregarCasillero(new Barrio(6000));
+        tablero.agregarCasillero(new Barrio(6000,0,0,0,0,0,0));
         tablero.agregarCasillero(new Quini6());
         Carcel carcel = new Carcel();
         tablero.agregarCasillero(carcel);

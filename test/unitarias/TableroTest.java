@@ -12,10 +12,10 @@ public class TableroTest {
     @Test
     public void testCreoTableroDe5CasillerosYRecorroDeFormaCircular() {
         Tablero tablero = new Tablero();
-        tablero.agregarCasillero(new Barrio(4500));
-        tablero.agregarCasillero(new Barrio(4500));
-        tablero.agregarCasillero(new Barrio(4500));
-        tablero.agregarCasillero(new Barrio(4500));
+        tablero.agregarCasillero(new Barrio(4500,0,0,0,0,0,0));
+        tablero.agregarCasillero(new Barrio(4500,0,0,0,0,0,0));
+        tablero.agregarCasillero(new Barrio(4500,0,0,0,0,0,0));
+        tablero.agregarCasillero(new Barrio(4500,0,0,0,0,0,0));
         Carcel carcel = new Carcel();
         Nodo nodoCarcel = new Nodo(carcel);
         tablero.agregarNodo(nodoCarcel);

@@ -22,7 +22,7 @@ public class RetrocesoDinamicoTest {
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede1UnidadesCon2Casas() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(4000);
+        Barrio barrio = new Barrio(4000,0,0,0,0,0,0);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
@@ -31,14 +31,14 @@ public class RetrocesoDinamicoTest {
 
         jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
-        Assert.assertEquals(jugador.getCantidadDePasosDados(), 1);
+        Assert.assertEquals(jugador.getCantidadDePasosDados(), 0);
     }
 
     // SUPONGO QUE SI LA CANTIDAD DE PROPIEDADES ES MAYOR AL NUMERO SACADO, NO RETROCEDO CASILLEROS.
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede0UnidadesCon5Propiedades() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new Barrio(4000);
+        Barrio barrio = new Barrio(4000,0,0,0,0,0,0);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
