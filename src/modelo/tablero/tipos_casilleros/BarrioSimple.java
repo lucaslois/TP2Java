@@ -1,25 +1,21 @@
 package modelo.tablero.tipos_casilleros;
 
 import exceptions.PrecioNegativoException;
+import exceptions.PropiedadNoPuedeConstruirHotelException;
 import modelo.jugador.Jugador;
 
 import java.util.Hashtable;
 
 public class BarrioSimple extends Barrio {
 
-    private Jugador propietario;
-    private int precioTerreno;
-    private int cantidadCasas;
-    private int cantidadHoteles;
     private int precioCasa;
     private int precioHotel;
     private Hashtable<Integer, Integer> alquileres;
+    private int cantidadCasas;
+    private int cantidadHoteles;
 
     public BarrioSimple(int nuevoPrecio,int precio0, int precio1,int precio2,int precio3) {
-        if (nuevoPrecio < 0)
-            throw new PrecioNegativoException();
-        this.precioTerreno = nuevoPrecio;
-        this.propietario = null;
+        super(nuevoPrecio);
         this.cantidadCasas = 0;
         this.cantidadHoteles = 0;
         this.precioCasa=precio0;
@@ -29,22 +25,34 @@ public class BarrioSimple extends Barrio {
         this.alquileres.put(1, precio3);
     }
 
-    //@Override
+    public void pisar(Jugador jugador) {
+        if ((jugador != this.getPropietario()) && (this.getPropietario() != null)) {
+            jugador.pagar(alquileres.get(cantidadCasas));
+        } //aca hay que refactorizar, para que el pisar de barrio verifique, las cantidad de casas, si tiene propietario
+        //asi cuando alguien que que no es propietaario le saquen dinero
+    }
+
+    @Override
+    public int getCantidadDeCasas() {
+        return this.cantidadCasas;
+    }
+
+    @Override
+    public int getCantidadDeHoteles() {
+        return this.cantidadHoteles;
+    }
+
+    @Override
     public void agregarCasa() {
-        this.propietario.pagar(this.precioCasa);
+        this.getPropietario().pagar(this.precioCasa);
         this.cantidadCasas++;
     }
 
 
     @Override
     public void agregarHotel() {//hay que sacar esto aca porque BarrioSimple no tiene agregarHotel pero es complicado con las interfaces
-        if (this.cantidadCasas==0) {
-            this.propietario.pagar(this.precioHotel);
-            this.cantidadHoteles++;
-            this.cantidadCasas++;//en pagar pedimos por la cantidad de casas del diccionario y en la posicion 3 esta el valor para 1 hotel
-        }
+        throw new PropiedadNoPuedeConstruirHotelException();
 
     }
-
 
 }
