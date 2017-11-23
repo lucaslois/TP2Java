@@ -58,9 +58,9 @@ public class BarrioTest {
     	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
     	baNorte.pisar(unJugador);
     	unJugador.comprar(baNorte);
-    	int Dinero=unJugador.getDinero();
+    	int Dinero = (int)unJugador.getDinero();
     	baSur.agregarCasa();
-    	Assert.assertEquals(unJugador.getDinero(), Dinero-5000);
+    	Assert.assertEquals((int)unJugador.getDinero(), Dinero-5000);
     }
     @Test
     public void testJugadorTieneBASurYNorteConCasasCaeNuevoJugadorSobreAlgunaZonaSuDineroSeDecrementa3000() {
@@ -77,10 +77,10 @@ public class BarrioTest {
     	unJugador.comprar(baNorte);
     	baSur.agregarCasa();
     	baNorte.agregarCasa();
-    	int Dinero=unJugador2.getDinero();//dinero que tiene antes de pasar por casillero
+    	int Dinero = (int)unJugador2.getDinero();//dinero que tiene antes de pasar por casillero
     	unJugador2.avanzar(2);
     	baSur.pisar(unJugador2);
-    	Assert.assertEquals(unJugador2.getDinero(),Dinero-3000);
+    	Assert.assertEquals((int)unJugador2.getDinero(),Dinero-3000);
     	}
     @Test 
     public void testJugadorTieneBASurYNorteCon2Casasy1RespectivamenteCaeNuevoJugadorSobreAlgunaZonaSuDineroSeDecrementa3500() {
@@ -98,10 +98,10 @@ public class BarrioTest {
     	baSur.agregarCasa();
     	baSur.agregarCasa();
     	baNorte.agregarCasa();
-    	int Dinero=unJugador2.getDinero();//dinero que tiene antes de pasar por casillero
+    	int Dinero = (int)unJugador2.getDinero();//dinero que tiene antes de pasar por casillero
     	unJugador2.avanzar(2);
     	baSur.pisar(unJugador2);
-    	Assert.assertEquals(unJugador2.getDinero(),Dinero-3500);
+    	Assert.assertEquals((int)unJugador2.getDinero(),Dinero-3500);
     	
     }
     @Test
@@ -118,9 +118,9 @@ public class BarrioTest {
     	unJugador.comprar(baNorte);
     	baNorte.agregarCasa();
     	baSur.agregarCasa();
-    	int Dinero=unJugador.getDinero();//dinero que tiene antes de pasar por casillero
+    	int Dinero = (int)unJugador.getDinero();//dinero que tiene antes de pasar por casillero
     	baSur.agregarHotel();
-    	Assert.assertEquals(unJugador.getDinero(), Dinero);
+    	Assert.assertEquals((int)unJugador.getDinero(), Dinero);
     }
     @Test
     public void testJugadorTieneBaSurYBaNorteConCapacidadMaximaDeCasasIntentaContruirHotelSuDineroSeDecrementa8000() {
@@ -137,9 +137,9 @@ public class BarrioTest {
     	baNorte.agregarCasa();
     	baSur.agregarCasa();
     	baSur.agregarCasa();
-    	int Dinero=unJugador.getDinero();//dinero que tiene antes de pasar por casillero
+    	int Dinero = (int)unJugador.getDinero();//dinero que tiene antes de pasar por casillero
     	baSur.agregarHotel();
-    	Assert.assertEquals(unJugador.getDinero(), Dinero-8000);
+    	Assert.assertEquals((int)unJugador.getDinero(), Dinero-8000);
     	}
 
 	@Test
@@ -158,11 +158,11 @@ public class BarrioTest {
 		baNorte.agregarCasa();
 		baSur.agregarCasa();
 		baSur.agregarCasa();
-		int Dinero=otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+		int Dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
 		baSur.agregarHotel();
 		otroJugador.avanzar(2);
 		baSur.pisar(otroJugador);
-		Assert.assertEquals(otroJugador.getDinero(), Dinero-5000);
+		Assert.assertEquals((int)otroJugador.getDinero(), Dinero-5000);
 	}
 
 	//TODO: FALTA PRUEBA 8. QUE ES REPETIR LO ANTERIOR PARA CORDOBA Y SALTA
@@ -176,9 +176,9 @@ public class BarrioTest {
 		santaFe.pisar(unJugador);
 		unJugador.comprar(santaFe);
 		unJugador.avanzar(1);
-		int Dinero=unJugador.getDinero();
+		int Dinero = (int)unJugador.getDinero();
 		santaFe.agregarCasa();
-		Assert.assertEquals(unJugador.getDinero(), Dinero-4000);
+		Assert.assertEquals((int)unJugador.getDinero(), Dinero-4000);
 	}
 
 	@Test
@@ -191,10 +191,10 @@ public class BarrioTest {
 		tucuman.pisar(unJugador);
 		unJugador.comprar(tucuman);
 		tucuman.agregarCasa();//queda feo porque enrealidad es un edificio historico
-		int Dinero=otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+		int Dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
 		otroJugador.avanzar(12);
 		tucuman.pisar(otroJugador);
-		Assert.assertEquals(otroJugador.getDinero(), Dinero-4500);
+		Assert.assertEquals((int)otroJugador.getDinero(), Dinero-4500);
 	}
 
 	@Test(expected = JugadorNoEsDuenioDeAmbasPropiedades.class)

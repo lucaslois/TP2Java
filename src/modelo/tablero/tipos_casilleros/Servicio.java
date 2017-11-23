@@ -4,18 +4,17 @@ import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class Transporte extends Casillero implements NoEdificable {
+public class Servicio extends Casillero implements NoEdificable {
 
     private int precio;
     private Jugador propietario;
     //private EstadoTransporte objEstadoTransporte; TODO: POSIBLE REFACTORIZACION AGREGAR EL PATRON STATE EN VEZ DEL ARRAY, PERO PARA CADA TRANSPORTE SON DISTINTOS LOS VALORES
     private ArrayList<Integer> valores;
-    private Transporte par;
+    private Servicio par;
 
 
-    public Transporte(int precio, int valor1, int valor2){
+    public Servicio(int precio, int valor1, int valor2){
         this.precio = precio;
         this.propietario = null;
         //this.objEstadoTransporte = new EstadoSolo(valor1);
@@ -33,7 +32,7 @@ public class Transporte extends Casillero implements NoEdificable {
 
     }
 
-    public Transporte setPar(Transporte par){
+    public Servicio setPar(Servicio par){
         this.par = par;
         return this;
     }

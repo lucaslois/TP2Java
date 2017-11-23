@@ -22,7 +22,7 @@ public class Jugador {
     private EstadoJugador objEstadoMoverse; // Patrón State
     private Tablero tablero;
     private Nodo nodoActual;
-    private int dinero;
+    private double dinero;
     private int ultimaTiradaDados;
     private int cantidadDePasosDados;
 
@@ -38,7 +38,7 @@ public class Jugador {
 
     // ########### MÉTODOS DE DINERO ###############
 
-    public int getDinero() {
+    public double getDinero() {
         return this.dinero;
     }
 
@@ -46,7 +46,7 @@ public class Jugador {
         this.dinero += monto;
     }
 
-    public void pagar(int monto) {
+    public void pagar(double monto) {
         if(monto > this.dinero)
             throw new JugadorNoTieneDineroException();
         this.dinero -= monto;
@@ -158,4 +158,5 @@ public class Jugador {
         this.nodoActual = this.tablero.getNodoCarcel();
         this.encarcelar();
     }
+
 }

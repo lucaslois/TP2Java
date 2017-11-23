@@ -16,7 +16,7 @@ public class AvanceDinamico extends Casillero {
     	int dados = unJugador.getNumeroObtenedido();
     	for (int i=2; i<=6;i+=1) sumaObtenida.put(i, dados-2);//nose me ocurrio otra opcion para dividirlo en 3
     	
-		for(int i=7;i<=10;i+=1) sumaObtenida.put(i,unJugador.getDinero()%dados );
+		for(int i=7;i<=10;i+=1) sumaObtenida.put(i,(int)unJugador.getDinero()%dados );
 		
 		for(int i=11;i<=12;i+=1) sumaObtenida.put(i,dados-unJugador.getCantidadTotalPropiedades() );
 		
