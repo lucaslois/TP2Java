@@ -3,6 +3,7 @@ package unitarias;
 import modelo.tablero.*;
 import modelo.tablero.tipos_casilleros.*;
 import modelo.jugador.Jugador;
+import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,10 +22,17 @@ public class PoliciaTest {
     public void testJugadorCaeEnPoliciaSuPosicionEsLaCarcel() {
         Tablero tablero = new Tablero();
         Jugador unJugador = new Jugador("Magalí", tablero);
-        tablero.agregarCasillero(new BarrioSimple(4000,0,0,0,0));
+        EsquemaPrecio esquema = new EsquemaPrecio();
+        esquema.setPrecioAlquilerUnaCasa(0)
+                .setPrecioAlquilerDosCasas(0)
+                .setPrecioAlquilerHotel(0)
+                .setPrecioConstruirCasa(0)
+                .setPrecioConstruirHotel(0)
+                .setPrecioAlquilerCeroCasas(0);
+        tablero.agregarCasillero(new BarrioSimple(4000,esquema));
         Policia policia = new Policia();
         tablero.agregarCasillero(policia);
-        tablero.agregarCasillero(new BarrioSimple(6000,0,0,0,0));
+        tablero.agregarCasillero(new BarrioSimple(6000,esquema));
         tablero.agregarCasillero(new Quini6());
         Carcel carcel = new Carcel();
         tablero.agregarCasillero(carcel);

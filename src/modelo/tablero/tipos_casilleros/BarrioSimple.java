@@ -3,56 +3,45 @@ package modelo.tablero.tipos_casilleros;
 import exceptions.PrecioNegativoException;
 import exceptions.PropiedadNoPuedeConstruirHotelException;
 import modelo.jugador.Jugador;
+import modelo.tablero.tipos_casilleros.Edificios.ControladorEdificios;
+import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 
 import java.util.Hashtable;
 
 public class BarrioSimple extends Barrio {
+    private ControladorEdificios controladorEdificios;
 
-    private int precioCasa;
-    private int precioHotel;
-    private Hashtable<Integer, Integer> alquileres;
-    private int cantidadCasas;
-    private int cantidadHoteles;
-
-    public BarrioSimple(int nuevoPrecio,int precio0, int precio1,int precio2,int precio3) {
-        super(nuevoPrecio);
-        this.cantidadCasas = 0;
-        this.cantidadHoteles = 0;
-        this.precioCasa=precio0;
-        this.precioHotel=precio1;
-        this.alquileres = new Hashtable<Integer, Integer>();
-        this.alquileres.put(0, precio2);
-        this.alquileres.put(1, precio3);
+    public BarrioSimple(int precio, EsquemaPrecio esquema) {
+        super(precio);
+        this.controladorEdificios = new ControladorEdificios(esquema);
     }
 
     public void pisar(Jugador jugador) {
-        if ((jugador != this.getPropietario()) && (this.getPropietario() != null)) {
-            jugador.pagar(alquileres.get(cantidadCasas));
-        } //aca hay que refactorizar, para que el pisar de barrio verifique, las cantidad de casas, si tiene propietario
-        //asi cuando alguien que que no es propietaario le saquen dinero
+        if (jugador != this.getPropietario() && this.getPropietario() != null) {
+            jugador.pagar(this.controladorEdificios.getPrecioAlquiler());
+        }
+        // TODO: Verificar que ocurre si se pisa algo que no tiene dueño asignado.
     }
 
     @Override
     public int getCantidadDeCasas() {
-        return this.cantidadCasas;
+        return this.controladorEdificios.getCantidadCasas();
     }
 
     @Override
     public int getCantidadDeHoteles() {
-        return this.cantidadHoteles;
+        return this.controladorEdificios.getCantidadHoteles();
     }
 
     @Override
-    public void agregarCasa() {
-        this.getPropietario().pagar(this.precioCasa);
-        this.cantidadCasas++;
+    public void agregarCasa(Jugador jugador) {
+        jugador.pagar(controladorEdificios.getPrecioConstruirCasa());
+        this.controladorEdificios.agregarCasa();
     }
 
-
     @Override
-    public void agregarHotel() {//hay que sacar esto aca porque BarrioSimple no tiene agregarHotel pero es complicado con las interfaces
+    public void agregarHotel(Jugador jugador) {
         throw new PropiedadNoPuedeConstruirHotelException();
-
     }
 
 }

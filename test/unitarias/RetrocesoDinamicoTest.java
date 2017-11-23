@@ -5,6 +5,7 @@ import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.jugador.Jugador;
 import modelo.tablero.tipos_casilleros.BarrioSimple;
+import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 import modelo.tablero.tipos_casilleros.RetrocesoDinamico;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,12 +24,18 @@ public class RetrocesoDinamicoTest {
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede1UnidadesCon2Casas() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new BarrioSimple(4000,0,0,0,0);
+        EsquemaPrecio esquema = new EsquemaPrecio();
+        esquema.setPrecioAlquilerUnaCasa(0)
+                .setPrecioAlquilerDosCasas(0)
+                .setPrecioAlquilerHotel(0)
+                .setPrecioConstruirCasa(0)
+                .setPrecioConstruirHotel(0);
+        Barrio barrio = new BarrioSimple(4000,esquema);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
-        barrio.agregarCasa();
-        barrio.agregarCasa();
+        barrio.agregarCasa(jugador);
+        barrio.agregarCasa(jugador);
 
         jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
@@ -39,15 +46,43 @@ public class RetrocesoDinamicoTest {
     @Test
     public void testJugadorCaeEnRetrocesoDinamicoHabiendoSacado4YRetrocede0UnidadesCon5Propiedades() {
         Tablero tablero = TableroFactory.crearTablero();
-        Barrio barrio = new BarrioSimple(4000,0,0,0,0);
+        EsquemaPrecio esquema = new EsquemaPrecio();
+        esquema.setPrecioAlquilerUnaCasa(0)
+                .setPrecioAlquilerDosCasas(0)
+                .setPrecioAlquilerHotel(0)
+                .setPrecioConstruirCasa(0)
+                .setPrecioConstruirHotel(0)
+                .setPrecioAlquilerCeroCasas(0);
+        Barrio barrio = new BarrioSimple(4000,esquema);
+
+        EsquemaPrecio esquema2 = new EsquemaPrecio();
+        esquema2.setPrecioAlquilerUnaCasa(0)
+                .setPrecioAlquilerDosCasas(0)
+                .setPrecioAlquilerHotel(0)
+                .setPrecioConstruirCasa(0)
+                .setPrecioConstruirHotel(0)
+                .setPrecioAlquilerCeroCasas(0);
+        Barrio barrio2 = new BarrioSimple(4000,esquema2);
+
+        EsquemaPrecio esquema3 = new EsquemaPrecio();
+        esquema3.setPrecioAlquilerUnaCasa(0)
+                .setPrecioAlquilerDosCasas(0)
+                .setPrecioAlquilerHotel(0)
+                .setPrecioConstruirCasa(0)
+                .setPrecioConstruirHotel(0)
+                .setPrecioAlquilerCeroCasas(0);
+        Barrio barrio3 = new BarrioSimple(4000,esquema3);
+
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
         jugador.comprar(barrio);
-        barrio.agregarCasa();
-        barrio.agregarCasa();
-        barrio.agregarCasa();
-        barrio.agregarCasa();
-        barrio.agregarCasa();
+        jugador.comprar(barrio2);
+        jugador.comprar(barrio3);
+        barrio.agregarCasa(jugador);
+        barrio.agregarCasa(jugador);
+        barrio2.agregarCasa(jugador);
+        barrio2.agregarCasa(jugador);
+        barrio3.agregarCasa(jugador);
 
         jugador.setUltimaTiradaDados(4);
         casillero.pisar(jugador);
