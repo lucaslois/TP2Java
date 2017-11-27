@@ -15,7 +15,7 @@ public class ContenedorBotones extends VBox {
 
         TextField nombreJugadorTxt = new TextField(); // Text1
         Label label1 = new Label();
-        label1.setText("¡Bienvenido!");
+        label1.setText("Bienvenido");
         label1.setTextFill(Color.web("#FFFFFF"));
         label1.setStyle("-fx-font-size: 16;");
 
