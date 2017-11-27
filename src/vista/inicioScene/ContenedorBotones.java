@@ -13,12 +13,9 @@ public class ContenedorBotones extends VBox {
     public ContenedorBotones(Stage stage) {
         this.setStyle("-fx-width: 500; -fx-text-align: center; -fx-background-color: rgba(0, 0, 0, 0.7);");
 
-        TextField nombreJugador1Txt = new TextField(); // Text1
-        TextField nombreJugador2Txt = new TextField(); // Text2
-        TextField nombreJugador3Txt = new TextField(); // Text3
-
+        TextField nombreJugadorTxt = new TextField(); // Text1
         Label label1 = new Label();
-        label1.setText("Â¡Bienvenido!");
+        label1.setText("¡Bienvenido!");
         label1.setTextFill(Color.web("#FFFFFF"));
         label1.setStyle("-fx-font-size: 16;");
 
@@ -28,12 +25,12 @@ public class ContenedorBotones extends VBox {
         label2.setStyle("-fx-font-size: 13;");
 
         Button iniciarButton = new Button();
-        iniciarButton.setText("Empezar a jugar");
+        iniciarButton.setText("Cargar Jugador");
         //iniciarButton.setStyle("-fx-background-color: #a3d1ad; -fx-color: #FFFFFF");
 
-        BotonIniciarJuegoController botonController = new BotonIniciarJuegoController(nombreJugador1Txt, nombreJugador2Txt, nombreJugador3Txt, stage);
+        BotonIniciarJuegoController botonController = new BotonIniciarJuegoController(nombreJugadorTxt, stage);
         iniciarButton.setOnAction(botonController);
 
-        this.getChildren().addAll(label1, label2, nombreJugador1Txt, nombreJugador2Txt, nombreJugador3Txt, iniciarButton);
+        this.getChildren().addAll(label1, label2, nombreJugadorTxt, iniciarButton);
     }
 }
