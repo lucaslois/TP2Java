@@ -159,4 +159,7 @@ public class Jugador {
         this.encarcelar();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 }

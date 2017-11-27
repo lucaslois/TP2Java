@@ -93,7 +93,7 @@ public class TableroFactory {
         tablero.agregarCasillero(new BarrioSimple(17000,esquemaNeuquen));//Neuquen
 
         EsquemaPrecio esquemaTucuman = new EsquemaPrecio();
-        esquemaTucuman.setPrecioAlquilerUnaCasa(4500)//ESTA SERÍA LA CASITA DE TUC
+        esquemaTucuman.setPrecioAlquilerUnaCasa(4500)//ESTA SERIA LA CASITA DE TUC
                 .setPrecioAlquilerDosCasas(0)
                 .setPrecioAlquilerHotel(0)
                 .setPrecioConstruirCasa(700)
