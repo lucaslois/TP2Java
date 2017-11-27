@@ -1,5 +1,6 @@
 package modelo.tablero.tipos_casilleros;
 
+import exceptions.CantidadInsuficienteDeCasasException;
 import exceptions.JugadorNoEsDuenioDeAmbasPropiedades;
 import exceptions.PrecioNegativoException;
 import modelo.jugador.Jugador;
@@ -38,7 +39,7 @@ public class BarrioDoble extends Barrio {
 
     @Override
     public void agregarCasa(Jugador jugador) {
-        if(getPropietario().esDuenioDePropiedad(par)) {
+        if(this.getPropietario().esDuenioDePropiedad(this.par)) {
             jugador.pagar(controladorEdificios.getPrecioConstruirCasa());
             this.controladorEdificios.agregarCasa();
 
@@ -55,10 +56,14 @@ public class BarrioDoble extends Barrio {
 
     @Override
     public void agregarHotel(Jugador jugador) {
-        if (this.controladorEdificios.getCantidadCasas() == 2) {
+        //if (this.getPropietario().esDuenioDePropiedad(par)) HACER ESTO
+
+        if (par.getCantidadDeCasas() == 2) { // le pido al otro terreno que tenga dos casitas
             jugador.pagar(controladorEdificios.getPrecioContruirHotel());
-            this.controladorEdificios.agregarHotel();
+            this.controladorEdificios.agregarHotel(); // acá es donde controla si este terreno no tiene la cantidad de casa suficientes.
         }
-    // esto debería lanzar una excepciónL
+        else{
+            throw new CantidadInsuficienteDeCasasException();
+        }
     }
 }

@@ -1,9 +1,6 @@
 package unitarias;
 
-import exceptions.JugadorNoEsDuenioDeAmbasPropiedades;
-import exceptions.JugadorNoTieneDineroException;
-import exceptions.LimiteDeCasasException;
-import exceptions.PrecioNegativoException;
+import exceptions.*;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Barrio;
@@ -134,8 +131,8 @@ public class BarrioTest {
     	Assert.assertEquals((int)unJugador2.getDinero(),Dinero-3500);
     	
     }
-    /*
-    @Test (expected = LimiteDeCasasException.class)
+
+    @Test (expected = CantidadInsuficienteDeCasasException.class)
     public void testJugadorTieneBaSurYBaNorteSinCapacidadMaximaDeCasasIntentaContruirHotelSuDineroNoSeDecrementa() {
     	Tablero tablero=TableroFactory.crearTablero();
     	Jugador unJugador = new Jugador("Kev", tablero);
@@ -153,32 +150,14 @@ public class BarrioTest {
     	baSur.agregarHotel(unJugador);
     	//Assert.assertEquals((int)unJugador.getDinero(), Dinero);
     }
-    @Test
-    public void testJugadorTieneBaSurYBaNorteConCapacidadMaximaDeCasasIntentaContruirHotelSuDineroSeDecrementa8000() {
-    	Tablero tablero=TableroFactory.crearTablero();
-    	Jugador unJugador = new Jugador("Kev", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
-    	unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
-    	BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
-    	baSur.pisar(unJugador);										
-    	unJugador.comprar(baSur);
-    	unJugador.avanzar(1);
-    	BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
-    	baNorte.pisar(unJugador);
-    	unJugador.comprar(baNorte);
-    	baNorte.agregarCasa(unJugador);
-    	baSur.agregarCasa(unJugador);
-    	baSur.agregarCasa(unJugador);
-    	int Dinero = (int)unJugador.getDinero();//dinero que tiene antes de pasar por casillero
-    	baSur.agregarHotel(unJugador);
-    	Assert.assertEquals((int)unJugador.getDinero(), Dinero-8000);
-    	}
 
+	/*
 	@Test
-	public void testJugadorTieneBaSurYBaNorteConCapacidadMaximaDeCasasContruyeUnHotelSuDineroSeDecrementa8000() {
+	public void testJugadorPisaBsSurConHotelYSuDineroSeDecrementaEn5000() {
 		Tablero tablero=TableroFactory.crearTablero();
 		Jugador otroJugador = new Jugador("Oli",tablero);
-		Jugador unJugador = new Jugador("EvilOli", tablero);//esto si esta loco tenemos que hablar sobre esto, no verifico las 4 casas
-		unJugador.avanzar(2);//solo 2 en buanos aires sur, no quiero modificar mucho el codigo
+		Jugador unJugador = new Jugador("EvilOli", tablero);
+		unJugador.avanzar(2);//solo 2 en buenos aires sur, no quiero modificar mucho el codigo
 		BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
 		baSur.pisar(unJugador);
 		unJugador.comprar(baSur);
@@ -187,13 +166,14 @@ public class BarrioTest {
 		baNorte.pisar(unJugador);
 		unJugador.comprar(baNorte);
 		baNorte.agregarCasa(unJugador);
+		baNorte.agregarCasa(unJugador);
 		baSur.agregarCasa(unJugador);
 		baSur.agregarCasa(unJugador);
-		int Dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+		int dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
 		baSur.agregarHotel(unJugador);
 		otroJugador.avanzar(2);
 		baSur.pisar(otroJugador);
-		Assert.assertEquals((int)otroJugador.getDinero(), Dinero-5000);
+		Assert.assertEquals((int)otroJugador.getDinero(), dinero-5000);
 	}
 	*/
 	//TODO: FALTA PRUEBA 8. QUE ES REPETIR LO ANTERIOR PARA CORDOBA Y SALTA

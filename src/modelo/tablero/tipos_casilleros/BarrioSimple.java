@@ -1,5 +1,6 @@
 package modelo.tablero.tipos_casilleros;
 
+import exceptions.LimiteDeCasasException;
 import exceptions.PrecioNegativoException;
 import exceptions.PropiedadNoPuedeConstruirHotelException;
 import modelo.jugador.Jugador;
@@ -35,6 +36,7 @@ public class BarrioSimple extends Barrio {
 
     @Override
     public void agregarCasa(Jugador jugador) {
+        if(this.controladorEdificios.getCantidadCasas() == 1) throw new LimiteDeCasasException(); // los barrios simples sólo tienen una casa
         jugador.pagar(controladorEdificios.getPrecioConstruirCasa());
         this.controladorEdificios.agregarCasa();
     }
