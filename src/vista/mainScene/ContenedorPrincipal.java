@@ -20,9 +20,11 @@ public class ContenedorPrincipal extends BorderPane {
         contenedor.setPadding(new Insets(25));
         ImageView figura_01=agregarFicha("file:src/vista/assets/images/figura_03.png",90,80);
         contenedor.getChildren().addAll(figura_01);
-        Image imagen = new Image("file:src/vista/assets/images/tablero_algopoly.jpg",890,710,false,false);
+        Image imagen = new Image("file:src/vista/assets/images/tablero.jpg",680,680,false,false);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedor.setBackground(new Background(imagenDeFondo));
+        contenedor.setMinHeight(680);
+        contenedor.setMaxHeight(680);
         this.setCenter(contenedor);
         
         Tablero tablero = TableroFactory.crearTablero();
