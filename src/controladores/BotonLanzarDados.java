@@ -17,6 +17,10 @@ public class BotonLanzarDados implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent arg0) {
 		figura.setTranslateX((figura.getTranslateX())+65);
         figura.setTranslateY((figura.getTranslateY())+10);
+        System.out.print(figura.getTranslateX());
+        System.out.print(",");
+        System.out.print(figura.getTranslateY());
+        System.out.println("");
 		
 	}
 

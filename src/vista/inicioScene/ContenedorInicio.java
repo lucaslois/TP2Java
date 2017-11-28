@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 public class ContenedorInicio extends VBox {
     public ContenedorInicio(Stage stage) {
         Image imagen = new Image("file:src/vista/assets/images/background_inicio.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
         Image img = new Image("file:src/vista/assets/images/logo.png");
