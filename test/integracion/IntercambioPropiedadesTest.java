@@ -13,7 +13,7 @@ import org.junit.Test;
 public class IntercambioPropiedadesTest {
 
     @Test
-    public void testJugadorIntercambiaPropiedadConOtroJugadorYUnTercerJugadorCaeYElDineroLoCobraElNuevoDueño(){
+    public void testJugadorIntercambiaPropiedadConOtroJugadorYUnTercerJugadorCaeYElDineroLoCobraElNuevoDuenio(){
         Tablero tablero=TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("Oli", tablero);
         Jugador otroJugador = new Jugador("EvilOli",tablero);
@@ -37,7 +37,7 @@ public class IntercambioPropiedadesTest {
     }
 
     @Test
-    public void testJugadorIntercambiaPropiedadConEdificacionesConOtroJugadorYLasCasasSonRemovidasUnTercerJugadorCaeYElDineroLoCobraElNuevoDueño() {
+    public void testJugadorIntercambiaPropiedadConEdificacionesConOtroJugadorYLasCasasSonRemovidasUnTercerJugadorCaeYElDineroLoCobraElNuevoDuenio() {
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("Oli", tablero);
         Jugador otroJugador = new Jugador("EvilOli", tablero);

@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.jugador.Jugador;
+import modelo.tablero.ControladorTurnos;
 
 public class PlayerInformation extends VBox {
     private Jugador jugador;

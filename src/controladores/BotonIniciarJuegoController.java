@@ -15,27 +15,31 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class BotonIniciarJuegoController implements EventHandler<ActionEvent> {
     private TextField txt1;
     private Stage stage;
     private int cantidadDeJugadores;
     private Tablero unicoTablero;
+    private ArrayList<String> nombreJugadores;
 
     public BotonIniciarJuegoController(TextField txt1,Stage stage) {
         this.txt1 = txt1;
         this.stage = stage;
         this.cantidadDeJugadores=0;
+        this.nombreJugadores= new ArrayList<String>();
     }
 
     @Override
     public void handle(ActionEvent event) {
         SoundPlayer.playClick();
         System.out.println(this.txt1.getText());
+        this.nombreJugadores.add(this.txt1.getText());
         cantidadDeJugadores=cantidadDeJugadores+1;
         this.txt1.clear();//limpia el textfield una vez que toma el dato
         if (cantidadDeJugadores>=3) {
-	        ContenedorPrincipal contenedor = new ContenedorPrincipal();
+	        ContenedorPrincipal contenedor = new ContenedorPrincipal(nombreJugadores);
 	        Scene EscenaPrincipal = new Scene(contenedor, 1280, 720);
 	        stage.setScene(EscenaPrincipal);
         }

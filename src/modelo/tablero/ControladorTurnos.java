@@ -20,6 +20,10 @@ public class ControladorTurnos {
     public void agregarJugador(Jugador jugador){
         jugadores.add(jugador);
     }
+    public void agregarTodosLosJugadores(ArrayList<Jugador> nuevosJugadores) {
+    	this.jugadores=nuevosJugadores;
+    	
+    }
 
     public Jugador getJugadorSiguiente(){
         Dados dados = Dados.getInstance();
