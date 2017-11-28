@@ -52,11 +52,15 @@ public class Servicio extends Casillero implements NoEdificable {
         if((jugador != this.getPropietario()) && (this.getPropietario() != null)) {
             int dados = jugador.getNumeroObtenedido();
             //this.objEstadoTransporte.cobrar(Jugador);
+            double monto;
             if (this.propietario.esDuenioDePropiedad(this.par)) {//si tiene los dos transportes
-                jugador.pagar(this.valores.get(1) * dados);
-                return;
+                //jugador.pagar(this.valores.get(1) * dados);
+                monto = this.valores.get(1) * dados;
             }
-            jugador.pagar(this.valores.get(0) * dados);//solo un transporte
+            //jugador.pagar(this.valores.get(0) * dados);//solo un transporte
+            else{monto = this.valores.get(0) * dados;}
+            jugador.pagar(monto);
+            this.getPropietario().cobrar((int)monto);
         }
     }
 }

@@ -50,4 +50,6 @@ public class ControladorEdificios {
     public int getPrecioContruirHotel(){
         return esquema.getPrecioConstruirHotel();
     }
+
+    public void eliminarEdificaciones(){this.edificio = new CeroCasas(this.esquema);}
 }

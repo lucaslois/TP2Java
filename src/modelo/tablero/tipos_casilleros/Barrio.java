@@ -43,4 +43,5 @@ public abstract class Barrio extends Casillero implements Edificable {
     @Override
     public abstract void agregarHotel(Jugador jugador);
 
+    public abstract void eliminarEdificaciones();
 }

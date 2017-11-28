@@ -23,6 +23,7 @@ public class BarrioDoble extends Barrio {
     public void pisar(Jugador jugador) {
         if (jugador != this.getPropietario() && this.getPropietario() != null) {
             jugador.pagar(this.controladorEdificios.getPrecioAlquiler());
+            this.getPropietario().cobrar(this.controladorEdificios.getPrecioAlquiler());
         }
         // TODO: Verificar que ocurre si se pisa algo que no tiene dueño asignado.
     }
@@ -65,5 +66,11 @@ public class BarrioDoble extends Barrio {
         else{
             throw new CantidadInsuficienteDeCasasException();
         }
+    }
+
+    @Override
+    public void eliminarEdificaciones() {
+        this.controladorEdificios.eliminarEdificaciones();
+
     }
 }

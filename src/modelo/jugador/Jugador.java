@@ -3,12 +3,10 @@ package modelo.jugador;
 import exceptions.JugadorNoTieneDineroException;
 import modelo.tablero.Nodo;
 import modelo.tablero.Tablero;
-import modelo.tablero.tipos_casilleros.Comprable;
-import modelo.tablero.tipos_casilleros.Edificable;
+import modelo.tablero.tipos_casilleros.*;
 import modelo.jugador.estados.EstadoEncarcelado;
 import modelo.jugador.estados.EstadoJugador;
 import modelo.jugador.estados.EstadoNoEncarcelado;
-import modelo.tablero.tipos_casilleros.NoEdificable;
 
 import java.util.ArrayList;
 
@@ -161,5 +159,12 @@ public class Jugador {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public void intercambiarPropiedad(Barrio mio, Barrio suyo) {
+        mio.eliminarEdificaciones();
+        mio.setPropietario(suyo.getPropietario());
+        mio.eliminarEdificaciones();
+        suyo.setPropietario(this);
     }
 }

@@ -20,6 +20,7 @@ public class BarrioSimple extends Barrio {
     public void pisar(Jugador jugador) {
         if (jugador != this.getPropietario() && this.getPropietario() != null) {
             jugador.pagar(this.controladorEdificios.getPrecioAlquiler());
+            this.getPropietario().cobrar(this.controladorEdificios.getPrecioAlquiler());
         }
         // TODO: Verificar que ocurre si se pisa algo que no tiene dueño asignado.
     }
@@ -44,6 +45,11 @@ public class BarrioSimple extends Barrio {
     @Override
     public void agregarHotel(Jugador jugador) {
         throw new PropiedadNoPuedeConstruirHotelException();
+    }
+
+    @Override
+    public void eliminarEdificaciones() {
+        this.controladorEdificios.eliminarEdificaciones();
     }
 
 }
