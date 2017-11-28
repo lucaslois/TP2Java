@@ -151,31 +151,37 @@ public class BarrioTest {
     	//Assert.assertEquals((int)unJugador.getDinero(), Dinero);
     }
 
-	/*
+
 	@Test
 	public void testJugadorPisaBsSurConHotelYSuDineroSeDecrementaEn5000() {
 		Tablero tablero=TableroFactory.crearTablero();
+
 		Jugador otroJugador = new Jugador("Oli",tablero);
 		Jugador unJugador = new Jugador("EvilOli", tablero);
+
 		unJugador.avanzar(2);//solo 2 en buenos aires sur, no quiero modificar mucho el codigo
 		BarrioDoble baSur=(BarrioDoble) (unJugador.getNodoActual()).getCasillero();
+
 		baSur.pisar(unJugador);
 		unJugador.comprar(baSur);
 		unJugador.avanzar(1);
 		BarrioDoble baNorte=(BarrioDoble)(unJugador.getNodoActual()).getCasillero();//Ba Norte
 		baNorte.pisar(unJugador);
 		unJugador.comprar(baNorte);
+
 		baNorte.agregarCasa(unJugador);
 		baNorte.agregarCasa(unJugador);
 		baSur.agregarCasa(unJugador);
 		baSur.agregarCasa(unJugador);
-		int dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
 		baSur.agregarHotel(unJugador);
+
+		int dinero = (int)otroJugador.getDinero();//dinero que tiene antes de pasar por casillero
+
 		otroJugador.avanzar(2);
 		baSur.pisar(otroJugador);
 		Assert.assertEquals((int)otroJugador.getDinero(), dinero-5000);
 	}
-	*/
+
 	//TODO: FALTA PRUEBA 8. QUE ES REPETIR LO ANTERIOR PARA CORDOBA Y SALTA
 
 	@Test

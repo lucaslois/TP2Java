@@ -39,7 +39,7 @@ public class EsquemaPrecio {
     }
 
     public EsquemaPrecio setPrecioAlquilerHotel(int valor) {
-        this.precioConstruirHotel = valor;
+        this.precioAlquilerHotel = valor;
         return this;
     }
 

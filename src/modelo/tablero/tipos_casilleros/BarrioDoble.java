@@ -59,8 +59,8 @@ public class BarrioDoble extends Barrio {
         //if (this.getPropietario().esDuenioDePropiedad(par)) HACER ESTO
 
         if (par.getCantidadDeCasas() == 2) { // le pido al otro terreno que tenga dos casitas
-            jugador.pagar(controladorEdificios.getPrecioContruirHotel());
             this.controladorEdificios.agregarHotel(); // acá es donde controla si este terreno no tiene la cantidad de casa suficientes.
+            jugador.pagar(controladorEdificios.getPrecioContruirHotel());
         }
         else{
             throw new CantidadInsuficienteDeCasasException();

@@ -25,9 +25,10 @@ public class TableroFactory {
                 .setPrecioConstruirHotel(9000)
                 .setPrecioAlquilerCeroCasas(2500);
         BarrioDoble baNorte = new BarrioDoble(25000,esquemaBaNorte);
-
-        tablero.agregarCasillero(baSur.setPar(baNorte));//BA Sur
-        tablero.agregarCasillero(baNorte.setPar(baSur));//BA Norte
+        baSur.setPar(baNorte);
+        baNorte.setPar(baSur);
+        tablero.agregarCasillero(baSur);//BA Sur
+        tablero.agregarCasillero(baNorte);//BA Norte
 
         tablero.agregarCasillero(new Carcel());
 
