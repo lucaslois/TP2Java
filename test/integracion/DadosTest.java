@@ -46,7 +46,6 @@ public class DadosTest {
 
         dados.setTirada(3,3);
 
-
         Assert.assertNotEquals(controlador.getJugadorActual(),controlador.getJugadorSiguiente());
     }
 

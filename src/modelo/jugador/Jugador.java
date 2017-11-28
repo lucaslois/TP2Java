@@ -162,11 +162,13 @@ public class Jugador {
         return nombre;
     }
 
-    public void intercambiarPropiedad(Barrio mio, Barrio suyo) {
+    public void intercambiarPropiedad(Barrio mio,Jugador otroJugador, Barrio suyo) {
         mio.eliminarEdificaciones();
-        mio.setPropietario(suyo.getPropietario());
-        mio.eliminarEdificaciones();
-        suyo.setPropietario(this);
+        mio.setPropietario(otroJugador);
+        if(suyo!=null) {
+            suyo.eliminarEdificaciones();
+            suyo.setPropietario(this);
+        }
     }
 
     public int tirarDados(){
