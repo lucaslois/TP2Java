@@ -10,7 +10,7 @@ import modelo.tablero.tipos_casilleros.BarrioSimple;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class IntercambioPropiedades {
+public class IntercambioPropiedadesTest {
 
     @Test
     public void testJugadorIntercambiaPropiedadConOtroJugadorYUnTercerJugadorCaeYElDineroLoCobraElNuevoDueño(){

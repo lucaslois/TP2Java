@@ -1,6 +1,7 @@
 package modelo.jugador;
 
 import exceptions.JugadorNoTieneDineroException;
+import modelo.jugador.estados.Dados;
 import modelo.tablero.Nodo;
 import modelo.tablero.Tablero;
 import modelo.tablero.tipos_casilleros.*;
@@ -167,4 +168,10 @@ public class Jugador {
         mio.eliminarEdificaciones();
         suyo.setPropietario(this);
     }
+
+    public int tirarDados(){
+        Dados dados = Dados.getInstance();
+        return dados.tirarDados();
+    }
+
 }
