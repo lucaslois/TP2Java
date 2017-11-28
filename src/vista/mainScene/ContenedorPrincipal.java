@@ -2,47 +2,42 @@ package vista.mainScene;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import modelo.jugador.Jugador;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
 
 public class ContenedorPrincipal extends BorderPane {
     public ContenedorPrincipal() {
-        Tablero tablero = TableroFactory.crearTablero();
-        Jugador jugador = new Jugador("Lucas", tablero);
-
-        this.setIzquierda();
-        this.setCentro();
+        this.setPanel();
     }
 
-    public void setIzquierda() {
-        Tablero tablero = TableroFactory.crearTablero();
-        Jugador jugador = new Jugador("Lucas", tablero);
-        PlayerInformation box1 = new PlayerInformation(jugador);
-        box1.setPadding(new Insets(20));
-        box1.setSpacing(5);
-
-        this.setLeft(box1);
-
-    }
-
-    public void setCentro() {
-        Principal contenedor = new Principal();
+    public void setPanel() {
+    	Principal contenedor = new Principal();
         contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(20);
         contenedor.setPadding(new Insets(25));
-        Image imagen = new Image("file:src/vista/assets/images/background_main.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        ImageView figura_01=agregarFicha("file:src/vista/assets/images/figura_03.png",90,80);
+        contenedor.getChildren().addAll(figura_01);
+        Image imagen = new Image("file:src/vista/assets/images/tablero_algopoly.jpg",890,710,false,false);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedor.setBackground(new Background(imagenDeFondo));
-
         this.setCenter(contenedor);
+        
+        Tablero tablero = TableroFactory.crearTablero();
+        Jugador jugador = new Jugador("Lucas", tablero);
+        PlayerInformation box1 = new PlayerInformation(jugador,figura_01);
+        box1.setPadding(new Insets(40));
+        box1.setSpacing(5);
+        this.setLeft(box1);
+        
+
     }
 
+    public ImageView agregarFicha(String direccion,int alto,int ancho) {
+    	Image imagen = new Image(direccion,alto,ancho,false,false);
+        ImageView imagenvista = new ImageView(imagen);
+        return imagenvista;
+    }
 }

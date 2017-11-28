@@ -7,12 +7,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import modelo.tablero.Tablero;
+import modelo.tablero.TableroFactory;
 
 
 public class ContenedorBotones extends VBox {
     public ContenedorBotones(Stage stage) {
         this.setStyle("-fx-width: 500; -fx-text-align: center; -fx-background-color: rgba(0, 0, 0, 0.7);");
-
+       
         TextField nombreJugadorTxt = new TextField(); // Text1
         Label label1 = new Label();
         label1.setText("Bienvenido");

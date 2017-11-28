@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import modelo.tablero.Tablero;
 import vista.SoundPlayer;
 import vista.mainScene.ContenedorPrincipal;
 
@@ -19,6 +20,7 @@ public class BotonIniciarJuegoController implements EventHandler<ActionEvent> {
     private TextField txt1;
     private Stage stage;
     private int cantidadDeJugadores;
+    private Tablero unicoTablero;
 
     public BotonIniciarJuegoController(TextField txt1,Stage stage) {
         this.txt1 = txt1;

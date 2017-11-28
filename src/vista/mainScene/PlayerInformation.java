@@ -1,7 +1,9 @@
 package vista.mainScene;
 
+import controladores.BotonLanzarDados;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -11,7 +13,7 @@ import modelo.jugador.Jugador;
 public class PlayerInformation extends VBox {
     private Jugador jugador;
 
-    public PlayerInformation(Jugador unJugador) {
+    public PlayerInformation(Jugador unJugador,ImageView figura) {
         this.jugador = unJugador;
 
         Label labelNombre = new Label();
@@ -25,6 +27,8 @@ public class PlayerInformation extends VBox {
 
         Button lnzarDadosButton = new Button();
         lnzarDadosButton.setText("Lanzar los dados");
+        BotonLanzarDados botonLanzar=new BotonLanzarDados(figura);
+        lnzarDadosButton.setOnAction(botonLanzar);
         Button comprarButton = new Button();
         comprarButton.setText("Comprar propiedad");
 
