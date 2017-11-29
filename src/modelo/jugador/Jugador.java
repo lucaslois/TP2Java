@@ -168,14 +168,14 @@ public class Jugador {
     }
 
     public void intercambiarPropiedad(Barrio mio,Jugador otroJugador, Barrio suyo) {
-        this.eliminarPropiedad(mio);
+        //this.eliminarPropiedad(mio);
         mio.eliminarEdificaciones();
         mio.setPropietario(otroJugador);
         /*if(suyo!=null) {
             suyo.eliminarEdificaciones();
             suyo.setPropietario(this);
         }*/
-        otroJugador.eliminarPropiedad(suyo);
+        //otroJugador.eliminarPropiedad(suyo);
         suyo.eliminarEdificaciones();
         suyo.setPropietario(this);
 

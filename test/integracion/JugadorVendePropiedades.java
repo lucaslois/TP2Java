@@ -9,7 +9,7 @@ import modelo.tablero.tipos_casilleros.BarrioSimple;
 import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 import org.junit.Test;
 
-public class JugadorVendePropiedades {
+/*public class JugadorVendePropiedades {
 
     @Test
     public void testJugadorCaeEnCasilleroQueGeneraGastoYDebeVenderPropiedadesParaPagarlo() {
@@ -62,4 +62,4 @@ public class JugadorVendePropiedades {
 
         barrio0.pisar(visitante);
     }
-}
+}*/
