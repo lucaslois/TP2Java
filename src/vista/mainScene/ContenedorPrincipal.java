@@ -11,6 +11,7 @@ import modelo.jugador.Jugador;
 import modelo.tablero.ControladorTurnos;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
+import modelo.tablero.tipos_casilleros.Salida;
 
 public class ContenedorPrincipal extends BorderPane {
     public ContenedorPrincipal(ArrayList<String> nombreJugadores) {
@@ -21,21 +22,19 @@ public class ContenedorPrincipal extends BorderPane {
     	Tablero tablero = TableroFactory.crearTablero();
     	ControladorTurnos turnos=new ControladorTurnos();
     	turnos.agregarTodosLosJugadores(setDeJugadores(nomJugadores,tablero));
-    	Principal contenedor = new Principal();
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setPadding(new Insets(25));
+
+
+    	CampoJuego campoJuego = new CampoJuego();
+    	campoJuego.setHgap(0);
+    	campoJuego.setVgap(0);
+        campoJuego.setAlignment(Pos.CENTER);
+        campoJuego.setPadding(new Insets(25));
+
+        campoJuego.setMinHeight(680);
+        campoJuego.setMaxHeight(680);
+        this.setCenter(campoJuego);
+
         ImageView figura_01=agregarFicha("file:src/vista/assets/images/figura_01.png",90,80);
-        ImageView figura_02=agregarFicha("file:src/vista/assets/images/figura_02.png",90,80);
-        ImageView figura_03=agregarFicha("file:src/vista/assets/images/figura_03.png",90,80);
-        contenedor.getChildren().addAll(figura_01,figura_02,figura_03);
-        Image imagen = new Image("file:src/vista/assets/images/tablero.jpg",900,680,false,false);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-        contenedor.setBackground(new Background(imagenDeFondo));
-        contenedor.setMinHeight(680);
-        contenedor.setMaxHeight(680);
-        this.setCenter(contenedor);
-        
-        
         Jugador primerJugador = turnos.getJugadorActual();
         PlayerInformation box1 = new PlayerInformation(primerJugador,figura_01);
         box1.setPadding(new Insets(40));
