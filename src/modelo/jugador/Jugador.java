@@ -167,18 +167,30 @@ public class Jugador {
         return nombre;
     }
 
-    public void intercambiarPropiedad(Barrio mio,Jugador otroJugador, Barrio suyo) {
-        //this.eliminarPropiedad(mio);
+    public void intercambiarPropiedad(Barrio mio,Barrio suyo) {
+        Jugador otroJugador = suyo.getPropietario();
+        this.eliminarPropiedad(mio);
         mio.eliminarEdificaciones();
         mio.setPropietario(otroJugador);
+
         /*if(suyo!=null) {
             suyo.eliminarEdificaciones();
             suyo.setPropietario(this);
         }*/
-        //otroJugador.eliminarPropiedad(suyo);
+        otroJugador.eliminarPropiedad(suyo);
         suyo.eliminarEdificaciones();
         suyo.setPropietario(this);
+        this.agregarPropiedad(suyo);
+        otroJugador.agregarPropiedad(mio);
 
+    }
+
+    private void agregarPropiedad(Edificable terreno) {
+        this.controladorPropiedades.comprar(terreno);
+    }
+
+    private void agregarPropiedad(NoEdificable terreno) {
+        this.controladorPropiedades.comprar(terreno);
     }
 
     private void eliminarPropiedad(Edificable comprable) {

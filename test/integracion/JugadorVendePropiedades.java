@@ -9,7 +9,7 @@ import modelo.tablero.tipos_casilleros.BarrioSimple;
 import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 import org.junit.Test;
 
-/*public class JugadorVendePropiedades {
+public class JugadorVendePropiedades {
 
     @Test
     public void testJugadorCaeEnCasilleroQueGeneraGastoYDebeVenderPropiedadesParaPagarlo() {
@@ -22,7 +22,7 @@ import org.junit.Test;
         EsquemaPrecio esquema0 = new EsquemaPrecio();
         esquema0.setPrecioConstruirCasa(200)
                 .setPrecioConstruirHotel(500)
-                .setPrecioAlquilerCeroCasas(5000000)
+                .setPrecioAlquilerCeroCasas(85000)
                 .setPrecioAlquilerUnaCasa(100)
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
@@ -38,7 +38,7 @@ import org.junit.Test;
                 .setPrecioAlquilerUnaCasa(100)
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
-        BarrioSimple barrio1 = new BarrioSimple(4500, esquema1);
+        BarrioSimple barrio1 = new BarrioSimple(50000, esquema1);
 
         EsquemaPrecio esquema2 = new EsquemaPrecio();
         esquema2.setPrecioConstruirCasa(200)
@@ -47,7 +47,7 @@ import org.junit.Test;
                 .setPrecioAlquilerUnaCasa(100)
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
-        BarrioSimple barrio2 = new BarrioSimple(5000, esquema2);
+        BarrioSimple barrio2 = new BarrioSimple(50000, esquema2);
 
         visitante.comprar(barrio1);
         visitante.comprar(barrio2);
@@ -62,4 +62,4 @@ import org.junit.Test;
 
         barrio0.pisar(visitante);
     }
-}*/
+}

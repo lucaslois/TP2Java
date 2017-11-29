@@ -27,7 +27,7 @@ public class IntercambioPropiedadesTest {
         BarrioDoble baSur = (BarrioDoble)(otroJugador.getNodoActual().getCasillero());
         baSur.pisar(otroJugador);
         otroJugador.comprar(baSur);
-        unJugador.intercambiarPropiedad(santaFe,otroJugador,baSur);
+        unJugador.intercambiarPropiedad(santaFe,baSur);
 
         Jugador tercerJugador = new Jugador("Juan",tablero);
         tercerJugador.avanzar(7);
@@ -52,7 +52,7 @@ public class IntercambioPropiedadesTest {
         BarrioDoble baSur = (BarrioDoble) (otroJugador.getNodoActual().getCasillero());
         baSur.pisar(otroJugador);
         otroJugador.comprar(baSur);
-        unJugador.intercambiarPropiedad(santaFe,otroJugador, baSur);
+        unJugador.intercambiarPropiedad(santaFe, baSur);
 
         Jugador tercerJugador = new Jugador("Juan", tablero);
         tercerJugador.avanzar(7);
@@ -61,7 +61,7 @@ public class IntercambioPropiedadesTest {
 
         Assert.assertEquals((int) otroJugador.getDinero(), Dinero + 1500);
     }
-    
+
 
 
 

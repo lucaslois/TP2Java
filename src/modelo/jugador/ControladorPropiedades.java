@@ -46,13 +46,13 @@ public class ControladorPropiedades {
 
 
     public void borrar(Edificable terreno) {
-        if(!this.terrenos.contains(terrenos))
+        if(!this.tienePropiedad(terreno))
             throw new JugadorNoEsDuenioDePropiedadException();
         this.terrenos.remove(terreno);
     }
 
     public void borrar(NoEdificable terreno) {
-        if(!this.servicios.contains(terrenos))
+        if(!this.tienePropiedad(terreno))
             throw new JugadorNoEsDuenioDePropiedadException();
         this.servicios.remove(terreno);
     }

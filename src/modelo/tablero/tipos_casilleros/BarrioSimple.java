@@ -19,6 +19,7 @@ public class BarrioSimple extends Barrio {
 
     public void pisar(Jugador jugador) {
         if (jugador != this.getPropietario() && this.getPropietario() != null) {
+            System.out.println(this.controladorEdificios.getPrecioAlquiler());
             jugador.pagar(this.controladorEdificios.getPrecioAlquiler());
             this.getPropietario().cobrar(this.controladorEdificios.getPrecioAlquiler());
         }
