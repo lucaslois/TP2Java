@@ -5,14 +5,35 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import modelo.tablero.Casillero;
+import modelo.tablero.Nodo;
+import modelo.tablero.Tablero;
+import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Salida;
 import vista.Casilleros.CasilleroVista;
+import vista.Casilleros.Ficha;
+import vista.Casilleros.Posicionador;
 
 public class CampoJuego extends GridPane {
     public CampoJuego() {
+        Ficha ficha = new Ficha("file:src/vista/assets/images/ficha_01.png");
+        Tablero tablero = TableroFactory.crearTablero();
+        Nodo nodo = tablero.getNodoSalida();
+        Nodo iterator = nodo.getNodoSiguiente();
+        Posicionador pos = new Posicionador();
+        while(nodo != iterator) {
+            CasilleroVista salida = new CasilleroVista();
+            salida.setImage("File:src/vista/assets/images/casilleros/Tablero_21.jpg");
+            this.add(salida.getPanel(), pos.getRow(), pos.getCol());
+            System.out.println("COL: " + pos.getCol() + " ROW: " + pos.getRow());
+            pos.next();
+            iterator = iterator.getNodoSiguiente();
+        }
+/*
         // FILA DE ABAJO
         CasilleroVista salida = new CasilleroVista();
         salida.setImage("File:src/vista/assets/images/casilleros/Tablero_21.jpg");
+        salida.addFicha(ficha);
         CasilleroVista quini6 = new CasilleroVista();
         quini6.setImage("File:src/vista/assets/images/casilleros/Tablero_20.jpg");
         CasilleroVista barrio1 = new CasilleroVista();
@@ -58,30 +79,30 @@ public class CampoJuego extends GridPane {
         CasilleroVista barrio9 = new CasilleroVista();
         barrio9.setImage("File:src/vista/assets/images/casilleros/Tablero_15.jpg");
 
-        this.add(new ImageView(salida.getImage()), 5, 5);
-        this.add(new ImageView(quini6.getImage()), 4, 5);
-        this.add(new ImageView(barrio1.getImage()), 3, 5);
-        this.add(new ImageView(edesur.getImage()), 2, 5);
-        this.add(new ImageView(barrio2.getImage()), 1, 5);
-        this.add(new ImageView(carcel.getImage()), 0, 5);
+        this.add(salida.getPanel(), 5, 5);
+        this.add(quini6.getPanel(), 4, 5);
+        this.add(barrio1.getPanel(), 3, 5);
+        this.add(edesur.getPanel(), 2, 5);
+        this.add(barrio2.getPanel(), 1, 5);
+        this.add(carcel.getPanel(), 0, 5);
 
-        this.add(new ImageView(barrio3.getImage()), 0, 4);
-        this.add(new ImageView(avance.getImage()), 0, 3);
-        this.add(new ImageView(subte.getImage()), 0, 2);
-        this.add(new ImageView(barrio4.getImage()), 0, 1);
-        this.add(new ImageView(impuesto.getImage()), 0, 0);
+        this.add(barrio3.getPanel(), 0, 4);
+        this.add(avance.getPanel(), 0, 3);
+        this.add(subte.getPanel(), 0, 2);
+        this.add(barrio4.getPanel(), 0, 1);
+        this.add(impuesto.getPanel(), 0, 0);
 
-        this.add(new ImageView(barrio5.getImage()), 1, 0);
-        this.add(new ImageView(aysa.getImage()), 2, 0);
-        this.add(new ImageView(barrio6.getImage()), 3, 0);
-        this.add(new ImageView(barrio7.getImage()), 4, 0);
-        this.add(new ImageView(policia.getImage()), 5, 0);
+        this.add(barrio5.getPanel(), 1, 0);
+        this.add(aysa.getPanel(), 2, 0);
+        this.add(barrio6.getPanel(), 3, 0);
+        this.add(barrio7.getPanel(), 4, 0);
+        this.add(policia.getPanel(), 5, 0);
 
-        this.add(new ImageView(tren.getImage()), 5, 1);
-        this.add(new ImageView(barrio8.getImage()), 5, 2);
-        this.add(new ImageView(retroceso.getImage()), 5, 3);
-        this.add(new ImageView(barrio9.getImage()), 5, 4);
+        this.add(tren.getPanel(), 5, 1);
+        this.add(barrio8.getPanel(), 5, 2);
+        this.add(retroceso.getPanel(), 5, 3);
+        this.add(barrio9.getPanel(), 5, 4);*/
 
-        this.add(new ImageView(new Image("File:src/vista/assets/images/casilleros/Tablero_08.jpg")), 1, 1, 4, 4);
+        //this.add(new ImageView(new Image("File:src/vista/assets/images/casilleros/Tablero_08.jpg")), 1, 1, 4, 4);
     }
 }
