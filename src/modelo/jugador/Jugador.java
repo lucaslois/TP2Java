@@ -203,7 +203,9 @@ public class Jugador {
 
     public int tirarDados() {
         Dados dados = Dados.getInstance();
-        return dados.tirarDados();
+        int resultado = dados.tirarDados();
+        this.setUltimaTiradaDados(resultado);
+        return resultado;
     }
 
     public void vender(Edificable comprable) {

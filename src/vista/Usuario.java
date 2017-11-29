@@ -30,4 +30,8 @@ public class Usuario {
     public Ficha getFicha() {
         return this.ficha;
     }
+
+    public void setPosicion(Posicion posicion) {
+        this.pos = posicion;
+    }
 }

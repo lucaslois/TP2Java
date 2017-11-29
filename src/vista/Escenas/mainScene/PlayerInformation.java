@@ -9,13 +9,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.jugador.Jugador;
+import vista.AlgoPoly;
 import vista.Usuario;
 
 public class PlayerInformation extends VBox {
     private Jugador jugador;
 
-    public PlayerInformation(Usuario usuario) {
+    public PlayerInformation(Usuario user) {
+        this.refresh(user);
+        AlgoPoly algoPoly = AlgoPoly.getInstance();
+        algoPoly.setPanelPlayerInformation(this);
+    }
+
+    public void refresh(Usuario user) {
+        AlgoPoly algoPoly = AlgoPoly.getInstance();
+        Usuario usuario = algoPoly.getUsuarioActual();
         this.jugador = usuario.getJugador();
+
+        this.getChildren().clear();
 
         Label labelNombre = new Label();
         labelNombre.setText(this.jugador.getNombre());
@@ -28,7 +39,7 @@ public class PlayerInformation extends VBox {
 
         Button lnzarDadosButton = new Button();
         lnzarDadosButton.setText("Lanzar los dados");
-        BotonLanzarDados botonLanzar = new BotonLanzarDados(usuario);
+        BotonLanzarDados botonLanzar = new BotonLanzarDados(usuario, this);
         lnzarDadosButton.setOnAction(botonLanzar);
         Button comprarButton = new Button();
         comprarButton.setText("Comprar propiedad");

@@ -9,10 +9,12 @@ public class CasilleroVista {
     private Image imagen;
     private Casillero casillero;
     private StackPane panel;
+    private Posicion pos;
 
     public CasilleroVista(Casillero casillero) {
         this.casillero = casillero;
         this.panel = new StackPane();
+        this.pos = new Posicion();
     }
 
     public void setImage(String nombre) {
@@ -34,5 +36,13 @@ public class CasilleroVista {
 
     public void quitarFicha(Ficha ficha) {
         this.panel.getChildren().remove(ficha);
+    }
+
+    public void setPosicion(int col, int row) {
+        this.pos.setPos(col, row);
+    }
+
+    public Posicion getPosicion() {
+        return this.pos;
     }
 }

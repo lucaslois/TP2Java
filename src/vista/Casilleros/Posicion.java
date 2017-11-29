@@ -28,4 +28,9 @@ public class Posicion {
 
     public int getRow() { return this.row; }
     public int getCol() { return this.col; }
+
+    public void setPos(int col, int row) {
+        this.row = row;
+        this.col = col;
+    }
 }
