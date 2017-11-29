@@ -32,13 +32,20 @@ public class ControladorTurnos {
             this.jugadorAnt=this.getJugadorActual();
             return jugadores.get(posActual) ;
         }
-        this.jugadorAnt=this.getJugadorActual();
+        this.jugadorAnt=jugadores.get(posActual);
         posActual++;
-        if(posActual>3)posActual=0;
+        if(posActual>=3)posActual=0;
+
         return jugadores.get(posActual);
     }
 
     public Jugador getJugadorActual() {
-        return jugadores.get(posActual);
+        Jugador jugadorActual = jugadores.get(posActual);
+        if(!jugadorActual.puedeMoverse()){
+            jugadorActual.inicializarTurno();
+            jugadorActual=this.getJugadorSiguiente();
+        }
+
+        return jugadorActual;
     }
 }
