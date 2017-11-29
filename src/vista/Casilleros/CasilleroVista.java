@@ -10,8 +10,8 @@ public class CasilleroVista {
     private Casillero casillero;
     private StackPane panel;
 
-    public CasilleroVista() {
-        //this.casillero = casillero;
+    public CasilleroVista(Casillero casillero) {
+        this.casillero = casillero;
         this.panel = new StackPane();
     }
 

@@ -1,4 +1,4 @@
-package vista.mainScene;
+package vista.Escenas.mainScene;
 
 import controladores.BotonLanzarDados;
 import javafx.scene.control.Button;
@@ -9,13 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.jugador.Jugador;
-import modelo.tablero.ControladorTurnos;
+import vista.Usuario;
 
 public class PlayerInformation extends VBox {
     private Jugador jugador;
 
-    public PlayerInformation(Jugador unJugador,ImageView figura) {
-        this.jugador = unJugador;
+    public PlayerInformation(Usuario usuario) {
+        this.jugador = usuario.getJugador();
 
         Label labelNombre = new Label();
         labelNombre.setText(this.jugador.getNombre());
@@ -28,7 +28,7 @@ public class PlayerInformation extends VBox {
 
         Button lnzarDadosButton = new Button();
         lnzarDadosButton.setText("Lanzar los dados");
-        BotonLanzarDados botonLanzar=new BotonLanzarDados(figura);
+        BotonLanzarDados botonLanzar = new BotonLanzarDados(usuario);
         lnzarDadosButton.setOnAction(botonLanzar);
         Button comprarButton = new Button();
         comprarButton.setText("Comprar propiedad");

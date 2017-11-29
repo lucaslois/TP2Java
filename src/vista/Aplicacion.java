@@ -3,7 +3,7 @@ package vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import vista.inicioScene.ContenedorInicio;
+import vista.Escenas.inicioScene.ContenedorInicio;
 
 public class Aplicacion extends Application {
 

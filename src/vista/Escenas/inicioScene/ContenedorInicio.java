@@ -1,15 +1,11 @@
-package vista.inicioScene;
+package vista.Escenas.inicioScene;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class ContenedorInicio extends VBox {
     public ContenedorInicio(Stage stage) {

@@ -1,4 +1,4 @@
-package vista.mainScene;
+package vista.Escenas.mainScene;
 
 import java.util.ArrayList;
 
@@ -8,23 +8,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import modelo.jugador.Jugador;
-import modelo.tablero.ControladorTurnos;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
-import modelo.tablero.tipos_casilleros.Salida;
+import vista.AlgoPoly;
+import vista.Usuario;
 
 public class ContenedorPrincipal extends BorderPane {
-    public ContenedorPrincipal(ArrayList<String> nombreJugadores) {
-        this.setPanel(nombreJugadores);
+    public ContenedorPrincipal() {
+        this.setPanel();
     }
 
-    public void setPanel(ArrayList<String> nomJugadores) {
-    	Tablero tablero = TableroFactory.crearTablero();
-    	ControladorTurnos turnos=new ControladorTurnos();
-    	turnos.agregarTodosLosJugadores(setDeJugadores(nomJugadores,tablero));
+    public void setPanel() {
+        AlgoPoly algoPoly = AlgoPoly.getInstance();
+    	Tablero tablero = algoPoly.getTablero();
 
-
-    	CampoJuego campoJuego = new CampoJuego();
+        CampoJuego campoJuego = CampoJuego.getInstance(tablero);
     	campoJuego.setHgap(0);
     	campoJuego.setVgap(0);
         campoJuego.setAlignment(Pos.CENTER);
@@ -35,13 +33,11 @@ public class ContenedorPrincipal extends BorderPane {
         this.setCenter(campoJuego);
 
         ImageView figura_01=agregarFicha("file:src/vista/assets/images/figura_01.png",90,80);
-        Jugador primerJugador = turnos.getJugadorActual();
-        PlayerInformation box1 = new PlayerInformation(primerJugador,figura_01);
+        Usuario primerUsuario = algoPoly.getUsuarioActual();
+        PlayerInformation box1 = new PlayerInformation(primerUsuario);
         box1.setPadding(new Insets(40));
         box1.setSpacing(5);
         this.setLeft(box1);
-        
-
     }
 
     public ImageView agregarFicha(String direccion,int alto,int ancho) {

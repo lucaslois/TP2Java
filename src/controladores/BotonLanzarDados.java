@@ -2,26 +2,37 @@ package controladores;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import modelo.jugador.Jugador;
-import modelo.tablero.ControladorTurnos;
+import modelo.jugador.estados.Dados;
+import modelo.tablero.Tablero;
+import modelo.tablero.TableroFactory;
+import vista.Casilleros.Posicion;
+import vista.Escenas.mainScene.CampoJuego;
+import vista.Usuario;
 
 public class BotonLanzarDados implements EventHandler<ActionEvent> {
 	private ImageView figura;
-	public BotonLanzarDados(ImageView nuevafig){
-		this.figura=nuevafig;
-
+	private Usuario usuario;
+	public BotonLanzarDados(Usuario usuario){
+		this.usuario = usuario;
 	}
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		figura.setTranslateX((figura.getTranslateX())+65);
-        figura.setTranslateY((figura.getTranslateY())+10);
-        System.out.print(figura.getTranslateX());
-        System.out.print(",");
-        System.out.print(figura.getTranslateY());
-        System.out.println("");
-		
+		Jugador jugador = usuario.getJugador();
+
+		Dados dados = Dados.getInstance();
+		int pasos = dados.tirarDados();
+		jugador.avanzar(pasos);
+
+		Image imagen = new Image("File:src/vista/assets/images/ficha_reducida.png");
+		CampoJuego campo = CampoJuego.getInstance(TableroFactory.crearTableroGrafico());
+		Posicion pos = usuario.getPosicion();
+		pos.next(pasos);
+		campo.refresh();
+		campo.add(new ImageView(imagen), pos.getCol(), pos.getRow());
 	}
 
 }

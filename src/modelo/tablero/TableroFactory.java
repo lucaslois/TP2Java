@@ -104,7 +104,7 @@ public class TableroFactory {
         return tablero;
     }//esos numeros todos feos son los alquileres, se nesecitan para hacer las pruebas
 
-    public static Tablero crearTableroProd() {
+    public static Tablero crearTableroGrafico() {
         Tablero tablero = new Tablero();
         tablero.agregarCasillero(new Salida());
         tablero.agregarCasillero(new Quini6());
@@ -116,8 +116,10 @@ public class TableroFactory {
                 .setPrecioConstruirHotel(8000)
                 .setPrecioAlquilerCeroCasas(2000);
         BarrioDoble baSur = new BarrioDoble(20000, esquemaBaSur);
+        tablero.agregarCasillero(baSur);//BA Sur
 
-        Servicio edesur = new Servicio();
+        Servicio edesur = new Servicio(35000, 500, 1000);
+        tablero.agregarCasillero(edesur);
 
         EsquemaPrecio esquemaBaNorte = new EsquemaPrecio();
         esquemaBaNorte.setPrecioAlquilerUnaCasa(3500)
@@ -129,7 +131,6 @@ public class TableroFactory {
         BarrioDoble baNorte = new BarrioDoble(25000,esquemaBaNorte);
         baSur.setPar(baNorte);
         baNorte.setPar(baSur);
-        tablero.agregarCasillero(baSur);//BA Sur
         tablero.agregarCasillero(baNorte);//BA Norte
 
         tablero.agregarCasillero(new Carcel());
@@ -142,6 +143,13 @@ public class TableroFactory {
                 .setPrecioConstruirHotel(3000)
                 .setPrecioAlquilerCeroCasas(1000);
         BarrioDoble cordobaSur = new BarrioDoble(18000,esquemaCordobaSur);
+        tablero.agregarCasillero(cordobaSur);//Cordoba Sur
+
+        AvanceDinamico avance = new AvanceDinamico();
+        tablero.agregarCasillero(avance);
+
+        Servicio subte = new Servicio(40000, 600, 1100);
+        tablero.agregarCasillero(subte);
 
         EsquemaPrecio esquemaCordobaNorte = new EsquemaPrecio();
         esquemaCordobaNorte .setPrecioAlquilerUnaCasa(1800)
@@ -151,9 +159,11 @@ public class TableroFactory {
                 .setPrecioConstruirHotel(3500)
                 .setPrecioAlquilerCeroCasas(1300);
         BarrioDoble cordobaNorte = new BarrioDoble(20000,esquemaCordobaNorte);
-        tablero.agregarCasillero(cordobaSur.setPar(cordobaNorte));//Cordoba Sur
         tablero.agregarCasillero(cordobaNorte.setPar(cordobaSur));//Cordoba Norte
+        cordobaSur.setPar(cordobaNorte);
 
+        ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
+        tablero.agregarCasillero(impuesto);
 
         EsquemaPrecio esquemaSantaFe = new EsquemaPrecio();
         esquemaSantaFe.setPrecioAlquilerUnaCasa(3500)
@@ -165,14 +175,8 @@ public class TableroFactory {
         BarrioSimple santaFe = new BarrioSimple (15000, esquemaSantaFe);
         tablero.agregarCasillero(santaFe);//Santa Fe
 
-        EsquemaPrecio esquemaSaltaSur = new EsquemaPrecio();
-        esquemaSaltaSur.setPrecioAlquilerUnaCasa(3250)
-                .setPrecioAlquilerDosCasas(3850)
-                .setPrecioAlquilerHotel(5500)
-                .setPrecioConstruirCasa(4500)
-                .setPrecioConstruirHotel(7500)
-                .setPrecioAlquilerCeroCasas(2000);
-        BarrioDoble saltaSur = new BarrioDoble(23000,esquemaSaltaSur);
+        Servicio aysa = new Servicio(30000, 300, 500);
+        tablero.agregarCasillero(aysa);
 
         EsquemaPrecio esquemaSaltaNorte = new EsquemaPrecio();
         esquemaSaltaNorte.setPrecioAlquilerUnaCasa(3250)
@@ -182,9 +186,23 @@ public class TableroFactory {
                 .setPrecioConstruirHotel(7500)
                 .setPrecioAlquilerCeroCasas(2000);
         BarrioDoble saltaNorte = new BarrioDoble(23000,esquemaSaltaNorte);
+        tablero.agregarCasillero(saltaNorte);//Salta Norte
+
+        EsquemaPrecio esquemaSaltaSur = new EsquemaPrecio();
+        esquemaSaltaSur.setPrecioAlquilerUnaCasa(3250)
+                .setPrecioAlquilerDosCasas(3850)
+                .setPrecioAlquilerHotel(5500)
+                .setPrecioConstruirCasa(4500)
+                .setPrecioConstruirHotel(7500)
+                .setPrecioAlquilerCeroCasas(2000);
+        BarrioDoble saltaSur = new BarrioDoble(23000,esquemaSaltaSur);
         tablero.agregarCasillero(saltaSur.setPar(saltaNorte));//Salta Sur
-        tablero.agregarCasillero(saltaNorte.setPar(saltaSur));//Salta Norte
+        saltaNorte.setPar(saltaSur);
+
         tablero.agregarCasillero(new Policia());
+
+        Servicio tren = new Servicio(38000, 450, 800);
+        tablero.agregarCasillero(tren);
 
         EsquemaPrecio esquemaNeuquen = new EsquemaPrecio();
         esquemaNeuquen.setPrecioAlquilerUnaCasa(3800)
@@ -195,11 +213,14 @@ public class TableroFactory {
                 .setPrecioAlquilerCeroCasas(1800);
         tablero.agregarCasillero(new BarrioSimple(17000,esquemaNeuquen));//Neuquen
 
+        RetrocesoDinamico retroceso = new RetrocesoDinamico();
+        tablero.agregarCasillero(retroceso);
+
         EsquemaPrecio esquemaTucuman = new EsquemaPrecio();
         esquemaTucuman.setPrecioAlquilerUnaCasa(4500)//ESTA SERIA LA CASITA DE TUC
                 .setPrecioAlquilerDosCasas(0)
                 .setPrecioAlquilerHotel(0)
-                .setPrecioConstruirCasa(700)
+                .setPrecioConstruirCasa(7000)
                 .setPrecioConstruirHotel(0)
                 .setPrecioAlquilerCeroCasas(2500);
         tablero.agregarCasillero(new BarrioSimple(25000,esquemaTucuman));//Tucuman

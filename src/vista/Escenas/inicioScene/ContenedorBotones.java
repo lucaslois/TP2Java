@@ -1,10 +1,6 @@
-package vista.inicioScene;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+package vista.Escenas.inicioScene;
 
 import controladores.BotonIniciarJuegoController;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,8 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import modelo.tablero.Tablero;
-import modelo.tablero.TableroFactory;
 
 
 public class ContenedorBotones extends VBox {
@@ -40,17 +34,16 @@ public class ContenedorBotones extends VBox {
         
         Button iniciarButton = new Button();
         iniciarButton.setText("Cargar Jugador");
-        //iniciarButton.setStyle("-fx-background-color: #a3d1ad; -fx-color: #FFFFFF");
 
         BotonIniciarJuegoController botonController = new BotonIniciarJuegoController(nombreJugadorTxt, stage);
         iniciarButton.setOnAction(botonController);
         
         Button figura_01Boton = new Button();
-        figura_01Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/figura_01.png",100,80));
+        figura_01Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/ficha_01.png",100,80));
         Button figura_02Boton = new Button();
-        figura_02Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/figura_02.png",100,80));
+        figura_02Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/ficha_02.png",100,80));
         Button figura_03Boton = new Button();
-        figura_03Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/figura_03.png",100,80));
+        figura_03Boton.setGraphic(ingresarImagenEnBoton("file:src/vista/assets/images/ficha_03.png",100,80));
 
         HBox seleccionDeFiguras =new HBox();
         seleccionDeFiguras.setAlignment(Pos.CENTER);
@@ -65,5 +58,6 @@ public class ContenedorBotones extends VBox {
         ImageView fondo_01 = new ImageView(fondo);
         fondo_01.setFitWidth(alto);
         fondo_01.setFitHeight(ancho);
-        return fondo_01;}
+        return fondo_01;
+    }
 }
