@@ -49,5 +49,17 @@ public class DadosTest {
         Assert.assertNotEquals(controlador.getJugadorActual(),controlador.getJugadorSiguiente());
     }
 
+    @Test
+    public void testJugadorTiraDadosYAvanzaLoQueDiceLosDados(){
+        Tablero tablero = TableroFactory.crearTablero();
+        Jugador jugador = new Jugador("Oli", tablero);
+
+        int cantidad = jugador.tirarDados();
+        jugador.avanzar(cantidad);
+
+        Assert.assertEquals(cantidad,jugador.getCantidadDePasosDados());
+
+    }
+
 
 }

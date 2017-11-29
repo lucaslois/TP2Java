@@ -168,28 +168,41 @@ public class Jugador {
     }
 
     public void intercambiarPropiedad(Barrio mio,Jugador otroJugador, Barrio suyo) {
+        this.eliminarPropiedad(mio);
         mio.eliminarEdificaciones();
         mio.setPropietario(otroJugador);
-        if(suyo!=null) {
+        /*if(suyo!=null) {
             suyo.eliminarEdificaciones();
             suyo.setPropietario(this);
-        }
+        }*/
+        otroJugador.eliminarPropiedad(suyo);
+        suyo.eliminarEdificaciones();
+        suyo.setPropietario(this);
+
     }
 
-    public int tirarDados(){
+    private void eliminarPropiedad(Edificable comprable) {
+        this.controladorPropiedades.borrar(comprable);
+    }
+
+    private void eliminarPropiedad(NoEdificable comprable){
+        this.controladorPropiedades.borrar(comprable);
+    }
+
+    public int tirarDados() {
         Dados dados = Dados.getInstance();
         return dados.tirarDados();
     }
 
     public void vender(Edificable comprable) {
-        this.controladorPropiedades.borrar(comprable);
+        this.eliminarPropiedad(comprable);
         int precio = comprable.getPrecioCuandoSeVende();
         this.dinero += precio;
         comprable.liquidarPropiedad();
     }
 
     public void vender(NoEdificable comprable) {
-        this.controladorPropiedades.borrar(comprable);
+        this.eliminarPropiedad(comprable);
         int precio = comprable.getPrecioCuandoSeVende();
         this.dinero += precio;
         comprable.liquidarPropiedad();

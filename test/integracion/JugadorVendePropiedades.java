@@ -7,9 +7,11 @@ import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Barrio;
 import modelo.tablero.tipos_casilleros.BarrioSimple;
 import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
+import org.junit.Test;
 
 public class JugadorVendePropiedades {
 
+    @Test
     public void testJugadorCaeEnCasilleroQueGeneraGastoYDebeVenderPropiedadesParaPagarlo() {
         Tablero tablero = TableroFactory.crearTablero();
         Jugador propietario = new Jugador("Lucky", tablero);

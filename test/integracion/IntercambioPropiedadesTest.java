@@ -62,7 +62,7 @@ public class IntercambioPropiedadesTest {
         Assert.assertEquals((int) otroJugador.getDinero(), Dinero + 1500);
     }
 
-    @Test
+    /*@Test
     public void testJugadorNoTieneDineroParaPagarYPagaConUnaPropiedad() {
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("Oli", tablero);
@@ -92,7 +92,7 @@ public class IntercambioPropiedadesTest {
         baSur.pisar(tercerJugador);
 
         Assert.assertEquals((int) unJugador.getDinero(), Dinero + 2000);
-    }
+    }*/
 
 
 
