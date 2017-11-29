@@ -27,7 +27,7 @@ public class BotonLanzarDados implements EventHandler<ActionEvent> {
 		int pasos = dados.tirarDados();
 		jugador.avanzar(pasos);
 
-		Image imagen = new Image("File:src/vista/assets/images/ficha_reducida.png");
+		Image imagen = usuario.getFicha().getImage();//new Image("File:src/vista/assets/images/ficha_reducida.png");
 		CampoJuego campo = CampoJuego.getInstance(TableroFactory.crearTableroGrafico());
 		Posicion pos = usuario.getPosicion();
 		pos.next(pasos);
