@@ -10,4 +10,8 @@ public interface Comprable {
 	
 	int getPrecio();
 
+	void liquidarPropiedad();
+
+	int getPrecioCuandoSeVende();
+
 }

@@ -1,5 +1,6 @@
 package modelo.jugador;
 
+import exceptions.JugadorNoEsDuenioDePropiedadException;
 import exceptions.JugadorNoTieneDineroException;
 import modelo.jugador.estados.Dados;
 import modelo.tablero.Nodo;
@@ -35,6 +36,9 @@ public class Jugador {
         this.tablero = tablero;
     }
 
+
+
+
     // ########### MÉTODOS DE DINERO ###############
 
     public double getDinero() {
@@ -46,8 +50,9 @@ public class Jugador {
     }
 
     public void pagar(double monto) {
-        if(monto > this.dinero)
+        if(monto > this.dinero) {
             throw new JugadorNoTieneDineroException();
+        }
         this.dinero -= monto;
     }
 
@@ -176,4 +181,17 @@ public class Jugador {
         return dados.tirarDados();
     }
 
+    public void vender(Edificable comprable) {
+        this.controladorPropiedades.borrar(comprable);
+        int precio = comprable.getPrecioCuandoSeVende();
+        this.dinero += precio;
+        comprable.liquidarPropiedad();
+    }
+
+    public void vender(NoEdificable comprable) {
+        this.controladorPropiedades.borrar(comprable);
+        int precio = comprable.getPrecioCuandoSeVende();
+        this.dinero += precio;
+        comprable.liquidarPropiedad();
+    }
 }

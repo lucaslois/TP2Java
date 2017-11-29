@@ -44,4 +44,9 @@ public abstract class Barrio extends Casillero implements Edificable {
     public abstract void agregarHotel(Jugador jugador);
 
     public abstract void eliminarEdificaciones();
+
+
+    protected abstract int getPrecioTotal();
+
+    public abstract int getPrecioCuandoSeVende();
 }

@@ -34,11 +34,11 @@ public class TransporteTest {
         Jugador unJugador = new Jugador("EvilOli", tablero);
         Servicio trenes = new Servicio(38000,450,800);
         Servicio subte = new Servicio(40000,600,1100);
-        trenes.setPar(subte);
-        subte.setPar(trenes);
+
         unJugador.comprar(trenes);
         unJugador.comprar(subte);
-
+        trenes.setPar(subte);
+        subte.setPar(trenes);
         Jugador otroJugador = new Jugador("Oli",tablero);
         int Dinero = (int)otroJugador.getDinero();
         otroJugador.setUltimaTiradaDados(5);

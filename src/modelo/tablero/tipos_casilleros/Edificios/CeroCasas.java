@@ -29,4 +29,8 @@ public class CeroCasas extends Edificio {
     public int getCantidadDeCasas() {
         return 0;
     }
+
+    public int getPrecioDeConstruccion() {
+        return 0;
+    }
 }

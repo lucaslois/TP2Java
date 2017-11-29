@@ -52,4 +52,18 @@ public class BarrioSimple extends Barrio {
         this.controladorEdificios.eliminarEdificaciones();
     }
 
+    @Override
+    public void liquidarPropiedad() {
+
+    }
+
+    protected int getPrecioTotal() {
+        return this.getPrecio() + this.controladorEdificios.getPrecioEdificioActual();
+    }
+
+    @Override
+    public int getPrecioCuandoSeVende() {
+        return (int) (this.getPrecioTotal() * 0.85);
+    }
+
 }

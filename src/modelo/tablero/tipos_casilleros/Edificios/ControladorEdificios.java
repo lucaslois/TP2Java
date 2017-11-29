@@ -52,4 +52,8 @@ public class ControladorEdificios {
     }
 
     public void eliminarEdificaciones(){this.edificio = new CeroCasas(this.esquema);}
+
+    public int getPrecioEdificioActual() {
+        return this.edificio.getPrecioDeConstruccion();
+    }
 }

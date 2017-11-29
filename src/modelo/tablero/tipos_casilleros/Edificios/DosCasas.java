@@ -29,4 +29,8 @@ public class DosCasas extends Edificio {
     public int getCantidadDeCasas() {
         return 2;
     }
+
+    public int getPrecioDeConstruccion() {
+        return this.esquema.getPrecioConstruirCasa() * 2;
+    }
 }

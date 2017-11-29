@@ -31,11 +31,11 @@ public class ServiciosTest {
         Jugador unJugador = new Jugador("EvilOli", tablero);
         Servicio edesur = new Servicio(35000,500,1000);
         Servicio aysa = new Servicio(30000,300,500);
-        edesur.setPar(aysa);
+
         aysa.setPar(edesur);
         unJugador.comprar(edesur);
         unJugador.comprar(aysa);
-
+        edesur.setPar(aysa);
         Jugador otroJugador = new Jugador("Oli",tablero);
         int Dinero = (int)otroJugador.getDinero();
         otroJugador.setUltimaTiradaDados(5);

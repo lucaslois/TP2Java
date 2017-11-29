@@ -71,6 +71,21 @@ public class BarrioDoble extends Barrio {
     @Override
     public void eliminarEdificaciones() {
         this.controladorEdificios.eliminarEdificaciones();
+    }
 
+
+
+    protected int getPrecioTotal() {
+        return this.getPrecio() + this.controladorEdificios.getPrecioEdificioActual();
+    }
+
+    @Override
+    public void liquidarPropiedad() {
+        return;
+    }
+
+    @Override
+    public int getPrecioCuandoSeVende() {
+        return (int) (this.getPrecioTotal() * 0.85);
     }
 }

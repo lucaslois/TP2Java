@@ -16,4 +16,6 @@ public abstract class Edificio {
 
     public abstract int getCantidadDeHoteles();
     public abstract int getCantidadDeCasas();
+
+    public abstract int getPrecioDeConstruccion();
 }

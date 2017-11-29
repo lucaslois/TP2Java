@@ -31,4 +31,8 @@ public class Hotel extends Edificio {
     public int getCantidadDeCasas() {
         return 0;
     }
+
+    public int getPrecioDeConstruccion() {
+        return this.esquema.getPrecioConstruirCasa() * 2 + this.esquema.getPrecioConstruirHotel();
+    }
 }
