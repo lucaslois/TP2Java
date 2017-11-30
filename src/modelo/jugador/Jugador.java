@@ -1,8 +1,7 @@
 package modelo.jugador;
 
-import exceptions.JugadorNoEsDuenioDePropiedadException;
 import exceptions.JugadorNoTieneDineroException;
-import modelo.jugador.estados.Dados;
+import exceptions.PropiedadYaTieneDuenioException;
 import modelo.tablero.Nodo;
 import modelo.tablero.Tablero;
 import modelo.tablero.tipos_casilleros.*;
@@ -57,15 +56,21 @@ public class Jugador {
     }
 
     public void comprar(Edificable unaPropiedad) {
-        this.pagar(unaPropiedad.getPrecio());
-        unaPropiedad.setPropietario(this);
-        this.controladorPropiedades.comprar(unaPropiedad);
+        if(unaPropiedad.getPropietario() == null) {
+            this.pagar(unaPropiedad.getPrecio());
+            unaPropiedad.setPropietario(this);
+            this.controladorPropiedades.comprar(unaPropiedad);
+        }
+        else new PropiedadYaTieneDuenioException();
     }
 
     public void comprar(NoEdificable unaPropiedad){
-        this.pagar(unaPropiedad.getPrecio());
-        unaPropiedad.setPropietario(this);
-        this.controladorPropiedades.comprar(unaPropiedad);
+        if(unaPropiedad.getPropietario() == null) {
+            this.pagar(unaPropiedad.getPrecio());
+            unaPropiedad.setPropietario(this);
+            this.controladorPropiedades.comprar(unaPropiedad);
+        }
+        else new PropiedadYaTieneDuenioException();
     }
 
     // ########### FIN MÉTODOS DE DINERO ###############

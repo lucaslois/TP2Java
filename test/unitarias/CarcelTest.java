@@ -4,7 +4,6 @@ import exceptions.JugadorNoTieneDineroException;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
 import modelo.tablero.tipos_casilleros.Carcel;
-import modelo.jugador.AccionesDelJugador;
 import modelo.jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
@@ -42,11 +41,10 @@ public class CarcelTest {
         Tablero tablero = TableroFactory.crearTablero();
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Kev", tablero);
-        AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
         carcel.pisar(jugador);
         jugador.inicializarTurno(); // PASA EL PRIMER TURNO
         jugador.inicializarTurno(); // PASA EL SEGUNDO TURNO
-        accJugador.pagarFianza(carcel);
+        jugador.pagarFianzaDeCarcel();
         Assert.assertTrue(jugador.puedeMoverse());
     }
 
@@ -55,12 +53,11 @@ public class CarcelTest {
         Tablero tablero = TableroFactory.crearTablero();
         Carcel carcel = new Carcel();
         Jugador jugador = new Jugador("Kev", tablero);
-        AccionesDelJugador accJugador = new AccionesDelJugador(jugador);
         jugador.pagar(80000);  // le saco plata
         carcel.pisar(jugador);
         jugador.inicializarTurno(); // PASA EL PRIMER TURNO
         jugador.inicializarTurno(); // PASA EL SEGUNDO TURNO
-        accJugador.pagarFianza(carcel);
+        jugador.pagarFianzaDeCarcel();
     }
 
 

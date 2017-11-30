@@ -1,7 +1,7 @@
 package integracion;
 
 import modelo.jugador.Jugador;
-import modelo.jugador.estados.Dados;
+import modelo.jugador.Dados;
 import modelo.tablero.ControladorTurnos;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;

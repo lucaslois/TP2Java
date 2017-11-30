@@ -1,7 +1,6 @@
 package modelo.tablero;
 
 import modelo.jugador.Jugador;
-import modelo.jugador.estados.Dados;
 
 import java.util.ArrayList;
 

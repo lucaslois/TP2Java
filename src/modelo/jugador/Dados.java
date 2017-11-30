@@ -1,4 +1,4 @@
-package modelo.jugador.estados;
+package modelo.jugador;
 
 public class Dados {
     private static Dados ourInstance = new Dados();
