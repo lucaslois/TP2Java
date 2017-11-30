@@ -139,8 +139,6 @@ public class Jugador {
 
     public ArrayList<Comprable> getListaComprables() { return this.controladorPropiedades.getComprables(); }
 
-    public ArrayList<Edificable> getListaEdificables() { return this.controladorPropiedades.getEdificables(); }
-
     public boolean esDuenioDePropiedad(Comprable barrio) {
         return this.controladorPropiedades.tienePropiedad(barrio);
     }
@@ -238,11 +236,7 @@ public class Jugador {
         Dados dados = Dados.getInstance();
         int resultado = dados.tirarDados();
         this.setUltimaTiradaDados(resultado);
-<<<<<<< Updated upstream
-        this.tiroDoble= dados.esDoble();
-=======
         this.tiroDoble = dados.esDoble();
->>>>>>> Stashed changes
         return resultado;
     }
 
