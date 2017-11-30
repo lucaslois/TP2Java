@@ -1,5 +1,6 @@
 package modelo.tablero;
 
+import modelo.jugador.Dados;
 import modelo.jugador.Jugador;
 
 import java.util.ArrayList;
@@ -25,12 +26,12 @@ public class ControladorTurnos {
     }
 
     public Jugador getJugadorSiguiente() {
-        /*Dados dados = Dados.getInstance();
+        Dados dados = Dados.getInstance();
 
         if (dados.esDoble() && this.jugadorAnt != jugadores.get(posActual)) {//segunda condicion es para que no pueda jugar 3 veces
             this.jugadorAnt = this.getJugadorActual();
             return jugadores.get(posActual);
-        }*/
+        }
         this.jugadorAnt = jugadores.get(posActual);
         posActual++;
         if (posActual >= this.jugadores.size()) posActual = 0;
@@ -40,11 +41,20 @@ public class ControladorTurnos {
 
     public void cambiarTurno() {
         // TODO: Implementar. Se debe tener en cuenta cuando el usuario saca doble numero en dados y no debe interferir con las tiradas para los servicios (AySA, Subte, ETC)
+        Dados dados = Dados.getInstance();
+
+        if (dados.esDoble() && this.jugadorAnt != jugadores.get(posActual)) {//segunda condicion es para que no pueda jugar 3 veces
+            this.jugadorAnt = this.getJugadorActual();
+        }
+
+
         //Dados dados = Dados.getInstance();
-        this.posActual++;
-        if (posActual >= this.jugadores.size()) posActual = 0;
-        Jugador jugador = jugadores.get(posActual);
-        jugador.inicializarTurno();
+        else {
+            this.posActual++;
+            if (posActual >= this.jugadores.size()) posActual = 0;
+        }
+         Jugador jugador = jugadores.get(posActual);
+         jugador.inicializarTurno();
     }
 
     public Jugador getJugadorActual() {
