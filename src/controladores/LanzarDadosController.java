@@ -3,6 +3,7 @@ package controladores;
 import exceptions.JugadorNoPuedeMoverseException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import modelo.jugador.Jugador;
@@ -12,8 +13,6 @@ import vista.Casilleros.Cajas.CajaVista;
 import vista.Casilleros.Posicion;
 import vista.Escenas.mainScene.PlayerInformation;
 import vista.Usuario;
-
-import javax.swing.*;
 
 
 public class LanzarDadosController implements EventHandler<ActionEvent> {
@@ -46,7 +45,10 @@ public class LanzarDadosController implements EventHandler<ActionEvent> {
 			System.out.println("==> " + jugador.getNombre() + " despues de pisar estoy en: " + jugador.getNodoActual().getCasillero().getClass().getName());
 		}
 		catch (JugadorNoPuedeMoverseException e) {
-			JOptionPane.showMessageDialog(null, "No puedes moverte porque estás preso. Te quedan " + jugador.getTurnosRestantesEnCarcel() + " turnos en la cárcel");
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No puedes moverte porque estás preso. Te quedan " + jugador.getTurnosRestantesEnCarcel() + " turnos en la cárcel");
+			alert.showAndWait();
 		}
 
 		Posicion nuevaPosicion = algoPoly.getCasilleroVista(jugador.getNodoActual()).getPosicion();

@@ -1,5 +1,6 @@
 package vista.Casilleros.Cajas;
 
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
@@ -22,8 +23,12 @@ public class Quini6Vista extends CajaVista {
     @Override
     public void pisar(Jugador unJugador) {
         this.casillero.pisar(unJugador);
-        if(((Quini6) this.casillero).puedeSeguirCobrando(unJugador))
-            JOptionPane.showMessageDialog(null, "¡Ganaste el Quini 6!");
+        if(((Quini6) this.casillero).puedeSeguirCobrando(unJugador)) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("¡Ganaste el Quini6!");
+            alert.showAndWait();
+        }
     }
 
     @Override

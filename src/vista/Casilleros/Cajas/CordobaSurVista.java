@@ -1,5 +1,6 @@
 package vista.Casilleros.Cajas;
 
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
@@ -24,7 +25,10 @@ public class CordobaSurVista extends CajaVista {
         Comprable comprable = ((Comprable) this.casillero);
         if(comprable.getPropietario() != null && comprable.getPropietario() != unJugador) {
             Jugador propietario = comprable.getPropietario();
-            JOptionPane.showMessageDialog(null, "Has caido en "+ comprable.getNombre() + " y es propiedad de " + propietario.getNombre() + ". Debes pagar el alquiler!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Has caido en "+ comprable.getNombre() + " y es propiedad de " + propietario.getNombre() + ". Debes pagar el alquiler!");
+            alert.showAndWait();
         }
         this.casillero.pisar(unJugador);
     }
@@ -44,6 +48,9 @@ public class CordobaSurVista extends CajaVista {
     @Override
     public void esCompradoPor(Jugador jugador) {
         jugador.comprar((Edificable) this.casillero);
-        JOptionPane.showMessageDialog(null, "Has comprado Cordoba Sur por $" + ((Comprable) this.casillero).getPrecio() + ".");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Has comprado Cordoba Sur por $" + ((Comprable) this.casillero).getPrecio() + ".");
+        alert.showAndWait();
     }
 }

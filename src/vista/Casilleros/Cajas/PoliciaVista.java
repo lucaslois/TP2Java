@@ -1,5 +1,6 @@
 package vista.Casilleros.Cajas;
 
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
@@ -21,7 +22,10 @@ public class PoliciaVista extends CajaVista {
     @Override
     public void pisar(Jugador unJugador) {
         this.casillero.pisar(unJugador);
-        JOptionPane.showMessageDialog(null, "Caiste en la policia. ¡Marche preso!");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Caiste en la policia. ¡Marche preso!");
+        alert.showAndWait();
     }
 
     @Override

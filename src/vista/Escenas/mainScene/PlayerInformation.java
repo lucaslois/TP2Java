@@ -3,6 +3,7 @@ package vista.Escenas.mainScene;
 import controladores.LanzarDadosController;
 import controladores.ComprarPropiedadController;
 import controladores.PasarTurnoController;
+import controladores.VenderPropiedadesController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -20,6 +21,7 @@ public class PlayerInformation extends VBox {
     private Button lanzarDadosButton;
     private Button comprarButton;
     private Button pasarTurnoButton;
+    private Button venderPropiedadesButton;
 
     private ListaCasas listaCasas;
     private CuadroDados cuadroDados;
@@ -30,6 +32,7 @@ public class PlayerInformation extends VBox {
     private LanzarDadosController lanzarDadosController;
     private ComprarPropiedadController comprarPropiedadController;
     private PasarTurnoController pasarTurnoController;
+    private VenderPropiedadesController venderPropiedadesController;
 
     public PlayerInformation(Usuario user) {
         AlgoPoly algoPoly = AlgoPoly.getInstance();
@@ -109,13 +112,19 @@ public class PlayerInformation extends VBox {
         this.comprarPropiedadController = new ComprarPropiedadController(usuario, this);
         this.comprarButton.setOnAction(this.comprarPropiedadController);
 
+        // BOTON VENDER
+        this.venderPropiedadesButton = new Button();
+        this.venderPropiedadesButton.setText("Vender Propiedades");
+        this.venderPropiedadesController = new VenderPropiedadesController(usuario, this);
+        this.venderPropiedadesButton.setOnAction(this.venderPropiedadesController);
+
         // BOTON PASAR TURNO
         this.pasarTurnoButton = new Button();
         this.pasarTurnoButton.setText("Pasar Turno");
         this.pasarTurnoController = new PasarTurnoController(usuario, this);
         this.pasarTurnoButton.setOnAction(this.pasarTurnoController);
 
-        this.getChildren().addAll(this.nombreJugadorLabel, this.dineroJugadorLabel, lanzarDadosButton, this.comprarButton, this.pasarTurnoButton, this.listaCasas, this.cuadroDados);
+        this.getChildren().addAll(this.nombreJugadorLabel, this.dineroJugadorLabel, lanzarDadosButton, this.comprarButton, this.venderPropiedadesButton,this.pasarTurnoButton, this.listaCasas, this.cuadroDados);
     }
 
     public void setDisableLanzarDadosButton(Boolean check) {

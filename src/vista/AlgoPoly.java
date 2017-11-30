@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AlgoPoly {
-    private static AlgoPoly ourInstance = new AlgoPoly();
+    private static AlgoPoly ourInstance = new AlgoPoly(); // Singleton
+
     private ArrayList<Usuario> listaUsuarios;
     private Tablero tablero;
     private ControladorTurnos controladorTurnos;

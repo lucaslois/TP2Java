@@ -3,6 +3,7 @@ package controladores;
 import exceptions.JugadorNoTieneDineroException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
 import modelo.tablero.Nodo;
@@ -39,7 +40,10 @@ public class ComprarPropiedadController implements EventHandler<ActionEvent> {
             caja.esCompradoPor(jugador);
         }
         catch (JugadorNoTieneDineroException e) {
-            JOptionPane.showMessageDialog(null, "No tenés dinero para comprar la propiedad.");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("No tienes dinero para comprar la propiedad");
+            alert.showAndWait();
         }
 
         this.panelInformacion.refresh();

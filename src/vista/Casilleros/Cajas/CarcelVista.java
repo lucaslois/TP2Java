@@ -1,5 +1,6 @@
 package vista.Casilleros.Cajas;
 
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
@@ -19,7 +20,10 @@ public class CarcelVista extends CajaVista {
     }
 
     public void pisar(Jugador unJugador) {
-        JOptionPane.showMessageDialog(null, "Caiste en la cárcel. Estarás preso por 3 turnos");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Caiste en la cárcel. No podrás moverte por 3 turnos.");
+        alert.showAndWait();
         this.casillero.pisar(unJugador);
     }
 

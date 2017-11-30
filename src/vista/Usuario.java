@@ -1,16 +1,21 @@
 package vista;
 
 import exceptions.JugadorNoTieneDineroException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
 import modelo.tablero.Nodo;
 import modelo.tablero.Tablero;
+import modelo.tablero.tipos_casilleros.Comprable;
 import vista.Casilleros.Ficha;
 import vista.Casilleros.Posicion;
 import vista.Escenas.mainScene.PlayerInformation;
 
 import javax.swing.*;
+import java.util.Optional;
 
 public class Usuario {
     private Jugador jugador;
@@ -48,16 +53,24 @@ public class Usuario {
         Casillero casillero = nodoActual.getCasillero();
 
         if(jugador.estaPreso() && jugador.getTurnosRestantesEnCarcel() <= 2) {
-            int dialogButton = JOptionPane.YES_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(null, this.getJugador().getNombre() + ": deseas pagar una fianza de 45,000 pesos?", "Pago de fianza", dialogButton);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText(this.getJugador().getNombre() + ": deseas pagar una fianza de 45,000 pesos?");
+            Optional<ButtonType> result = alert.showAndWait();
 
-            if (dialogResult == JOptionPane.YES_OPTION) {
+            if (result.get() == ButtonType.OK) {
                 try {
                     jugador.pagarFianzaDeCarcel();
-                    JOptionPane.showMessageDialog(null, "Pagaste la fianza de la cárcel. ¡Eres libre!");
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setHeaderText(null);
+                    alert2.setContentText("Pagaste la fianza de la cárcel. ¡Eres libre!");
+                    alert2.showAndWait();
                 }
                 catch(JugadorNoTieneDineroException e) {
-                    JOptionPane.showMessageDialog(null, "No tienes dinero para pagar al fianza.");
+                    Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
+                    alert3.setHeaderText(null);
+                    alert3.setContentText("No tenes dinero para pagar la fianza.");
+                    alert3.showAndWait();
                 }
             }
         }
