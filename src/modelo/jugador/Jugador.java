@@ -247,4 +247,8 @@ public class Jugador {
     public boolean tiroDoble() {
         return this.tiroDoble;
     }
+
+    public void setTiroDoble(boolean tiroDoble) {
+        this.tiroDoble = tiroDoble;
+    }
 }

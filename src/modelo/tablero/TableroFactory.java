@@ -225,5 +225,5 @@ public class TableroFactory {
                 .setPrecioAlquilerCeroCasas(2500);
         tablero.agregarCasillero(new BarrioSimple("Tucumán",25000,esquemaTucuman));//Tucuman
         return tablero;
-    }//esos numeros todos feos son los alquileres, se nesecitan para hacer las pruebas
+    }
 }

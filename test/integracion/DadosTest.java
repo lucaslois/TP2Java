@@ -22,11 +22,12 @@ public class DadosTest {
         controlador.agregarJugador(jugador2);
         controlador.agregarJugador(jugador3);
 
-        Dados dados = Dados.getInstance();
-        dados.setTirada(6,6);//hardcodeado
+        jugador1.setTiroDoble(true); //significa que con los dados saco doble
+        Jugador jugador = controlador.getJugadorActual();
+        controlador.cambiarTurno();
 
-//        Assert.assertEquals(controlador.getJugadorActual(),controlador.getJugadorSiguiente());//al sacar doble vuelve a ser el siguiente
-        Assert.assertTrue(true); // TODO: REARMAR
+        Assert.assertEquals(jugador,controlador.getJugadorActual());//al sacar doble vuelve a ser el siguiente
+       // TODO: REARMAR
     }
 
     @Test
@@ -41,13 +42,15 @@ public class DadosTest {
         controlador.agregarJugador(jugador2);
         controlador.agregarJugador(jugador3);
 
-        Dados dados = Dados.getInstance();
-        dados.setTirada(6,6);//hardcodeado
-        controlador.getJugadorSiguiente();
+        jugador1.setTiroDoble(true); //significa que con los dados saco doble
+        controlador.getJugadorActual();//para que se actualice
+        controlador.cambiarTurno();
 
-        dados.setTirada(3,3);
+        jugador1.setTiroDoble(true); //significa que con los dados saco doble
+        Jugador jugador = controlador.getJugadorActual();
+        controlador.cambiarTurno();
 
-        Assert.assertNotEquals(controlador.getJugadorActual(),controlador.getJugadorSiguiente());
+        Assert.assertNotEquals(jugador,controlador.getJugadorActual());
     }
 
     @Test
