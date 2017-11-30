@@ -49,7 +49,7 @@ public class EdificarController implements EventHandler<ActionEvent> {
         label.setText("Seleccione la propiedad en donde desea edificar");
 
         ObservableList<Edificable> data = FXCollections.observableArrayList();
-        for (Edificable edificable : jugador.getListaEdificables()) {
+        for (Edificable edificable : jugador.getPropiedades()) {
             data.add(edificable);
         }
         ComboBox<Edificable> combobox = new ComboBox<>(data);

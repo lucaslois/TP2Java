@@ -51,4 +51,9 @@ public class BuenosAiresNorteVista extends CajaVista {
         alert.setContentText("Has comprado Buenos Aires Norte por $" + ((Comprable) this.casillero).getPrecio() + ".");
         alert.showAndWait();
     }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
+    }
 }

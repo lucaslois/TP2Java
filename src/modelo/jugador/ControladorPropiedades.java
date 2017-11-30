@@ -69,11 +69,16 @@ public class ControladorPropiedades {
         return nuevaLista;
     }
 
+<<<<<<< Updated upstream
     public double getPrecioTotalDePropiedades() {
         return precioTotalDePropiedades*0.85; //porque solo recibe el 85 porciento de lo que vende
     }
 
     public ArrayList<NoEdificable> getServicios() {
         return this.servicios;
+=======
+    public ArrayList<Edificable> getEdificables() {
+        return terrenos;
+>>>>>>> Stashed changes
     }
 }

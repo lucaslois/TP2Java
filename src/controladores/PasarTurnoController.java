@@ -28,6 +28,7 @@ public class PasarTurnoController implements EventHandler<ActionEvent> {
         this.panelInformacion.setDisableLanzarDadosButton(false);
         this.panelInformacion.setDisableComprarButton(true);
         this.panelInformacion.setDisablePasarTurnoButton(true);
+        this.panelInformacion.setDisableEdificarButton(false);
 
         algoPoly.turnoSiguiente();
         algoPoly.dibujarJugadores();

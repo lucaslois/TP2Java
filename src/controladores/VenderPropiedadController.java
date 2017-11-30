@@ -31,6 +31,7 @@ public class VenderPropiedadController implements EventHandler<ActionEvent> {
         alert.setContentText("Has vendido la propiedad " + comprable.getNombre() + " por $" + comprable.getPrecioCuandoSeVende());
         alert.showAndWait();
 
+        // TODO: Refactorizar con double dispatch
         try {
             this.usuario.getJugador().vender((Edificable) comprable);
         }

@@ -56,6 +56,7 @@ public class LanzarDadosController implements EventHandler<ActionEvent> {
 		algoPoly.dibujarJugadores();
 		this.panelInformacion.setDisableLanzarDadosButton(true);
 		this.panelInformacion.setDisablePasarTurnoButton(false);
+		this.panelInformacion.setDisableEdificarButton(true);
 		CajaVista caja = AlgoPoly.getInstance().getCasilleroVista(jugador.getNodoActual());
 		caja.mostrarOpciones(usuario, panelInformacion);
 	}

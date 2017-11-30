@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import modelo.jugador.Jugador;
 import modelo.tablero.Casillero;
 import modelo.tablero.tipos_casilleros.Comprable;
+import modelo.tablero.tipos_casilleros.Edificable;
 import modelo.tablero.tipos_casilleros.NoEdificable;
 import vista.AlgoPoly;
 import vista.Casilleros.Cajas.CajaVista;
@@ -51,5 +52,10 @@ public class EdesurVista extends CajaVista {
         alert.setHeaderText(null);
         alert.setContentText("Has comprado Edesur por $" + ((Comprable) this.casillero).getPrecio() + ".");
         alert.showAndWait();
+    }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
     }
 }

@@ -53,4 +53,8 @@ public abstract class Barrio extends Casillero implements Edificable {
 
     public abstract int getPrecioCuandoSeVende();
 
+    public String toString() {
+        return this.getNombre();
+    }
+
 }

@@ -52,4 +52,9 @@ public class NeuquenVista extends CajaVista {
         alert.setContentText("Has comprado Nequen por $" + ((Comprable) this.casillero).getPrecio() + ".");
         alert.showAndWait();
     }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
+    }
 }

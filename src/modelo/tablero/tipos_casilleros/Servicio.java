@@ -62,4 +62,8 @@ public class Servicio extends Casillero implements NoEdificable {
             estadoDeEmparejamiento.pisar(jugador);
         }
     }
+
+    public String toString() {
+        return this.getNombre();
+    }
 }

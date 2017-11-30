@@ -54,4 +54,9 @@ public class TucumanVista extends CajaVista {
         alert.showAndWait();
 
     }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
+    }
 }

@@ -53,4 +53,9 @@ public class CordobaSurVista extends CajaVista {
         alert.setContentText("Has comprado Cordoba Sur por $" + ((Comprable) this.casillero).getPrecio() + ".");
         alert.showAndWait();
     }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
+    }
 }

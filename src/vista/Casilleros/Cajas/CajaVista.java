@@ -1,6 +1,7 @@
 package vista.Casilleros.Cajas;
 
 import exceptions.CajaNoComprableException;
+import exceptions.NoSePuedeVenderException;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -57,4 +58,6 @@ public abstract class CajaVista {
     public void esCompradoPor(Jugador jugador) {
         throw new CajaNoComprableException();
     }
+
+    public void esVendidoPor(Jugador jugador) { throw new NoSePuedeVenderException(); }
 }

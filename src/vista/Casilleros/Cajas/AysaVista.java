@@ -53,5 +53,10 @@ public class AysaVista extends CajaVista {
         alert.showAndWait();
     }
 
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((NoEdificable) this.casillero);
+    }
+
 
 }

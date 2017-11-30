@@ -53,4 +53,9 @@ public class SaltaNorteVista extends CajaVista {
         alert.setContentText("Has comprado Salta Norte por $" + ((Comprable) this.casillero).getPrecio() + ".");
         alert.showAndWait();
     }
+
+    @Override
+    public void esVendidoPor(Jugador jugador) {
+        jugador.vender((Edificable) this.casillero);
+    }
 }

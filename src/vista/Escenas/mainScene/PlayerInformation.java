@@ -1,9 +1,6 @@
 package vista.Escenas.mainScene;
 
-import controladores.LanzarDadosController;
-import controladores.ComprarPropiedadController;
-import controladores.PasarTurnoController;
-import controladores.VenderPropiedadesController;
+import controladores.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -22,6 +19,7 @@ public class PlayerInformation extends VBox {
     private Button comprarButton;
     private Button pasarTurnoButton;
     private Button venderPropiedadesButton;
+    private Button edificarButton;
 
     private ListaCasas listaCasas;
     private CuadroDados cuadroDados;
@@ -32,7 +30,8 @@ public class PlayerInformation extends VBox {
     private LanzarDadosController lanzarDadosController;
     private ComprarPropiedadController comprarPropiedadController;
     private PasarTurnoController pasarTurnoController;
-    private VenderPropiedadesController venderPropiedadesController;
+    private MostrarCartelVenderController venderPropiedadesController;
+    private EdificarController edificarController;
 
     public PlayerInformation(Usuario user) {
         AlgoPoly algoPoly = AlgoPoly.getInstance();
@@ -68,6 +67,8 @@ public class PlayerInformation extends VBox {
         this.lanzarDadosController.setUsuario(usuario);
         this.comprarPropiedadController.setUsuario(usuario);
         this.pasarTurnoController.setUsuario(usuario);
+        this.venderPropiedadesController.setUsuario(usuario);
+        this.edificarController.setUsuario(usuario);
 
         this.listaCasas.getChildren().clear();
         Label label = new Label();
@@ -115,8 +116,14 @@ public class PlayerInformation extends VBox {
         // BOTON VENDER
         this.venderPropiedadesButton = new Button();
         this.venderPropiedadesButton.setText("Vender Propiedades");
-        this.venderPropiedadesController = new VenderPropiedadesController(usuario, this);
+        this.venderPropiedadesController = new MostrarCartelVenderController(usuario, this);
         this.venderPropiedadesButton.setOnAction(this.venderPropiedadesController);
+
+        // BOTON EDIFICAR
+        this.edificarButton = new Button();
+        this.edificarButton.setText("Edificar");
+        this.edificarController = new EdificarController(usuario, this);
+        this.edificarButton.setOnAction(this.edificarController);
 
         // BOTON PASAR TURNO
         this.pasarTurnoButton = new Button();
@@ -124,7 +131,7 @@ public class PlayerInformation extends VBox {
         this.pasarTurnoController = new PasarTurnoController(usuario, this);
         this.pasarTurnoButton.setOnAction(this.pasarTurnoController);
 
-        this.getChildren().addAll(this.nombreJugadorLabel, this.dineroJugadorLabel, lanzarDadosButton, this.comprarButton, this.venderPropiedadesButton,this.pasarTurnoButton, this.listaCasas, this.cuadroDados);
+        this.getChildren().addAll(this.nombreJugadorLabel, this.dineroJugadorLabel, lanzarDadosButton, this.comprarButton, this.venderPropiedadesButton, this.edificarButton, this.pasarTurnoButton, this.listaCasas, this.cuadroDados);
     }
 
     public void setDisableLanzarDadosButton(Boolean check) {
@@ -137,5 +144,9 @@ public class PlayerInformation extends VBox {
 
     public void setDisablePasarTurnoButton(boolean disablePasarTurnoButton) {
         this.pasarTurnoButton.setDisable(disablePasarTurnoButton);
+    }
+
+    public void setDisableEdificarButton(boolean check) {
+        this.edificarButton.setDisable(check);
     }
 }
