@@ -25,6 +25,8 @@ public class Jugador {
     private int ultimaTiradaDados;
     private int cantidadDePasosDados;
 
+    private boolean tiroDoble;
+
     public Jugador(String nombre, Tablero tablero) {
         this.nombre = nombre;
         this.dinero = DINERO_INICIAL;
@@ -33,6 +35,8 @@ public class Jugador {
         this.controladorPropiedades = new ControladorPropiedades();
         this.cantidadDePasosDados = 0;
         this.tablero = tablero;
+
+        this.tiroDoble = false;
     }
 
 
@@ -222,6 +226,7 @@ public class Jugador {
         Dados dados = Dados.getInstance();
         int resultado = dados.tirarDados();
         this.setUltimaTiradaDados(resultado);
+        if(dados.esDoble())this.tiroDoble=true;
         return resultado;
     }
 
@@ -237,5 +242,9 @@ public class Jugador {
         int precio = comprable.getPrecioCuandoSeVende();
         this.dinero += precio;
         comprable.liquidarPropiedad();
+    }
+
+    public boolean tiroDoble() {
+        return this.tiroDoble;
     }
 }

@@ -41,9 +41,10 @@ public class ControladorTurnos {
 
     public void cambiarTurno() {
         // TODO: Implementar. Se debe tener en cuenta cuando el usuario saca doble numero en dados y no debe interferir con las tiradas para los servicios (AySA, Subte, ETC)
-        Dados dados = Dados.getInstance();
 
-        if (dados.esDoble() && this.jugadorAnt != jugadores.get(posActual)) {//segunda condicion es para que no pueda jugar 3 veces
+        Jugador jugadorActual = this.jugadores.get(posActual);
+
+        if (jugadorActual.tiroDoble() && this.jugadorAnt != jugadores.get(posActual)) {//segunda condicion es para que no pueda jugar 3 veces
             this.jugadorAnt = this.getJugadorActual();
         }
 
