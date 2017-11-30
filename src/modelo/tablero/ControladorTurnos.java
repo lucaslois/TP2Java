@@ -39,6 +39,12 @@ public class ControladorTurnos {
             if (posActual >= this.jugadores.size()) posActual = 0;
         }
          Jugador jugador = jugadores.get(posActual);
+        if(jugador.perdio()){
+            jugador.venderTodasLasPropiedades();
+            //this.jugadores.remove(jugador);
+            cambiarTurno();
+        }
+
          jugador.inicializarTurno();
     }
 

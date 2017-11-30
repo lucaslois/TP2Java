@@ -12,6 +12,7 @@ public class ControladorPropiedades {
     private ArrayList<Edificable> terrenos;
     private ArrayList<NoEdificable> servicios;
     private ArrayList<Comprable> comprables;
+    private double precioTotalDePropiedades;
 
     public ControladorPropiedades() {
 
@@ -20,10 +21,13 @@ public class ControladorPropiedades {
     }
 
     public void comprar(Edificable unaPropiedad) {
+        this.precioTotalDePropiedades+=unaPropiedad.getPrecio();
         terrenos.add(unaPropiedad);
     }
 
-    public void comprar(NoEdificable unServicio){ servicios.add(unServicio);}
+    public void comprar(NoEdificable unServicio){
+        this.precioTotalDePropiedades+=unServicio.getPrecio();
+        servicios.add(unServicio);}
 
     public ArrayList<Edificable> getPropiedades() {
         return this.terrenos;
@@ -63,5 +67,13 @@ public class ControladorPropiedades {
         nuevaLista.addAll(this.terrenos);
         nuevaLista.addAll(this.servicios);
         return nuevaLista;
+    }
+
+    public double getPrecioTotalDePropiedades() {
+        return precioTotalDePropiedades*0.85; //porque solo recibe el 85 porciento de lo que vende
+    }
+
+    public ArrayList<NoEdificable> getServicios() {
+        return this.servicios;
     }
 }

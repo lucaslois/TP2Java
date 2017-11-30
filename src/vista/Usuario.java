@@ -52,7 +52,7 @@ public class Usuario {
         Nodo nodoActual = jugador.getNodoActual();
         Casillero casillero = nodoActual.getCasillero();
 
-        if(jugador.estaPreso() && jugador.getTurnosRestantesEnCarcel() <= 2) {
+        if(jugador.estaPreso() && jugador.getTurnosRestantesEnCarcel() < 2) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setContentText(this.getJugador().getNombre() + ": deseas pagar una fianza de 45,000 pesos?");

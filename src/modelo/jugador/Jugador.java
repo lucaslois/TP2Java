@@ -26,6 +26,7 @@ public class Jugador {
     private int cantidadDePasosDados;
 
     private boolean tiroDoble;
+    private boolean perdio;
 
     public Jugador(String nombre, Tablero tablero) {
         this.nombre = nombre;
@@ -37,6 +38,7 @@ public class Jugador {
         this.tablero = tablero;
 
         this.tiroDoble = false;
+        this.perdio = false;
     }
 
 
@@ -53,6 +55,14 @@ public class Jugador {
     }
 
     public void pagar(double monto) {
+
+        if (monto > this.controladorPropiedades.getPrecioTotalDePropiedades() + this.dinero) {
+            this.perdio = true; //pierde
+            System.out.println("PERDISTE\n");
+            return;
+        }
+
+
         if(monto > this.dinero) {
             throw new JugadorNoTieneDineroException();
         }
@@ -226,7 +236,7 @@ public class Jugador {
         Dados dados = Dados.getInstance();
         int resultado = dados.tirarDados();
         this.setUltimaTiradaDados(resultado);
-        if(dados.esDoble())this.tiroDoble=true;
+        this.tiroDoble= dados.esDoble();
         return resultado;
     }
 
@@ -248,7 +258,20 @@ public class Jugador {
         return this.tiroDoble;
     }
 
-    public void setTiroDoble(boolean tiroDoble) {
+    public void setTiroDoble(boolean tiroDoble) { //solo para las pruebas, porque los dados son cosas aleatorias no se puede probar la tirada doble
         this.tiroDoble = tiroDoble;
+    }
+
+    public boolean perdio() {
+        return this.perdio;
+    }
+
+    public void venderTodasLasPropiedades() {
+        for(Edificable edificable : this.controladorPropiedades.getPropiedades()){
+            this.vender(edificable);
+        }
+        for(NoEdificable servicio : this.controladorPropiedades.getServicios()){
+            this.vender(servicio);
+        }
     }
 }
