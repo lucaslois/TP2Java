@@ -58,7 +58,6 @@ public class Jugador {
 
         if (monto > this.controladorPropiedades.getPrecioTotalDePropiedades() + this.dinero) {
             this.perdio = true; //pierde
-            System.out.println("PERDISTE\n");
             return;
         }
 

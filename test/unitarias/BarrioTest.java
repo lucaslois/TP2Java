@@ -67,11 +67,21 @@ public class BarrioTest {
 				.setPrecioConstruirCasa(0)
 				.setPrecioConstruirHotel(0)
 				.setPrecioAlquilerCeroCasas(0);
-		BarrioSimple barrio = new BarrioSimple("Barrio", 120000, esquema);
+		BarrioSimple barrio = new BarrioSimple("Barrio", 100000, esquema);
+		EsquemaPrecio esquema2 = new EsquemaPrecio();
+		esquema.setPrecioAlquilerUnaCasa(0)
+				.setPrecioAlquilerDosCasas(0)
+				.setPrecioAlquilerHotel(0)
+				.setPrecioConstruirCasa(0)
+				.setPrecioConstruirHotel(0)
+				.setPrecioAlquilerCeroCasas(0);
+		BarrioSimple barrio2 = new BarrioSimple("Barrio2", 10000, esquema);
 		Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("Lucky", tablero);
 
         unJugador.comprar(barrio);
+        unJugador.comprar(barrio2);
+
     }
     @Test
     public void testJugadorTieneBASurYNorteContruyeCasaSuDineroSeDecrementa5000() {
