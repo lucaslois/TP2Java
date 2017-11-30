@@ -14,7 +14,7 @@ public class ServiciosTest {
     public void testJugadorTieneEdesurPeroNoAYSAOtroJugadorCaeYLeCobran500VecesLoQueDicenLosDados(){
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("EvilOli", tablero);
-        Servicio edesur = new Servicio(35000,500,1000);
+        Servicio edesur = new Servicio("Barrio", 35000,500,1000);
         unJugador.comprar(edesur);
 
         Jugador otroJugador = new Jugador("Oli",tablero);
@@ -29,8 +29,8 @@ public class ServiciosTest {
     public void testJugadorCompraEdesurYAYSAOtroJugadroCaeEnEdesurYTieneQuePagar1000VecesLoQueSacoEnLosDados(){
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("EvilOli", tablero);
-        Servicio edesur = new Servicio(35000,500,1000);
-        Servicio aysa = new Servicio(30000,300,500);
+        Servicio edesur = new Servicio("Barrio", 35000,500,1000);
+        Servicio aysa = new Servicio("Barrio", 30000,300,500);
 
         aysa.setPar(edesur);
         unJugador.comprar(edesur);

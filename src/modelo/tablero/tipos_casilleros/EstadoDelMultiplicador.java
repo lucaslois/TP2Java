@@ -2,15 +2,14 @@ package modelo.tablero.tipos_casilleros;
 
 import modelo.jugador.Jugador;
 
-public class EstadoDeEmparejamiento {
+public class EstadoDelMultiplicador {
 
     private int multiplicador;
 
-    public EstadoDeEmparejamiento(int multiplicador){
+    public EstadoDelMultiplicador(int multiplicador){
         this.multiplicador = multiplicador;
 
     }
-
 
     public void pisar(Jugador jugador){
         int dados = jugador.getNumeroObtenedido();

@@ -21,10 +21,10 @@ public class TableroTest {
                 .setPrecioConstruirCasa(0)
                 .setPrecioConstruirHotel(0)
                 .setPrecioAlquilerCeroCasas(0);
-        tablero.agregarCasillero(new BarrioSimple(4500,esquema));
-        tablero.agregarCasillero(new BarrioSimple(4500,esquema));
-        tablero.agregarCasillero(new BarrioSimple(4500,esquema));
-        tablero.agregarCasillero(new BarrioSimple(4500,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 4500,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 4500,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 4500,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 4500,esquema));
         Carcel carcel = new Carcel();
         Nodo nodoCarcel = new Nodo(carcel);
         tablero.agregarNodo(nodoCarcel);

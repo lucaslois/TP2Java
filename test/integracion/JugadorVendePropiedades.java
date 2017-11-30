@@ -27,7 +27,7 @@ public class JugadorVendePropiedades {
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
 
-        BarrioSimple barrio0 = new BarrioSimple(4500, esquema0);
+        BarrioSimple barrio0 = new BarrioSimple("Barrio1",4500, esquema0);
 
         propietario.comprar(barrio0);
 
@@ -38,7 +38,7 @@ public class JugadorVendePropiedades {
                 .setPrecioAlquilerUnaCasa(100)
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
-        BarrioSimple barrio1 = new BarrioSimple(50000, esquema1);
+        BarrioSimple barrio1 = new BarrioSimple("Barrio2",50000, esquema1);
 
         EsquemaPrecio esquema2 = new EsquemaPrecio();
         esquema2.setPrecioConstruirCasa(200)
@@ -47,7 +47,7 @@ public class JugadorVendePropiedades {
                 .setPrecioAlquilerUnaCasa(100)
                 .setPrecioAlquilerDosCasas(120)
                 .setPrecioAlquilerHotel(200);
-        BarrioSimple barrio2 = new BarrioSimple(50000, esquema2);
+        BarrioSimple barrio2 = new BarrioSimple("Barrio2",50000, esquema2);
 
         visitante.comprar(barrio1);
         visitante.comprar(barrio2);

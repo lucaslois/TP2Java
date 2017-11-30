@@ -14,4 +14,6 @@ public interface Comprable {
 
 	int getPrecioCuandoSeVende();
 
+	String getNombre();
+
 }

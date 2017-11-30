@@ -9,16 +9,19 @@ import modelo.tablero.tipos_casilleros.Edificios.EsquemaPrecio;
 
 public abstract class Barrio extends Casillero implements Edificable {
 
+    private String nombre;
     private Jugador propietario;
     private int precioTerreno;
 
-    public Barrio(int nuevoPrecio){
+    public Barrio(String nombre, int nuevoPrecio){
         if (nuevoPrecio < 0)
             throw new PrecioNegativoException();
         this.precioTerreno = nuevoPrecio;
         this.propietario = null;
+        this.nombre = nombre;
     }
 
+    public String getNombre() {return this.nombre;}
 
     public Jugador getPropietario() {
         return this.propietario;
@@ -49,4 +52,5 @@ public abstract class Barrio extends Casillero implements Edificable {
     protected abstract int getPrecioTotal();
 
     public abstract int getPrecioCuandoSeVende();
+
 }

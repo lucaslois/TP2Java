@@ -21,7 +21,7 @@ public class BarrioTest {
 				.setPrecioConstruirCasa(0)
 				.setPrecioConstruirHotel(0)
 				.setPrecioAlquilerCeroCasas(0);
-    	Barrio barrio = new BarrioSimple(-200,esquema);
+    	Barrio barrio = new BarrioSimple("Barrio", -200,esquema);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class BarrioTest {
 				.setPrecioConstruirCasa(0)
 				.setPrecioConstruirHotel(0)
 				.setPrecioAlquilerCeroCasas(0);
-        BarrioSimple barrio = new BarrioSimple(20000, esquema);
+        BarrioSimple barrio = new BarrioSimple("Barrio", 20000, esquema);
         Jugador unJugador = new Jugador("Kev", tablero);
         barrio.pisar(unJugador);
         unJugador.comprar(barrio);
@@ -51,7 +51,7 @@ public class BarrioTest {
 				.setPrecioConstruirCasa(0)
 				.setPrecioConstruirHotel(0)
 				.setPrecioAlquilerCeroCasas(0);
-		BarrioSimple barrio = new BarrioSimple(20000, esquema);
+		BarrioSimple barrio = new BarrioSimple("Barrio", 20000, esquema);
         Jugador unJugador = new Jugador("Lucky", tablero);
         barrio.pisar(unJugador);
         unJugador.comprar(barrio);
@@ -67,7 +67,7 @@ public class BarrioTest {
 				.setPrecioConstruirCasa(0)
 				.setPrecioConstruirHotel(0)
 				.setPrecioAlquilerCeroCasas(0);
-		BarrioSimple barrio = new BarrioSimple(120000, esquema);
+		BarrioSimple barrio = new BarrioSimple("Barrio", 120000, esquema);
 		Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("Lucky", tablero);
 

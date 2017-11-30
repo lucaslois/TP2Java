@@ -118,6 +118,8 @@ public class Jugador {
         return this.controladorPropiedades.getPropiedades();
     }
 
+    public ArrayList<Comprable> getListaComprables() { return this.controladorPropiedades.getComprables(); }
+
     public boolean esDuenioDePropiedad(Comprable barrio) {
         return this.controladorPropiedades.tienePropiedad(barrio);
     }
@@ -165,6 +167,16 @@ public class Jugador {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public void pagarFianzaDeCarcel() {
+        try {
+            this.pagar(Carcel.getPrecioFianza());
+            this.desencarcelar();
+        }
+        catch(JugadorNoTieneDineroException e) {
+            throw new JugadorNoTieneDineroException();
+        }
     }
 
     public void intercambiarPropiedad(Barrio mio,Barrio suyo) {

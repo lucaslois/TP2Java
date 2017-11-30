@@ -7,7 +7,7 @@ import modelo.tablero.ControladorTurnos;
 import modelo.tablero.Nodo;
 import modelo.tablero.Tablero;
 import modelo.tablero.TableroFactory;
-import vista.Casilleros.CasilleroVista;
+import vista.Casilleros.Cajas.CajaVista;
 import vista.Casilleros.Ficha;
 import vista.Escenas.mainScene.CampoJuego;
 import vista.Escenas.mainScene.PlayerInformation;
@@ -22,7 +22,7 @@ public class AlgoPoly {
     private ControladorTurnos controladorTurnos;
     private Jugador jugadorActual;
     private HashMap<Jugador, Usuario> mapaJugadores;
-    private HashMap<Nodo, CasilleroVista> mapaCasillerosVista;
+    private HashMap<Nodo, CajaVista> mapaCasillerosVista;
 
 
     private PlayerInformation panelPlayerInformation;
@@ -39,11 +39,11 @@ public class AlgoPoly {
         this.mapaCasillerosVista = new HashMap<>();
     }
 
-    public CasilleroVista getCasilleroVista(Nodo nodo) {
+    public CajaVista getCasilleroVista(Nodo nodo) {
         return mapaCasillerosVista.get(nodo);
     }
 
-    public void putMapaCasillerosVista(Nodo key, CasilleroVista value) {
+    public void putMapaCasillerosVista(Nodo key, CajaVista value) {
         this.mapaCasillerosVista.put(key, value);
     }
 
@@ -86,11 +86,15 @@ public class AlgoPoly {
             campo.add(new ImageView(imagen), user.getPosicion().getCol(), user.getPosicion().getRow());
         }
 
-        this.panelPlayerInformation.refresh(this.getUsuarioActual());
+        this.panelPlayerInformation.refresh();
     }
 
     public void turnoSiguiente() {
         this.controladorTurnos.cambiarTurno();
+        Usuario usuario = this.getUsuarioActual();
+        Jugador jugador = usuario.getJugador();
+
+        usuario.preInicializarTurno();
     }
 
     public void setPanelPlayerInformation(PlayerInformation panel) {

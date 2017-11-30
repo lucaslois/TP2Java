@@ -12,8 +12,8 @@ import java.util.Hashtable;
 public class BarrioSimple extends Barrio {
     private ControladorEdificios controladorEdificios;
 
-    public BarrioSimple(int precio, EsquemaPrecio esquema) {
-        super(precio);
+    public BarrioSimple(String nombre, int precio, EsquemaPrecio esquema) {
+        super(nombre, precio);
         this.controladorEdificios = new ControladorEdificios(esquema);
     }
 

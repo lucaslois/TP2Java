@@ -4,6 +4,7 @@ public class Dados {
     private static Dados ourInstance = new Dados();
     private int valor1;
     private int valor2;
+    private int resultadoDado1;
 
     public static Dados getInstance() {
         return ourInstance;
@@ -27,5 +28,13 @@ public class Dados {
 
     public boolean esDoble(){
         return valor1==valor2;
+    }
+
+    public int getResultadoDado1() {
+        return this.valor1;
+    }
+
+    public int getResultadoDado2() {
+        return this.valor2;
     }
 }

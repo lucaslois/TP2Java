@@ -17,7 +17,7 @@ public class TransporteTest {
     public void testJugadorCompraTrenesSinTenerSubteOtroJugadroCaeYTieneQuePagar450VecesLoQueSacoEnLosDados(){
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("EvilOli", tablero);
-        Servicio trenes = new Servicio(38000,450,800);
+        Servicio trenes = new Servicio("Barrio", 38000,450,800);
         unJugador.comprar(trenes);
 
         Jugador otroJugador = new Jugador("Oli",tablero);
@@ -32,8 +32,8 @@ public class TransporteTest {
     public void testJugadorCompraSubteYTrenesOtroJugadroCaeEnTrenesYTieneQuePagar800VecesLoQueSacoEnLosDados(){
         Tablero tablero = TableroFactory.crearTablero();
         Jugador unJugador = new Jugador("EvilOli", tablero);
-        Servicio trenes = new Servicio(38000,450,800);
-        Servicio subte = new Servicio(40000,600,1100);
+        Servicio trenes = new Servicio("Barrio", 38000,450,800);
+        Servicio subte = new Servicio("Barrio", 40000,600,1100);
 
         unJugador.comprar(trenes);
         unJugador.comprar(subte);

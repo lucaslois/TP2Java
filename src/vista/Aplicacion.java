@@ -14,8 +14,9 @@ public class Aplicacion extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
         stage.setTitle("AlgoPoly - TP2Java");
+        stage.setResizable(false);
         ContenedorInicio contenedor = new ContenedorInicio(stage);
-        Scene inicioScene = new Scene(contenedor, 1280, 720);
+        Scene inicioScene = new Scene(contenedor, 1200, 720);
 
         stage.setScene(inicioScene);
         stage.show();

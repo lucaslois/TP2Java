@@ -44,6 +44,8 @@ public class ControladorTurnos {
         //Dados dados = Dados.getInstance();
         this.posActual++;
         if (posActual >= this.jugadores.size()) posActual = 0;
+        Jugador jugador = jugadores.get(posActual);
+        jugador.inicializarTurno();
     }
 
     public Jugador getJugadorActual() {

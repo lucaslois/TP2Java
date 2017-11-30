@@ -30,8 +30,8 @@ public class RetrocesoDinamicoTest {
                 .setPrecioAlquilerHotel(0)
                 .setPrecioConstruirCasa(0)
                 .setPrecioConstruirHotel(0);
-        Barrio barrio = new BarrioSimple(4000,esquema);
-        Barrio barrio2 = new BarrioSimple(4000,esquema);
+        Barrio barrio = new BarrioSimple("Barrio", 4000,esquema);
+        Barrio barrio2 = new BarrioSimple("Barrio", 4000,esquema);
 
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);
@@ -56,11 +56,11 @@ public class RetrocesoDinamicoTest {
                 .setPrecioConstruirCasa(0)
                 .setPrecioConstruirHotel(0)
                 .setPrecioAlquilerCeroCasas(0);
-        Barrio barrio = new BarrioSimple(4000,esquema);
-        Barrio barrio2 = new BarrioSimple(4000,esquema);
-        Barrio barrio3 = new BarrioSimple(4000,esquema);
-        Barrio barrio4 = new BarrioSimple(4000,esquema);
-        Barrio barrio5 = new BarrioSimple(4000,esquema);
+        Barrio barrio = new BarrioSimple("Barrio", 4000,esquema);
+        Barrio barrio2 = new BarrioSimple("Barrio", 4000,esquema);
+        Barrio barrio3 = new BarrioSimple("Barrio", 4000,esquema);
+        Barrio barrio4 = new BarrioSimple("Barrio", 4000,esquema);
+        Barrio barrio5 = new BarrioSimple("Barrio", 4000,esquema);
 
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         Jugador jugador = new Jugador("Magalí", tablero);

@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class ControladorPropiedades {
     private ArrayList<Edificable> terrenos;
-   private ArrayList<NoEdificable> servicios;
+    private ArrayList<NoEdificable> servicios;
+    private ArrayList<Comprable> comprables;
 
     public ControladorPropiedades() {
 
@@ -55,5 +56,12 @@ public class ControladorPropiedades {
         if(!this.tienePropiedad(terreno))
             throw new JugadorNoEsDuenioDePropiedadException();
         this.servicios.remove(terreno);
+    }
+
+    public ArrayList<Comprable> getComprables() {
+        ArrayList<Comprable> nuevaLista = new ArrayList<>();
+        nuevaLista.addAll(this.terrenos);
+        nuevaLista.addAll(this.servicios);
+        return nuevaLista;
     }
 }

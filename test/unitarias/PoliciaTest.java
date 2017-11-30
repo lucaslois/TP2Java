@@ -29,10 +29,10 @@ public class PoliciaTest {
                 .setPrecioConstruirCasa(0)
                 .setPrecioConstruirHotel(0)
                 .setPrecioAlquilerCeroCasas(0);
-        tablero.agregarCasillero(new BarrioSimple(4000,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 4000,esquema));
         Policia policia = new Policia();
         tablero.agregarCasillero(policia);
-        tablero.agregarCasillero(new BarrioSimple(6000,esquema));
+        tablero.agregarCasillero(new BarrioSimple("Barrio", 6000,esquema));
         tablero.agregarCasillero(new Quini6());
         Carcel carcel = new Carcel();
         tablero.agregarCasillero(carcel);

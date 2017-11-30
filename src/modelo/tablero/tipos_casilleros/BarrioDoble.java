@@ -14,8 +14,8 @@ public class BarrioDoble extends Barrio {
     private ControladorEdificios controladorEdificios;
     private BarrioDoble par;
 
-    public BarrioDoble(int nuevoPrecio, EsquemaPrecio esquema) {
-        super(nuevoPrecio);
+    public BarrioDoble(String nombre, int nuevoPrecio, EsquemaPrecio esquema) {
+        super(nombre, nuevoPrecio);
         this.controladorEdificios = new ControladorEdificios(esquema);
         this.par = null;
     }
@@ -72,8 +72,6 @@ public class BarrioDoble extends Barrio {
     public void eliminarEdificaciones() {
         this.controladorEdificios.eliminarEdificaciones();
     }
-
-
 
     protected int getPrecioTotal() {
         return this.getPrecio() + this.controladorEdificios.getPrecioEdificioActual();

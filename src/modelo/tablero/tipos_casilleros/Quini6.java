@@ -36,6 +36,12 @@ public class Quini6 extends Casillero {
         unJugador.cobrar(monto);
     }
 
+    public boolean puedeSeguirCobrando(Jugador unJugador) {
+        if(ganadores.contains(unJugador))
+            return ganadores.get(unJugador) < 3;
+        return true;
+    }
+
 
 }
 
